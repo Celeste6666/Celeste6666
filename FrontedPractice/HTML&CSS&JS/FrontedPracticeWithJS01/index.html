@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>EP01 | 跟著影片做前端練習 - Build a Weather App &amp; Get User&#39;s Location | Celeste 技術儲藏室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="練習影片    練習重點 Geolocation.getCurrentPosition() : 取得使用者經緯度。  caret-color ： 改變表單內光標顏色。   串接 API OpenWeather ： 氣象資訊。  OpenCage ： 地理資訊。   架構HTML &amp; CSS內容繁複，請參考codepen。 js1234567891011121314151617181">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EP01 | 跟著影片做前端練習 - Build a Weather App &amp; Get User&#39;s Location">
+<meta property="og:url" content="http://celeste6666.github.io/FrontedPractice/HTML&CSS&JS/FrontedPracticeWithJS01/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="練習影片    練習重點 Geolocation.getCurrentPosition() : 取得使用者經緯度。  caret-color ： 改變表單內光標顏色。   串接 API OpenWeather ： 氣象資訊。  OpenCage ： 地理資訊。   架構HTML &amp; CSS內容繁複，請參考codepen。 js1234567891011121314151617181">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-10-19T12:43:00.000Z">
+<meta property="article:modified_time" content="2021-01-10T01:37:26.043Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="前端練習">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="API">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Celeste 技術儲藏室" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Celeste 技術儲藏室</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">成長就是一種修練&lt;br&gt;願你我還能是最初的那個少年！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://celeste6666.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-FrontedPractice/HTML&amp;CSS&amp;JS/FrontedPracticeWithJS01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/FrontedPractice/HTML&CSS&JS/FrontedPracticeWithJS01/" class="article-date">
+  <time class="dt-published" datetime="2020-10-19T12:43:00.000Z" itemprop="datePublished">2020-10-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/">前端練習</a>►<a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/">HTML & CSS & JS</a>►<a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/">Jonah Lawrence • Dev Pro Tips</a>►<a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/%E4%B8%B2%E6%8E%A5-API/">串接 API</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      EP01 | 跟著影片做前端練習 - Build a Weather App &amp; Get User&#39;s Location
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+
+<span id="more"></span>
+
+<h1 id="練習影片"><a href="#練習影片" class="headerlink" title="練習影片"></a>練習影片</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/WZNG8UomjSI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JdJ2VBbYYTQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h1 id="練習重點"><a href="#練習重點" class="headerlink" title="練習重點"></a>練習重點</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition">Geolocation.getCurrentPosition()</a> : 取得使用者經緯度。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/caret-color">caret-color</a> ： 改變表單內光標顏色。</p>
+</li>
+</ul>
+<h1 id="串接-API"><a href="#串接-API" class="headerlink" title="串接 API"></a>串接 API</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://openweathermap.org/">OpenWeather</a> ： 氣象資訊。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://opencagedata.com/">OpenCage</a> ： 地理資訊。</p>
+</li>
+</ul>
+<h1 id="架構"><a href="#架構" class="headerlink" title="架構"></a>架構</h1><h2 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h2><p>內容繁複，請參考<a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/NWRMvJz?editors=0010">codepen</a>。</p>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  startLoading()</span><br><span class="line">  <span class="comment">// flip</span></span><br><span class="line">  <span class="keyword">let</span> card = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.card&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> cardFront = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.card_front&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> cardBack = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.card_back&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> search = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.search&#x27;</span>)</span><br><span class="line">  card.addEventListener(<span class="string">&#x27;click&#x27;</span>, flip)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">flip</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> target = e.target</span><br><span class="line">    <span class="keyword">if</span> (target.parentElement.matches(<span class="string">&#x27;.detailIcon&#x27;</span>) || target.parentElement.matches(<span class="string">&#x27;.backIcon&#x27;</span>)) &#123;</span><br><span class="line">      cardFront.classList.toggle(<span class="string">&#x27;hidden&#x27;</span>)</span><br><span class="line">      cardBack.classList.toggle(<span class="string">&#x27;hidden&#x27;</span>)</span><br><span class="line">      search.classList.toggle(<span class="string">&#x27;front&#x27;</span>)</span><br><span class="line">      search.classList.toggle(<span class="string">&#x27;back&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//串接API</span></span><br><span class="line">  <span class="keyword">const</span> week = [<span class="string">&#x27;Sunday&#x27;</span>, <span class="string">&#x27;Monday&#x27;</span>, <span class="string">&#x27;Tuesday&#x27;</span>, <span class="string">&#x27;Wednesday&#x27;</span>, <span class="string">&#x27;Thursday&#x27;</span>, <span class="string">&#x27;Friday&#x27;</span>, <span class="string">&#x27;Saturday&#x27;</span>]</span><br><span class="line">  <span class="keyword">let</span> lat = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="keyword">let</span> lng = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="comment">// 找出目前地點經緯度後得出地點及天氣</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getUserLoaction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    navigator.geolocation.getCurrentPosition(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">      lat = data.coords.latitude</span><br><span class="line">      lng = data.coords.longitude</span><br><span class="line">      getUserLoactionName(lat, lng)</span><br><span class="line">      getWeather(lat, lng)</span><br><span class="line">    &#125;, <span class="built_in">console</span>.error)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 經緯度的天氣</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getWeather</span>(<span class="params">lat, lon</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> weatherApiKey = <span class="string">&#x27;c41f7e1b3970ad769ca21a063172356b&#x27;</span></span><br><span class="line">    <span class="keyword">const</span> weatherApi = <span class="string">`https://api.openweathermap.org/data/2.5/onecall?lat=<span class="subst">$&#123;lat&#125;</span>&amp;lon=<span class="subst">$&#123;lon&#125;</span>&amp;exclude=hourly,minutely,alerts&amp;units=metric&amp;appid=<span class="subst">$&#123;weatherApiKey&#125;</span>`</span></span><br><span class="line">    fetch(weatherApi).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> res.json()</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123;</span><br><span class="line">        current,</span><br><span class="line">        daily</span><br><span class="line">      &#125; = data</span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.today-text&#x27;</span>).innerHTML = <span class="string">`<span class="subst">$&#123;week[<span class="keyword">new</span> <span class="built_in">Date</span>(current.dt * <span class="number">1000</span>).getDay()]&#125;</span>&lt;br&gt; <span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(current.dt * <span class="number">1000</span>).getDate()&#125;</span> / <span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(current.dt).getDay()&#125;</span> , <span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(current.dt * <span class="number">1000</span>).getFullYear()&#125;</span>`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.precipitation&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;<span class="built_in">Math</span>.round(daily[<span class="number">0</span>].pop * <span class="number">100</span>)&#125;</span> %`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.feel&#x27;</span>).innerHTML = <span class="string">`<span class="subst">$&#123;current.feels_like&#125;</span>&lt;sup&gt;°C&lt;/sup&gt;`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.today-temperature&gt;span&gt;span&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;current.temp&#125;</span>`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.today-temperature-icon&#x27;</span>).src = <span class="string">`http://openweathermap.org/img/wn/<span class="subst">$&#123;current.weather[<span class="number">0</span>].icon&#125;</span>@2x.png`</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> futureList = <span class="string">&#x27;&#x27;</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        futureList += <span class="string">`&lt;li class=&quot;flexRowCenter futureList&quot;&gt;</span></span><br><span class="line"><span class="string">                &lt;span&gt;<span class="subst">$&#123;week[<span class="keyword">new</span> <span class="built_in">Date</span>(daily[i].dt * <span class="number">1000</span>).getDay()]&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">                &lt;span class=&quot;future_description flexRowCenter&quot;&gt;</span></span><br><span class="line"><span class="string">                  &lt;span class=&quot;future_temperature flexRowCenter&quot;&gt;</span></span><br><span class="line"><span class="string">                    &lt;img src=&quot;http://openweathermap.org/img/wn/<span class="subst">$&#123;daily[i].weather[<span class="number">0</span>].icon&#125;</span>.png&quot; style=&quot;width:40px&quot;&gt;</span></span><br><span class="line"><span class="string">                    &lt;span&gt;<span class="subst">$&#123;daily[i].temp.min&#125;</span>&lt;sup&gt;°C&lt;/sup&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="string">                  &lt;/span&gt;</span></span><br><span class="line"><span class="string">                  &lt;span class=&quot;future_precipitation flexRowCenter&quot;&gt;</span></span><br><span class="line"><span class="string">                    &lt;i class=&quot;fas fa-umbrella&quot;&gt;&lt;/i&gt;</span></span><br><span class="line"><span class="string">                    &lt;span&gt;<span class="subst">$&#123;<span class="built_in">Math</span>.round(daily[i].pop * <span class="number">100</span>)&#125;</span>%&lt;/span&gt;</span></span><br><span class="line"><span class="string">                  &lt;/span&gt;</span></span><br><span class="line"><span class="string">                &lt;/span&gt;</span></span><br><span class="line"><span class="string">              &lt;/li&gt;`</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.future&gt;ul&#x27;</span>).innerHTML = futureList</span><br><span class="line">      <span class="comment">//back</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.temperature&#x27;</span>).innerHTML = <span class="string">`<span class="subst">$&#123;daily[<span class="number">0</span>].temp.min&#125;</span>&lt;sup&gt;°C&lt;/sup&gt; / <span class="subst">$&#123;daily[<span class="number">0</span>].temp.max&#125;</span>&lt;sup&gt;°C&lt;/sup&gt;`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.humidity&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;current.humidity&#125;</span> %`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.dewPoint&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;current.dew_point&#125;</span>`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.windSpeed&#x27;</span>).previousElementSibling.style.transform = <span class="string">`rotate(<span class="subst">$&#123;current.wind_deg - <span class="number">45</span>&#125;</span>deg)`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.windSpeed&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;current.wind_speed&#125;</span> m/s`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.pressure&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;current.pressure&#125;</span> hpa`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.visibility&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;current.visibility / <span class="number">1000</span>&#125;</span> km`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.sunrise&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(current.sunrise * <span class="number">1000</span>).getHours()&#125;</span> : <span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(current.sunrise * <span class="number">1000</span>).getMinutes()&#125;</span>`</span></span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.sunset&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(current.sunset * <span class="number">1000</span>).getHours()&#125;</span> : <span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(current.sunset * <span class="number">1000</span>).getMinutes()&#125;</span>`</span></span><br><span class="line">      endLoading()</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// openCage Api</span></span><br><span class="line">  <span class="keyword">const</span> openCageApiKey = <span class="string">&#x27;1a526c9f50a348c4920aa569300ff5a5&#x27;</span></span><br><span class="line">  <span class="comment">// 地點搜尋經緯度</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getSearchLocation</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> locationName = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.searchLocation&#x27;</span>).value</span><br><span class="line">    <span class="keyword">if</span> (e.target.parentElement.matches(<span class="string">&#x27;.searchIcon&#x27;</span>)) &#123;</span><br><span class="line">      startLoading()</span><br><span class="line">      <span class="keyword">const</span> openCageApi = <span class="string">`https://api.opencagedata.com/geocode/v1/json?q=<span class="subst">$&#123;locationName&#125;</span>&amp;key=<span class="subst">$&#123;openCageApiKey&#125;</span>&amp;lang=zh_tw&amp;pretty=1`</span></span><br><span class="line">      fetch(openCageApi).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> res.json()</span><br><span class="line">      &#125;).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data)</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.userLocation&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;data.results[<span class="number">0</span>].formatted&#125;</span>`</span></span><br><span class="line">        <span class="keyword">let</span> &#123;</span><br><span class="line">          lat,</span><br><span class="line">          lng</span><br><span class="line">        &#125; = data.results[<span class="number">0</span>].geometry</span><br><span class="line">        getWeather(lat, lng)</span><br><span class="line">      &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//經緯度的地址</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getUserLoactionName</span>(<span class="params">lat, lon</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> openCageApi = <span class="string">`https://api.opencagedata.com/geocode/v1/json?q=<span class="subst">$&#123;lat&#125;</span>+<span class="subst">$&#123;lon&#125;</span>&amp;key=<span class="subst">$&#123;openCageApiKey&#125;</span>&amp;lang=zh_tw&amp;pretty=1`</span></span><br><span class="line">    fetch(openCageApi).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> res.json()</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.userLocation&#x27;</span>).textContent = <span class="string">`<span class="subst">$&#123;data.results[<span class="number">0</span>].formatted&#125;</span>`</span></span><br><span class="line">      <span class="keyword">const</span> &#123;</span><br><span class="line">        components</span><br><span class="line">      &#125; = data.results[<span class="number">0</span>]</span><br><span class="line">      getBackground([components[<span class="string">&#x27;country_code&#x27;</span>]].join(<span class="string">&#x27;,&#x27;</span>))</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 背景圖片</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getBackground</span>(<span class="params">nation</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> unsplashApi = <span class="string">`https://source.unsplash.com/1600x900/?landscape,<span class="subst">$&#123;nation&#125;</span>`</span></span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.wrap&#x27;</span>).style.backgroundImage = <span class="string">`url(<span class="subst">$&#123;unsplashApi&#125;</span>)`</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 載入</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">startLoading</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.loading&#x27;</span>).style.display = <span class="string">&#x27;flex&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">endLoading</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.loading&#x27;</span>).style.display = <span class="string">&#x27;none&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//執行</span></span><br><span class="line">  getUserLoaction()</span><br><span class="line">  <span class="comment">//search 表單綁定監聽器</span></span><br><span class="line">  search.addEventListener(<span class="string">&#x27;click&#x27;</span>, getSearchLocation)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h2 id="心得記錄"><a href="#心得記錄" class="headerlink" title="心得記錄"></a>心得記錄</h2><p>覺得最困難的是尋找正確的 API 資料，並從 API 資料中取得自己所需要的，之後要練習把程式碼寫得更漂亮一些。</p>
+<p>Demo:</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="celeste6666" data-slug-hash="NWRMvJz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="EP01 | 跟著影片做前端練習 - Build a Weather App &amp;amp; Get User's Location">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/NWRMvJz">
+  EP01 | 跟著影片做前端練習 - Build a Weather App &amp; Get User's Location</a> by Celeste6666 (<a target="_blank" rel="noopener" href="https://codepen.io/celeste6666">@celeste6666</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://celeste6666.github.io/FrontedPractice/HTML&CSS&JS/FrontedPracticeWithJS01/" data-id="ckoihb8r6000ak8uh5bbd7jxx" data-title="EP01 | 跟著影片做前端練習 - Build a Weather App &amp; Get User&#39;s Location" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" rel="tag">前端練習</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/FrontedPractice/HTML&CSS/FrontedPractice01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          EP01 | 跟著影片做前端切版練習 - CSS Glowing Text Typography Effects
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Vue/Basic/VueNo11ComponentRegistration/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">DAY11 | 跟 Vue.js 認識的30天 - Vue 的模組註冊(`Component Registration`)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6Git/">不可不知的版本控制Git</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E6%AD%B7%E5%8F%B2%E6%B2%BF%E9%9D%A9/">Asynchronous JS 歷史沿革</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E7%9A%84%E9%81%8B%E7%94%A8/">Asynchronous JS 的運用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/JavaScript%E6%B7%BA%E5%9A%90%E7%B4%80%E9%8C%84/">JavaScript淺嚐紀錄</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/">Sass</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/Sass%E5%9F%BA%E7%A4%8E%E5%AD%B8%E7%BF%92/">Sass基礎學習</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/">Vue.js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/Vue-js-%E6%BA%90%E7%A2%BC%E5%88%86%E6%9E%90/">Vue.js 源碼分析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/">跟 Vue.js 認識的30天</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/">前端練習</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/">HTML & CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/">Online Tutorials</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Background/">Background</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Button/">Button</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Loading-Animation/">Loading Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/">Text Typography</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/">HTML & CSS & JS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/">Jonah Lawrence • Dev Pro Tips</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/%E4%B8%B2%E6%8E%A5-API/">串接 API</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/">前端自動化任務管理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/Gulp/">Gulp</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/">線上課程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/Alpha-Camp/">Alpha Camp</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alpha-Camp/" rel="tag">Alpha Camp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Background/" rel="tag">Background</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Button/" rel="tag">Button</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-reference%EF%BC%9F/" rel="tag">By reference？</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-value/" rel="tag">By value</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" rel="tag">DOM事件(DOM Event)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Loading-Animation/" rel="tag">Loading Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scss/" rel="tag">Scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-Typography/" rel="tag">Text Typography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js/" rel="tag">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" rel="tag">事件傳遞(Event Flow)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" rel="tag">事件監聽(Event Listener)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" rel="tag">冒泡事件(Event Bubbling)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E5%BC%8F-Function/" rel="tag">函式(Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" rel="tag">前端切版練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" rel="tag">前端練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" rel="tag">前端自動化任務管理工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" rel="tag">回調(Callback Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" rel="tag">封裝(Encapsulation)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" rel="tag">捕獲事件(Event Capturing)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%A9%E4%BB%B6-object/" rel="tag">物件(object)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" rel="tag">線上課程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" rel="tag">變數(Varuable)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" rel="tag">變數儲存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" rel="tag">資料結構 (data structure)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%A3%E5%88%97-Array/" rel="tag">陣列(Array)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Alpha-Camp/" style="font-size: 10px;">Alpha Camp</a> <a href="/tags/Background/" style="font-size: 10px;">Background</a> <a href="/tags/Button/" style="font-size: 10px;">Button</a> <a href="/tags/By-reference%EF%BC%9F/" style="font-size: 10px;">By reference？</a> <a href="/tags/By-value/" style="font-size: 10px;">By value</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" style="font-size: 10px;">DOM事件(DOM Event)</a> <a href="/tags/Git/" style="font-size: 11.25px;">Git</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Loading-Animation/" style="font-size: 10px;">Loading Animation</a> <a href="/tags/Sass/" style="font-size: 17.5px;">Sass</a> <a href="/tags/Scss/" style="font-size: 16.25px;">Scss</a> <a href="/tags/Text-Typography/" style="font-size: 12.5px;">Text Typography</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" style="font-size: 10px;">事件傳遞(Event Flow)</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" style="font-size: 10px;">事件監聽(Event Listener)</a> <a href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" style="font-size: 10px;">冒泡事件(Event Bubbling)</a> <a href="/tags/%E5%87%BD%E5%BC%8F-Function/" style="font-size: 10px;">函式(Function)</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" style="font-size: 13.75px;">前端切版練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" style="font-size: 10px;">前端練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">前端自動化任務管理工具</a> <a href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" style="font-size: 10px;">回調(Callback Function)</a> <a href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" style="font-size: 10px;">封裝(Encapsulation)</a> <a href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" style="font-size: 10px;">捕獲事件(Event Capturing)</a> <a href="/tags/%E7%89%A9%E4%BB%B6-object/" style="font-size: 10px;">物件(object)</a> <a href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" style="font-size: 10px;">線上課程</a> <a href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" style="font-size: 10px;">變數(Varuable)</a> <a href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" style="font-size: 10px;">變數儲存</a> <a href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" style="font-size: 10px;">資料結構 (data structure)</a> <a href="/tags/%E9%99%A3%E5%88%97-Array/" style="font-size: 10px;">陣列(Array)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Vue/CodeAnalyze/VueReactivity/">Vue.js 源碼分析 - Vue 物件(Object)響應式原理</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo21Filter/">DAY21 | 跟 Vue.js 認識的30天 - Vue 過濾器(`filter`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo20Plugin/">DAY20 | 跟 Vue.js 認識的30天 - Vue 插件(Plugin)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo22$refs/">DAY22 | 跟 Vue.js 認識的30天 - Vue 常用 API 說明(`$refs`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo19Directive/">DAY19 | 跟 Vue.js 認識的30天 - Vue 自定義指令(`directive`)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Celeste<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>DAY15 | 跟 Vue.js 認識的30天 - Vue 動態模組(Dynamic Components) | Celeste 技術儲藏室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="這次寫的內容是之前都沒使用過的，所以就盡量讓自己有概念，希望之後能使用到。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAY15 | 跟 Vue.js 認識的30天 - Vue 動態模組(Dynamic Components)">
+<meta property="og:url" content="http://celeste6666.github.io/Vue/Basic/VueNo15Dynamic/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="這次寫的內容是之前都沒使用過的，所以就盡量讓自己有概念，希望之後能使用到。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-11-28T06:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-12T12:37:27.315Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="Vue.js">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Celeste 技術儲藏室" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Celeste 技術儲藏室</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">成長就是一種修練&lt;br&gt;願你我還能是最初的那個少年！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://celeste6666.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Vue/Basic/VueNo15Dynamic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Vue/Basic/VueNo15Dynamic/" class="article-date">
+  <time class="dt-published" datetime="2020-11-28T06:00:00.000Z" itemprop="datePublished">2020-11-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue-js/">Vue.js</a>►<a class="article-category-link" href="/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/">跟 Vue.js 認識的30天</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      DAY15 | 跟 Vue.js 認識的30天 - Vue 動態模組(Dynamic Components)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>這次寫的內容是之前都沒使用過的，所以就盡量讓自己有概念，希望之後能使用到。</p>
+<span id="more"></span>
+
+<h1 id="使用-v-bind-is-來切換模組"><a href="#使用-v-bind-is-來切換模組" class="headerlink" title="使用 v-bind:is 來切換模組"></a>使用 <code>v-bind:is</code> 來切換模組</h1><p>切換模組的基本語法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">&quot;currentComponent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>currentComponent</code> 是用來決定目前使用的模組是哪一個。</p>
+<h2 id="透過全域註冊來設定模組"><a href="#透過全域註冊來設定模組" class="headerlink" title="透過全域註冊來設定模組"></a>透過全域註冊來設定模組</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-for</span>=<span class="string">&quot;tab of tabs&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;tab&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;currentTabComponent = tab&quot;</span>&gt;</span>&#123;&#123; tab &#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">&quot;currentTabComponent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&#x27;home&#x27;</span>,&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>:<span class="string">`&lt;div&gt;I am home!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;)</span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&#x27;shop&#x27;</span>,&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>:<span class="string">`&lt;div&gt;I am shop!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;)</span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&#x27;rate&#x27;</span>,&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>:<span class="string">`&lt;div&gt;I am rate!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;)</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">el</span>:<span class="string">&#x27;#vm&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">tabs</span>:[<span class="string">&#x27;home&#x27;</span>,<span class="string">&#x27;shop&#x27;</span>,<span class="string">&#x27;rate&#x27;</span>],</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 指定當前欲顯示的模組&#x27;名&#x27;</span></span></span><br><span class="line"><span class="javascript">    <span class="attr">currentTabComponent</span>:<span class="string">&#x27;home&#x27;</span></span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>data</code> 中設定的 <code>currentTabComponent</code> 為當前欲顯示的模組， <code>currentTabComponent</code> 值為<strong>模組名</strong>，並透過 <code>&lt;component :is=&quot;currentTabComponent&quot;&gt;&lt;/component&gt;</code> 中的 Attribute <code>is</code> 綁定 <code>currentTabComponent</code> ，指定顯示的模組內容。</p>
+<h2 id="透過在-data-設定物件"><a href="#透過在-data-設定物件" class="headerlink" title="透過在 data 設定物件"></a>透過在 <code>data</code> 設定物件</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-for</span>=<span class="string">&quot;tab of tabs&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;tab.name&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;currentTabComponent = tab&quot;</span>&gt;</span>&#123;&#123; tab.name &#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">&quot;currentTabComponent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> tabs = [&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">name</span>: <span class="string">&#x27;home&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;I am home!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;,</span></span><br><span class="line"><span class="javascript">&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">name</span>: <span class="string">&#x27;shop&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;I am shop!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;,</span></span><br><span class="line"><span class="javascript">&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">name</span>: <span class="string">&#x27;rate&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;I am rate!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;]</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">el</span>:<span class="string">&#x27;#vm&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">tabs</span>: tabs,</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 指定當前欲顯示的模組 &#x27;物件&#x27;</span></span></span><br><span class="line"><span class="javascript">    <span class="attr">currentTabComponent</span>: tabs[<span class="number">0</span>]</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>透過物件處理模組的資料(如模組名及模板)，並且 <code>currentTabComponent</code> 的值為<strong>模組資料</strong>，而非模組名。</p>
+<h1 id="使用-lt-keep-alive-gt-建立動態模組緩存"><a href="#使用-lt-keep-alive-gt-建立動態模組緩存" class="headerlink" title="使用 &lt;keep-alive&gt; 建立動態模組緩存"></a>使用 <code>&lt;keep-alive&gt;</code> 建立動態模組緩存</h1><p>在一般情況下，Vue 是透過建立新的模組，來執行模組的切換(動態模組)，但這樣一來，當我們在 A 模組點選或寫下東西後，切換到 B 模組，在執行別的事情後，再返回 A 模組，會發現原本在 A 模組點選或寫下的東西都會消失(回復成初始的模組狀態)。</p>
+<p>這樣的情況可以透過 <code>&lt;keep-alive&gt;</code> 來解決， <code>&lt;keep-alive&gt;</code> 主要是用來將沒使用到的模組緩存起來(就是將模組最後一次出現的狀態儲存起來)，也因此在切換的過程中，模組的狀態不會因為切換而消失。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-for</span>=<span class="string">&quot;tab of tabsC&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;tab&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;keepAliveComponent=tab&quot;</span>&gt;</span>&#123;&#123;tab&#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;keep-alive&gt;用來包裹欲被緩存的模組--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">&quot;keepAliveComponent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;A&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;I am A!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;B&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;I am B!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;C&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;I am C!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;posts&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;button v-for=&quot;title of titles&quot; :key=&quot;title&quot; @click=&quot;currentPostComponent=title&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/button&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;component :is=&quot;currentPostComponent&quot;&gt;&lt;/component&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;/div&gt;`</span>,</span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="attr">titles</span>: [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>],</span></span><br><span class="line"><span class="javascript">      <span class="attr">currentPostComponent</span>:<span class="string">&#x27;A&#x27;</span></span></span><br><span class="line"><span class="javascript">    &#125;;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;archives&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;input type=&quot;text&quot;&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span></span><br><span class="line"><span class="javascript">  <span class="attr">data</span>: &#123;    </span></span><br><span class="line"><span class="javascript">    <span class="attr">tabs</span>: [<span class="string">&quot;posts&quot;</span>, <span class="string">&quot;archives&quot;</span>],</span></span><br><span class="line"><span class="javascript">    <span class="attr">keepAliveComponent</span>: <span class="string">&quot;posts&quot;</span></span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="lt-keep-alive-gt-屬性-include-及-exclude"><a href="#lt-keep-alive-gt-屬性-include-及-exclude" class="headerlink" title="&lt;keep-alive&gt; 屬性 include 及 exclude"></a><code>&lt;keep-alive&gt;</code> 屬性 <code>include</code> 及 <code>exclude</code></h2><ul>
+<li><p><code>v-bind:include=&quot;/reg/&quot;</code> ：值為正規表達式，只有符合該值的模組才能被緩存。</p>
+</li>
+<li><p><code>include=&quot;string&quot;</code> ：值為字符串，只有符合該值的模組才能被緩存。</p>
+</li>
+<li><p><code>v-bind:exclude=&quot;/reg/&quot;</code> ：值為字符串或正規表達式，只有<strong>不</strong>符合該值的模組才能被緩存。</p>
+</li>
+<li><p><code>exclude=&quot;string&quot;</code> ：值為字符串或正規表達式，只有<strong>不</strong>符合該值的模組才能被緩存。</p>
+</li>
+</ul>
+<blockquote>
+<p>提醒：如果值為字符串的話，就不需使用 <code>v-bind</code> 來綁定了！</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">v-for</span>=<span class="string">&quot;tab of tabsC&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;tab&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;keepAliveComponent=tab&quot;</span>&gt;</span>&#123;&#123;tab&#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--只有 posts 模組才能被緩存--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--所以 archives 模組寫下文字，切換模組之後，該文字不會被緩存起來--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">&quot;posts&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">&quot;keepAliveComponent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;A&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;I am A!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;B&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;I am B!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;C&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;I am C!&lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;posts&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;button v-for=&quot;title of titles&quot; :key=&quot;title&quot; @click=&quot;currentPostComponent=title&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/button&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;component :is=&quot;currentPostComponent&quot;&gt;&lt;/component&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;/div&gt;`</span>,</span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="attr">titles</span>: [<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>],</span></span><br><span class="line"><span class="javascript">      <span class="attr">currentPostComponent</span>:<span class="string">&#x27;A&#x27;</span></span></span><br><span class="line"><span class="javascript">    &#125;;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&quot;archives&quot;</span>, &#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;input type=&quot;text&quot;&gt;</span></span></span><br><span class="line"><span class="string"><span class="javascript">  &lt;/div&gt;`</span></span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span></span><br><span class="line"><span class="javascript">  <span class="attr">data</span>: &#123;    </span></span><br><span class="line"><span class="javascript">    <span class="attr">tabs</span>: [<span class="string">&quot;posts&quot;</span>, <span class="string">&quot;archives&quot;</span>],</span></span><br><span class="line"><span class="javascript">    <span class="attr">keepAliveComponent</span>: <span class="string">&quot;posts&quot;</span></span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>因為對於異步模組的部分研究的還不夠，看起來還可以加上 webpack 的使用，但對於 webpack 的研究也還不夠，所以這一塊就先不寫出來了！</p>
+<p>Demo:</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="celeste6666" data-slug-hash="YzGPWPJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="DAY15 | 跟 Vue.js 認識的30天 - Vue 動態模組(Dynamic Components)">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/YzGPWPJ">
+  DAY15 | 跟 Vue.js 認識的30天 - Vue 動態模組(Dynamic Components)</a> by Celeste6666 (<a target="_blank" rel="noopener" href="https://codepen.io/celeste6666">@celeste6666</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>參考資料：</p>
+<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html">Vue.js - 动态组件 &amp; 异步组件</a></p>
+<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#keep-alive">Vue.js -keep-alive</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://celeste6666.github.io/Vue/Basic/VueNo15Dynamic/" data-id="ckoihb8rx0022k8uha0vc8dff" data-title="DAY15 | 跟 Vue.js 認識的30天 - Vue 動態模組(Dynamic Components)" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue-js/" rel="tag">Vue.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Vue/Basic/VueNo16Transition/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DAY16 | 跟 Vue.js 認識的30天 - Vue 過渡(轉場)及動畫效果上篇(`transition`)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Vue/Basic/VueNo14Slot/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">DAY14 | 跟 Vue.js 認識的30天 - Vue 模組插槽(`slot`)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6Git/">不可不知的版本控制Git</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E6%AD%B7%E5%8F%B2%E6%B2%BF%E9%9D%A9/">Asynchronous JS 歷史沿革</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E7%9A%84%E9%81%8B%E7%94%A8/">Asynchronous JS 的運用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/JavaScript%E6%B7%BA%E5%9A%90%E7%B4%80%E9%8C%84/">JavaScript淺嚐紀錄</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/">Sass</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/Sass%E5%9F%BA%E7%A4%8E%E5%AD%B8%E7%BF%92/">Sass基礎學習</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/">Vue.js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/Vue-js-%E6%BA%90%E7%A2%BC%E5%88%86%E6%9E%90/">Vue.js 源碼分析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/">跟 Vue.js 認識的30天</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/">前端練習</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/">HTML & CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/">Online Tutorials</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Background/">Background</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Button/">Button</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Loading-Animation/">Loading Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/">Text Typography</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/">HTML & CSS & JS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/">Jonah Lawrence • Dev Pro Tips</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/%E4%B8%B2%E6%8E%A5-API/">串接 API</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/">前端自動化任務管理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/Gulp/">Gulp</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/">線上課程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/Alpha-Camp/">Alpha Camp</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alpha-Camp/" rel="tag">Alpha Camp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Background/" rel="tag">Background</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Button/" rel="tag">Button</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-reference%EF%BC%9F/" rel="tag">By reference？</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-value/" rel="tag">By value</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" rel="tag">DOM事件(DOM Event)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Loading-Animation/" rel="tag">Loading Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scss/" rel="tag">Scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-Typography/" rel="tag">Text Typography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js/" rel="tag">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" rel="tag">事件傳遞(Event Flow)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" rel="tag">事件監聽(Event Listener)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" rel="tag">冒泡事件(Event Bubbling)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E5%BC%8F-Function/" rel="tag">函式(Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" rel="tag">前端切版練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" rel="tag">前端練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" rel="tag">前端自動化任務管理工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" rel="tag">回調(Callback Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" rel="tag">封裝(Encapsulation)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" rel="tag">捕獲事件(Event Capturing)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%A9%E4%BB%B6-object/" rel="tag">物件(object)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" rel="tag">線上課程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" rel="tag">變數(Varuable)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" rel="tag">變數儲存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" rel="tag">資料結構 (data structure)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%A3%E5%88%97-Array/" rel="tag">陣列(Array)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Alpha-Camp/" style="font-size: 10px;">Alpha Camp</a> <a href="/tags/Background/" style="font-size: 10px;">Background</a> <a href="/tags/Button/" style="font-size: 10px;">Button</a> <a href="/tags/By-reference%EF%BC%9F/" style="font-size: 10px;">By reference？</a> <a href="/tags/By-value/" style="font-size: 10px;">By value</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" style="font-size: 10px;">DOM事件(DOM Event)</a> <a href="/tags/Git/" style="font-size: 11.25px;">Git</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Loading-Animation/" style="font-size: 10px;">Loading Animation</a> <a href="/tags/Sass/" style="font-size: 17.5px;">Sass</a> <a href="/tags/Scss/" style="font-size: 16.25px;">Scss</a> <a href="/tags/Text-Typography/" style="font-size: 12.5px;">Text Typography</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" style="font-size: 10px;">事件傳遞(Event Flow)</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" style="font-size: 10px;">事件監聽(Event Listener)</a> <a href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" style="font-size: 10px;">冒泡事件(Event Bubbling)</a> <a href="/tags/%E5%87%BD%E5%BC%8F-Function/" style="font-size: 10px;">函式(Function)</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" style="font-size: 13.75px;">前端切版練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" style="font-size: 10px;">前端練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">前端自動化任務管理工具</a> <a href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" style="font-size: 10px;">回調(Callback Function)</a> <a href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" style="font-size: 10px;">封裝(Encapsulation)</a> <a href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" style="font-size: 10px;">捕獲事件(Event Capturing)</a> <a href="/tags/%E7%89%A9%E4%BB%B6-object/" style="font-size: 10px;">物件(object)</a> <a href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" style="font-size: 10px;">線上課程</a> <a href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" style="font-size: 10px;">變數(Varuable)</a> <a href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" style="font-size: 10px;">變數儲存</a> <a href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" style="font-size: 10px;">資料結構 (data structure)</a> <a href="/tags/%E9%99%A3%E5%88%97-Array/" style="font-size: 10px;">陣列(Array)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Vue/CodeAnalyze/VueReactivity/">Vue.js 源碼分析 - Vue 物件(Object)響應式原理</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo21Filter/">DAY21 | 跟 Vue.js 認識的30天 - Vue 過濾器(`filter`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo20Plugin/">DAY20 | 跟 Vue.js 認識的30天 - Vue 插件(Plugin)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo22$refs/">DAY22 | 跟 Vue.js 認識的30天 - Vue 常用 API 說明(`$refs`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo19Directive/">DAY19 | 跟 Vue.js 認識的30天 - Vue 自定義指令(`directive`)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Celeste<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>DAY01 | 跟 Vue.js 認識的30天 -前言 | Celeste 技術儲藏室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="其實早在8月就有想過要參加這一次IT鐵人幫，但是那時候還深陷在六角學院「 JS 作品直播班 」的作業泥淖中，也一直不確定自己的主題要訂甚麼，後來才決定寫 Vue 的筆記，畢竟剛在六角學院學完，也一併趁這個機會來加深自己對 Vue 的了解。 這一次針對 Vue 的筆記，內容除了是從六角學院學習到的外，還有就是就是 Alex 宅幹嘛的[ 想入門，我陪你 ] Re Vue 重頭說起系列，很喜歡 Alex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAY01 | 跟 Vue.js 認識的30天 -前言">
+<meta property="og:url" content="http://celeste6666.github.io/Vue/Basic/VueNo1Intro/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="其實早在8月就有想過要參加這一次IT鐵人幫，但是那時候還深陷在六角學院「 JS 作品直播班 」的作業泥淖中，也一直不確定自己的主題要訂甚麼，後來才決定寫 Vue 的筆記，畢竟剛在六角學院學完，也一併趁這個機會來加深自己對 Vue 的了解。 這一次針對 Vue 的筆記，內容除了是從六角學院學習到的外，還有就是就是 Alex 宅幹嘛的[ 想入門，我陪你 ] Re Vue 重頭說起系列，很喜歡 Alex">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://img.youtube.com/vi/Y50_RSWpWkA/0.jpg">
+<meta property="article:published_time" content="2020-09-13T05:26:27.000Z">
+<meta property="article:modified_time" content="2020-11-09T12:48:38.000Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="Vue.js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.youtube.com/vi/Y50_RSWpWkA/0.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Celeste 技術儲藏室" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Celeste 技術儲藏室</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">成長就是一種修練&lt;br&gt;願你我還能是最初的那個少年！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://celeste6666.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Vue/Basic/VueNo1Intro" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Vue/Basic/VueNo1Intro/" class="article-date">
+  <time class="dt-published" datetime="2020-09-13T05:26:27.000Z" itemprop="datePublished">2020-09-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue-js/">Vue.js</a>►<a class="article-category-link" href="/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/">跟 Vue.js 認識的30天</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      DAY01 | 跟 Vue.js 認識的30天 -前言
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>其實早在8月就有想過要參加這一次IT鐵人幫，但是那時候還深陷在六角學院「 JS 作品直播班 」的作業泥淖中，也一直不確定自己的主題要訂甚麼，後來才決定寫 Vue 的筆記，畢竟剛在六角學院學完，也一併趁這個機會來加深自己對 Vue 的了解。</p>
+<p>這一次針對 Vue 的筆記，內容除了是從六角學院學習到的外，還有就是就是 Alex 宅幹嘛的[ 想入門，我陪你 ] Re Vue 重頭說起系列，很喜歡 Alex大大帶著我們一起看一遍 Vue 的文件說明，這也啟發我這次筆記的寫法，大概也會跟Alex大大學習，從 Vue 的文件說明來撰寫這次的IT鐵人邦文章。</p>
+<span id="more"></span>
+
+<h1 id="如何開始"><a href="#如何開始" class="headerlink" title="如何開始"></a>如何開始</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p><strong>直接利用 CDN 載入(建議新手使用)</strong><br>創建一個 index.html 檔案，並在<code>&lt;/body&gt;</code>上方加入下方程式碼：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 開發環境版本，包含了有帮助的命令行警告(以下練習使用開發環境版本) --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 生產環境版本，刪除了命令行警告、優化了尺寸和速度 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p><strong>創建 Vue 實例(Instaance)</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--被 Vue 綁定的 DOM 物件--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--內容--&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--載入 Vue 的 CDN --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--撰寫 Vue --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue (&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">data</span>: &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// data資料</span></span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">  &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Vue 實例(Instaance)的變數名可以自訂，不一定要用 <code>vm</code> 、 <code>app</code> 。</li>
+<li>Vue 實例(Instaance)是利用屬性名 <code>el</code> 來綁定要操作的 HTML 物件，也只有綁定的那個 DOM 物件能被 Vue 操作，除此之外都不行。</li>
+<li><code>data</code>物件裡面放置各種可以用來響應連動的資料。</li>
+</ul>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p><strong>資料響應</strong><br><strong>使用模板語句將<code>data</code>內資料渲染到被綁定的 DOM 物件</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--被 Vue 綁定的 DOM 物件--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--載入 Vue 的 CDN --&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--撰寫 Vue --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue (&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">data</span>: &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// data資料</span></span></span><br><span class="line"><span class="javascript">      <span class="attr">message</span>: <span class="string">&#x27;Helle Vue！&#x27;</span></span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">  &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="celeste6666" data-slug-hash="LYNmovX" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="[DAY01]漸進式了解 VueJS -前言">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/LYNmovX">
+  [DAY01]漸進式了解 VueJS -前言</a> by Celeste6666 (<a target="_blank" rel="noopener" href="https://codepen.io/celeste6666">@celeste6666</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>參考資料：<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Y50_RSWpWkA"><img src="https://img.youtube.com/vi/Y50_RSWpWkA/0.jpg" alt="Yes"></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://celeste6666.github.io/Vue/Basic/VueNo1Intro/" data-id="ckoihb8s1002gk8uh52bs0wdg" data-title="DAY01 | 跟 Vue.js 認識的30天 -前言" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue-js/" rel="tag">Vue.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Vue/Basic/VueNo2Lifecycle/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DAY02 | 跟 Vue.js 認識的30天 - Vue 實體的生命週期(Lifecycle Hooks)及模板語法(Template Syntax)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/JSLearning/Basic/JavaScriptNo8EventListener/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript淺嚐紀錄No.8-監聽(Event Listener)DOM事件並做出反應！</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6Git/">不可不知的版本控制Git</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E6%AD%B7%E5%8F%B2%E6%B2%BF%E9%9D%A9/">Asynchronous JS 歷史沿革</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E7%9A%84%E9%81%8B%E7%94%A8/">Asynchronous JS 的運用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/JavaScript%E6%B7%BA%E5%9A%90%E7%B4%80%E9%8C%84/">JavaScript淺嚐紀錄</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/">Sass</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/Sass%E5%9F%BA%E7%A4%8E%E5%AD%B8%E7%BF%92/">Sass基礎學習</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/">Vue.js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/Vue-js-%E6%BA%90%E7%A2%BC%E5%88%86%E6%9E%90/">Vue.js 源碼分析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/">跟 Vue.js 認識的30天</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/">前端練習</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/">HTML & CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/">Online Tutorials</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Background/">Background</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Button/">Button</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Loading-Animation/">Loading Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/">Text Typography</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/">HTML & CSS & JS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/">Jonah Lawrence • Dev Pro Tips</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/%E4%B8%B2%E6%8E%A5-API/">串接 API</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/">前端自動化任務管理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/Gulp/">Gulp</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/">線上課程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/Alpha-Camp/">Alpha Camp</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alpha-Camp/" rel="tag">Alpha Camp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Background/" rel="tag">Background</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Button/" rel="tag">Button</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-reference%EF%BC%9F/" rel="tag">By reference？</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-value/" rel="tag">By value</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" rel="tag">DOM事件(DOM Event)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Loading-Animation/" rel="tag">Loading Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scss/" rel="tag">Scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-Typography/" rel="tag">Text Typography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js/" rel="tag">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" rel="tag">事件傳遞(Event Flow)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" rel="tag">事件監聽(Event Listener)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" rel="tag">冒泡事件(Event Bubbling)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E5%BC%8F-Function/" rel="tag">函式(Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" rel="tag">前端切版練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" rel="tag">前端練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" rel="tag">前端自動化任務管理工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" rel="tag">回調(Callback Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" rel="tag">封裝(Encapsulation)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" rel="tag">捕獲事件(Event Capturing)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%A9%E4%BB%B6-object/" rel="tag">物件(object)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" rel="tag">線上課程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" rel="tag">變數(Varuable)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" rel="tag">變數儲存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" rel="tag">資料結構 (data structure)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%A3%E5%88%97-Array/" rel="tag">陣列(Array)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Alpha-Camp/" style="font-size: 10px;">Alpha Camp</a> <a href="/tags/Background/" style="font-size: 10px;">Background</a> <a href="/tags/Button/" style="font-size: 10px;">Button</a> <a href="/tags/By-reference%EF%BC%9F/" style="font-size: 10px;">By reference？</a> <a href="/tags/By-value/" style="font-size: 10px;">By value</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" style="font-size: 10px;">DOM事件(DOM Event)</a> <a href="/tags/Git/" style="font-size: 11.25px;">Git</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Loading-Animation/" style="font-size: 10px;">Loading Animation</a> <a href="/tags/Sass/" style="font-size: 17.5px;">Sass</a> <a href="/tags/Scss/" style="font-size: 16.25px;">Scss</a> <a href="/tags/Text-Typography/" style="font-size: 12.5px;">Text Typography</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" style="font-size: 10px;">事件傳遞(Event Flow)</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" style="font-size: 10px;">事件監聽(Event Listener)</a> <a href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" style="font-size: 10px;">冒泡事件(Event Bubbling)</a> <a href="/tags/%E5%87%BD%E5%BC%8F-Function/" style="font-size: 10px;">函式(Function)</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" style="font-size: 13.75px;">前端切版練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" style="font-size: 10px;">前端練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">前端自動化任務管理工具</a> <a href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" style="font-size: 10px;">回調(Callback Function)</a> <a href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" style="font-size: 10px;">封裝(Encapsulation)</a> <a href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" style="font-size: 10px;">捕獲事件(Event Capturing)</a> <a href="/tags/%E7%89%A9%E4%BB%B6-object/" style="font-size: 10px;">物件(object)</a> <a href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" style="font-size: 10px;">線上課程</a> <a href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" style="font-size: 10px;">變數(Varuable)</a> <a href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" style="font-size: 10px;">變數儲存</a> <a href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" style="font-size: 10px;">資料結構 (data structure)</a> <a href="/tags/%E9%99%A3%E5%88%97-Array/" style="font-size: 10px;">陣列(Array)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Vue/CodeAnalyze/VueReactivity/">Vue.js 源碼分析 - Vue 物件(Object)響應式原理</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo21Filter/">DAY21 | 跟 Vue.js 認識的30天 - Vue 過濾器(`filter`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo20Plugin/">DAY20 | 跟 Vue.js 認識的30天 - Vue 插件(Plugin)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo22$refs/">DAY22 | 跟 Vue.js 認識的30天 - Vue 常用 API 說明(`$refs`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo19Directive/">DAY19 | 跟 Vue.js 認識的30天 - Vue 自定義指令(`directive`)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Celeste<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

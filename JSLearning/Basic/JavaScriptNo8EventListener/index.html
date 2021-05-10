@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>JavaScript淺嚐紀錄No.8-監聽(Event Listener)DOM事件並做出反應！ | Celeste 技術儲藏室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="上一篇文章JavaScript淺嚐紀錄No.7-了解一下DOM吧！已經簡單的介紹DOM是甚麼了，有興趣的可以先去參考。這裡我只會去介紹addEventListener這個事件監聽器，本筆記不會提有關on-event處理器的事情！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript淺嚐紀錄No.8-監聽(Event Listener)DOM事件並做出反應！">
+<meta property="og:url" content="http://celeste6666.github.io/JSLearning/Basic/JavaScriptNo8EventListener/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="上一篇文章JavaScript淺嚐紀錄No.7-了解一下DOM吧！已經簡單的介紹DOM是甚麼了，有興趣的可以先去參考。這裡我只會去介紹addEventListener這個事件監聽器，本筆記不會提有關on-event處理器的事情！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://www.w3.org/TR/DOM-Level-3-Events/images/eventflow.svg">
+<meta property="article:published_time" content="2020-07-03T11:25:19.000Z">
+<meta property="article:modified_time" content="2020-07-11T06:26:21.208Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="DOM事件(DOM Event)">
+<meta property="article:tag" content="事件監聽(Event Listener)">
+<meta property="article:tag" content="事件傳遞(Event Flow)">
+<meta property="article:tag" content="捕獲事件(Event Capturing)">
+<meta property="article:tag" content="冒泡事件(Event Bubbling)">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.w3.org/TR/DOM-Level-3-Events/images/eventflow.svg">
+  
+    <link rel="alternate" href="/atom.xml" title="Celeste 技術儲藏室" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Celeste 技術儲藏室</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">成長就是一種修練&lt;br&gt;願你我還能是最初的那個少年！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://celeste6666.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-JSLearning/Basic/JavaScriptNo8EventListener" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/JSLearning/Basic/JavaScriptNo8EventListener/" class="article-date">
+  <time class="dt-published" datetime="2020-07-03T11:25:19.000Z" itemprop="datePublished">2020-07-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>►<a class="article-category-link" href="/categories/JavaScript/JavaScript%E6%B7%BA%E5%9A%90%E7%B4%80%E9%8C%84/">JavaScript淺嚐紀錄</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      JavaScript淺嚐紀錄No.8-監聽(Event Listener)DOM事件並做出反應！
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>上一篇文章<a href="https://celeste6666.github.io/2020/06/03/JavaScriptNo7_DOM&Event/">JavaScript淺嚐紀錄No.7-了解一下DOM吧！</a>已經簡單的介紹DOM是甚麼了，有興趣的可以先去參考。<br>這裡我只會去介紹addEventListener這個事件監聽器，本筆記不會提有關on-event處理器的事情！</p>
+<span id="more"></span>
+<h1 id="事件監聽器-addEventListener-寫法"><a href="#事件監聽器-addEventListener-寫法" class="headerlink" title="事件監聽器(addEventListener)寫法"></a>事件監聽器(addEventListener)寫法</h1>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">currentTarget.addEventListener(handler,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;…&#125;,<span class="literal">true</span>/<span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="事件-Event-從哪裡來的？"><a href="#事件-Event-從哪裡來的？" class="headerlink" title="事件(Event)從哪裡來的？"></a>事件(Event)從哪裡來的？</h1><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Event">MDN</a></p>
+<blockquote>
+<p>The Event interface represents an event which takes place in the DOM.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/js/js_events.asp">w3school-JavaScript Events</a></p>
+<blockquote>
+<p>HTML events are “things” that happen to HTML elements.</p>
+</blockquote>
+<p>DOM事件(DOM Event)指的是某件事情(如點擊<code>&#39;click&#39;</code>、聚焦<code>&#39;focus&#39;</code>)發生在了DOM的身上(如某個元素節點)。</p>
+<h2 id="事件傳遞-Event-Flow"><a href="#事件傳遞-Event-Flow" class="headerlink" title="事件傳遞(Event Flow)"></a>事件傳遞(Event Flow)</h2><p>簡單介紹一下甚麼是<strong>事件(Event)傳遞</strong><br>事件監聽器中的第3個參數決定這個DOM物件是在Capture階段還是Bubbling階段被觸發(如果這個DOM物件本身就是觸發事件的元素，就是在At target階段的話，就一定會被觸發，而不須理會綁定的參數的是Capture還是Bubbling)。<br><img src="https://www.w3.org/TR/DOM-Level-3-Events/images/eventflow.svg" alt="W3C-Graphical representation of an event dispatched in a DOM tree using the DOM event flow"></p>
+<p>上面圖片中所畫的紅色跟綠色箭頭就是我們說的Event Flow(事件傳遞)，如何去判斷現在是在<br>事件傳遞的哪個階段，可以透過被監聽的DOM物件的這段語法<code>event.eventPhase</code>來查詢，<code>event.eventPhase</code>回傳的值會讓我們知道這個DOM物件是在哪個階段被觸發的，如果回傳<code>1</code>就代表它是在Capture Phase、<code>2</code>代表At target Phase、<code>3</code>代表 Bubbling Phase，這3個詞組合起來就是一個完整的Event Flow(事件傳遞)。</p>
+<h3 id="Event-Flow-事件傳遞-的3個階段分別代表什麼？"><a href="#Event-Flow-事件傳遞-的3個階段分別代表什麼？" class="headerlink" title="Event Flow(事件傳遞)的3個階段分別代表什麼？"></a>Event Flow(事件傳遞)的3個階段分別代表什麼？</h3><ul>
+<li>Capture Phase：event事件從上(根元素)到下(target元素)傳遞，並且在途中去觸發有綁定相同event事件的元素(第3個參數要設定<code>true</code>)，去尋找觸發event事件的元素。</li>
+<li>At target Phase：當event事件到達觸發event事件的元素時。</li>
+<li>Bubbling Phase：event事件從下(target元素)到上(根元素)，往來時路傳遞回去，並且在途中去觸發有綁定相同event事件的元素(第3個參數要設定<code>false</code>)。</li>
+</ul>
+
+
+<p>來看幾個範例：<br><strong>Capturing</strong><br>請開啟Chrome 開發者工具來檢視<code>event.target</code>。</p>
+<p class="codepen" data-height="255" data-theme-id="dark" data-default-tab="js,result" data-user="JOUCHUN" data-slug-hash="oNbpGyP" style="height: 255px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="capture phase">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/JOUCHUN/pen/oNbpGyP">
+  capture phase</a> by KUO JOUCHUN (<a target="_blank" rel="noopener" href="https://codepen.io/JOUCHUN">@JOUCHUN</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+<p>當點擊藍色Capturing按鈕時，會發現執行的順序是從<code>list</code>→<code>listCapturing</code>→<code>btnCapturing</code>，這是因為我們將這3個元素第3個參數都設定成<code>true</code>，所以<code>click</code>事件會從藍色<code>btnCapturing</code>這個DOM物件最上層開始往下，順序類似<code>body</code>→<code>list</code>→<code>listCapturing</code>→<code>btnCapturing</code>，我們沒有在<code>body</code>身上綁定事件監聽器，所以當事件傳遞到<code>body</code>時，並不會觸發任何行為，我們有在<code>list</code>及<code>listCapturing</code>身上各綁定了會在Capture Phase時被觸發的<code>click</code>事件(當然它們也都會在At target Phase時也會被觸發)，所以當事件傳遞到<code>list</code>→<code>listCapturing</code>時，會依序觸發綁定的事件。</p>
+<p><strong>Bubbling</strong><br>請開啟Chrome 開發者工具來檢視<code>event.target</code>。</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="JOUCHUN" data-slug-hash="KKVZXxN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="bubbling phase">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/JOUCHUN/pen/KKVZXxN">
+  bubbling phase</a> by KUO JOUCHUN (<a target="_blank" rel="noopener" href="https://codepen.io/JOUCHUN">@JOUCHUN</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+當點擊紅色Bubbling按鈕時，會發現執行的順序是跟上面的Capturing按鈕是相反的，是`btnBubbling`→`listBubbling`→`list`，這是因為我們將這3個元素第3個參數都設定成`false`，所以`click`事件會從紅色`btnBubbling`這個DOM物件開始往上，順序類似`btnBubbling`→`listBubbling`→`list`→`body`，同樣的我們並沒有在`body`身上綁定事件監聽器，所以當事件傳遞到`body`時，並不會觸發任何行為，我們有在`listBubbling`及`list`身上各綁定了會在Bubbling Phase時被觸發的`click`事件(當然它們也都會在At target Phase時也會被觸發)，所以當事件傳遞到`listBubbling`→`list`時，會依序觸發綁定的事件。
+
+<p>到這裡大家對事件傳遞應該都有一點概念了，但這時我卻產生了一個疑問，如果我是這麼綁定事件的話，會發生甚麼事？<br>我在<code>list</code>第3個參數設定<code>false</code>，而<code>btnCapturing</code>跟<code>listCapturing</code>設定為<code>true</code>，再來看看會是甚麼結果。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> listCapturing = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list-capturing&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> btnCapturing = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.btn-capturing&#x27;</span>)</span><br><span class="line">btnCapturing.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`btnCapturing event物件`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`currentTarget被監聽的元素(也是this):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`觸發click事件的元素(e.target):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e.target)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`btnCapturing的觸發階段:<span class="subst">$&#123;e.eventPhase&#125;</span>`</span>)</span><br><span class="line">&#125;, <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">listCapturing.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`listCapturing event物件`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`currentTarget被監聽的元素(也是this):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`觸發click事件的元素(e.target):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e.target)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`listCapturing的觸發階段:<span class="subst">$&#123;e.eventPhase&#125;</span>`</span>)</span><br><span class="line">&#125;, <span class="literal">true</span>)</span><br><span class="line">list.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`list event物件`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`currentTarget被監聽的元素(也是this):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`觸發click事件的元素(e.target):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e.target)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`list的觸發階段:<span class="subst">$&#123;e.eventPhase&#125;</span>`</span>)</span><br><span class="line">&#125;, <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+
+<p>這時候會發現事件傳遞的方向其實一樣是<code>body</code>→<code>list</code>→<code>listCapturing</code>→<code>btnCapturing</code>→<code>btnCapturing</code>→<code>listCapturing</code>→<code>list</code>→<code>body</code>，同樣的因為<code>body</code>並沒有綁定任何監聽器所以會被略過，而在事件捕獲階段，到達<code>list</code>時，發現<code>list</code>並沒有綁定在當它處於捕獲階段時的事件監聽器，所以會略過它再到<code>listCapturing</code>→<code>btnCapturing</code>去執行事件函式，但這時候的<strong>事件傳遞</strong>並不會因為已經到了<code>btnCapturing</code>就停止，而是會繼續執行冒泡階段，所以會繼續從<code>btnCapturing</code>開始再繼續往上傳遞事件，但<code>btnCapturing</code>及<code>listCapturing</code>並沒有綁定會在冒泡階段執行的是監聽器，所以被略過，事件被傳遞到了<code>list</code>時，就發現原來你有綁定處於冒泡階段時的事件監聽器喔！那就來執行一下你的事件函式。</p>
+
+
+<blockquote>
+<p>到這我的結論就是：如果有一個DOM物件綁定事件監聽器的話，那麼這個事件一定會從上到下，再從下到上傳遞，至於這個event事件經過其他DOM物件時，會不會被觸發取決於事件傳遞到該DOM物件時，它有沒有綁定監聽器；甚麼時候被觸發，取決於綁定的第3個參數是<code>true</code>(Capture階段)還是<code>false</code>(Bubbling階段)，如果是<code>true</code>的話，那麼在事件傳遞是Capture階段經過該DOM物件的話，就會被觸發該事件函式，反之如果是<code>false</code>的話，就會在事件傳遞是Bubbling階段時被觸發。</p>
+</blockquote>
+<p>大家可以看看這部影片<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=sfKDOOJgbSI">techsith-Event Bubbling and Capturing in JavaScript</a>。</p>
+<h3 id="停止預設行為及停止事件傳遞"><a href="#停止預設行為及停止事件傳遞" class="headerlink" title="停止預設行為及停止事件傳遞"></a>停止預設行為及停止事件傳遞</h3><ul>
+<li><code>event.preventDefault()</code><br>甚麼是預設行為？在HTML中的<code>&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;</code>的預設行為就是連結別的網頁，雖然我們會透過設定<code>href=&quot;#&quot;</code>來取消跳轉調別的網頁，但認真看一下上面的網址其實是會多出一個#，所以不管怎麼設定其實網頁還是會跳轉。而<code>&lt;input type=&quot;submit&quot;&gt;</code>的預設行為就是將表單的資料提交到伺服器，也因此按下按鈕時會導致頁面刷新。<br>但我們在設計網頁時，常常是需要透過這些它們來再目前頁面做一些效果，例如按下按鈕就會出現一個小方塊，但這些預設行為會導致頁面刷新而無法實現這些效果，因此可以透過<code>event.preventDefault()</code>來取消這些預設行為，但是事件傳遞並不會被取消喔。<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">listCapturing.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><code>event.stopPropagation()</code><br>上面已經有介紹過捕獲或冒泡的事件傳遞，而<code>event.stopPropagation()</code>就是來停止這些傳遞行為的，也因此當在點擊btnCapturing或是brnBubbling時，就不會再將事件從上到下、從下到上傳遞，而是只有是在At_Target階段才能被觸發事件<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">listCapturing.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event.stopPropagation();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>註：<code>event</code>是事件發生時，一定會出現的物件，透過這個<code>event</code>物件可以去尋找事件屬性(<code>event.target</code>可以知道目前點擊的DOM物件)或是使用物件內的方法(<code>event.stopPropagation()</code>停止傳遞行為的方法)，通常會用<code>event</code>或<code>e</code>來表示<code>event</code>物件。</p>
+<h2 id="事件-Event-種類"><a href="#事件-Event-種類" class="headerlink" title="事件(Event)種類"></a>事件(Event)種類</h2><p>事件種類太多了，如果想要了解可以參考<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Events#Most_common_categories">MDN-Event reference</a>，比較常用的就是滑鼠的<code>click</code>事件、表單的<code>submit</code>、<code>change</code>(表單內容改變並且不在<code>focus</code>的狀態)、<code>input</code>(表單內容改變)事件。</p>
+<h2 id="事件委派-Event-Delegation"><a href="#事件委派-Event-Delegation" class="headerlink" title="事件委派(Event Delegation)"></a>事件委派(Event Delegation)</h2><p>當需要綁定相同事件在多個不同元素，且這些元素擁有共同的祖宗元素時，就可以借助事件具有傳遞的特性(主要是指Bubbling Event)，將該事件綁定在該祖宗元素上，而無須在子元素上一一綁定事件，而這樣的行為就是**事件委派(Event Delegation)**。<br>為什麼不建議將事件一個一個綁定呢？<br>這是因為設定一個函式，就會占用一份記憶體空間，所以使用事件委派的方式，可以減少記憶體空間的使用。<br>另外在不需要事件監聽的狀況下，可以統一移除，也不需要一個一個去移除事件監聽器了。</p>
+<p>當我們使用事件委派(Event Delegation)的方式來綁定監聽器，除了借助事件傳遞的特性之外，還借助了事件擁有的屬性<code>event.target</code>，<code>event.target</code>可以幫助我們知道現在觸發事件的目標元素是哪個，也因此我們可以透過操作這個目標元素來達成我們的目的。</p>
+<p>請開啟Chrome 開發者工具來檢視<code>event.target</code>。</p>
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="JOUCHUN" data-slug-hash="wvMyYEL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event Delegation">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/JOUCHUN/pen/wvMyYEL">
+  Event Delegation</a> by KUO JOUCHUN (<a target="_blank" rel="noopener" href="https://codepen.io/JOUCHUN">@JOUCHUN</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>參考：<br><a target="_blank" rel="noopener" href="https://www.itread01.com/content/1550540353.html">JavaScript 事件對記憶體和效能的影響</a><br><a target="_blank" rel="noopener" href="https://medium.com/@realdennis/event-delegation-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%B4%BE%E4%BB%8B%E7%B4%B9-%E8%88%87-%E8%A7%B8%E7%99%BC%E5%A7%94%E6%B4%BE%E7%9A%84%E5%9B%9E%E5%91%BC%E5%87%BD%E6%95%B8-2990921a5ba2">Event Delegation — 事件委派介紹 與 觸發委派的回呼函數</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3cTdztTmtL0">JavaScript 面試：事件傳遞機制和事件委託 Event Propagation &amp; Event Delegation - 彭彭直播</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://celeste6666.github.io/JSLearning/Basic/JavaScriptNo8EventListener/" data-id="ckoihb8ru001uk8uhckfxcx83" data-title="JavaScript淺嚐紀錄No.8-監聽(Event Listener)DOM事件並做出反應！" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" rel="tag">DOM事件(DOM Event)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" rel="tag">事件傳遞(Event Flow)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" rel="tag">事件監聽(Event Listener)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" rel="tag">冒泡事件(Event Bubbling)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" rel="tag">捕獲事件(Event Capturing)</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Vue/Basic/VueNo1Intro/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DAY01 | 跟 Vue.js 認識的30天 -前言
+        
+      </div>
+    </a>
+  
+  
+    <a href="/JSLearning/Basic/JavaScriptNo7DOM&Event/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript淺嚐紀錄No.7-了解一下DOM吧！</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6Git/">不可不知的版本控制Git</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E6%AD%B7%E5%8F%B2%E6%B2%BF%E9%9D%A9/">Asynchronous JS 歷史沿革</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E7%9A%84%E9%81%8B%E7%94%A8/">Asynchronous JS 的運用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/JavaScript%E6%B7%BA%E5%9A%90%E7%B4%80%E9%8C%84/">JavaScript淺嚐紀錄</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/">Sass</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/Sass%E5%9F%BA%E7%A4%8E%E5%AD%B8%E7%BF%92/">Sass基礎學習</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/">Vue.js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/Vue-js-%E6%BA%90%E7%A2%BC%E5%88%86%E6%9E%90/">Vue.js 源碼分析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/">跟 Vue.js 認識的30天</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/">前端練習</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/">HTML & CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/">Online Tutorials</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Background/">Background</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Button/">Button</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Loading-Animation/">Loading Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/">Text Typography</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/">HTML & CSS & JS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/">Jonah Lawrence • Dev Pro Tips</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/%E4%B8%B2%E6%8E%A5-API/">串接 API</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/">前端自動化任務管理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/Gulp/">Gulp</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/">線上課程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/Alpha-Camp/">Alpha Camp</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alpha-Camp/" rel="tag">Alpha Camp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Background/" rel="tag">Background</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Button/" rel="tag">Button</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-reference%EF%BC%9F/" rel="tag">By reference？</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-value/" rel="tag">By value</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" rel="tag">DOM事件(DOM Event)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Loading-Animation/" rel="tag">Loading Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scss/" rel="tag">Scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-Typography/" rel="tag">Text Typography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js/" rel="tag">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" rel="tag">事件傳遞(Event Flow)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" rel="tag">事件監聽(Event Listener)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" rel="tag">冒泡事件(Event Bubbling)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E5%BC%8F-Function/" rel="tag">函式(Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" rel="tag">前端切版練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" rel="tag">前端練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" rel="tag">前端自動化任務管理工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" rel="tag">回調(Callback Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" rel="tag">封裝(Encapsulation)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" rel="tag">捕獲事件(Event Capturing)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%A9%E4%BB%B6-object/" rel="tag">物件(object)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" rel="tag">線上課程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" rel="tag">變數(Varuable)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" rel="tag">變數儲存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" rel="tag">資料結構 (data structure)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%A3%E5%88%97-Array/" rel="tag">陣列(Array)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Alpha-Camp/" style="font-size: 10px;">Alpha Camp</a> <a href="/tags/Background/" style="font-size: 10px;">Background</a> <a href="/tags/Button/" style="font-size: 10px;">Button</a> <a href="/tags/By-reference%EF%BC%9F/" style="font-size: 10px;">By reference？</a> <a href="/tags/By-value/" style="font-size: 10px;">By value</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" style="font-size: 10px;">DOM事件(DOM Event)</a> <a href="/tags/Git/" style="font-size: 11.25px;">Git</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Loading-Animation/" style="font-size: 10px;">Loading Animation</a> <a href="/tags/Sass/" style="font-size: 17.5px;">Sass</a> <a href="/tags/Scss/" style="font-size: 16.25px;">Scss</a> <a href="/tags/Text-Typography/" style="font-size: 12.5px;">Text Typography</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" style="font-size: 10px;">事件傳遞(Event Flow)</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" style="font-size: 10px;">事件監聽(Event Listener)</a> <a href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" style="font-size: 10px;">冒泡事件(Event Bubbling)</a> <a href="/tags/%E5%87%BD%E5%BC%8F-Function/" style="font-size: 10px;">函式(Function)</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" style="font-size: 13.75px;">前端切版練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" style="font-size: 10px;">前端練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">前端自動化任務管理工具</a> <a href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" style="font-size: 10px;">回調(Callback Function)</a> <a href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" style="font-size: 10px;">封裝(Encapsulation)</a> <a href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" style="font-size: 10px;">捕獲事件(Event Capturing)</a> <a href="/tags/%E7%89%A9%E4%BB%B6-object/" style="font-size: 10px;">物件(object)</a> <a href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" style="font-size: 10px;">線上課程</a> <a href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" style="font-size: 10px;">變數(Varuable)</a> <a href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" style="font-size: 10px;">變數儲存</a> <a href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" style="font-size: 10px;">資料結構 (data structure)</a> <a href="/tags/%E9%99%A3%E5%88%97-Array/" style="font-size: 10px;">陣列(Array)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Vue/CodeAnalyze/VueReactivity/">Vue.js 源碼分析 - Vue 物件(Object)響應式原理</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo21Filter/">DAY21 | 跟 Vue.js 認識的30天 - Vue 過濾器(`filter`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo20Plugin/">DAY20 | 跟 Vue.js 認識的30天 - Vue 插件(Plugin)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo22$refs/">DAY22 | 跟 Vue.js 認識的30天 - Vue 常用 API 說明(`$refs`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo19Directive/">DAY19 | 跟 Vue.js 認識的30天 - Vue 自定義指令(`directive`)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Celeste<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

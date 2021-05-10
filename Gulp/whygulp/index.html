@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>&lt;為了Sass而學的Gulp&gt;-Gulp基礎安裝及任務製作SOP | Celeste 技術儲藏室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言(可以略過)如標題，為了練習Sass，所以最近切板練習時常常用Sass來處理樣式，殊不知這是噩夢的開始。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;為了Sass而學的Gulp&gt;-Gulp基礎安裝及任務製作SOP">
+<meta property="og:url" content="http://celeste6666.github.io/Gulp/whygulp/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="前言(可以略過)如標題，為了練習Sass，所以最近切板練習時常常用Sass來處理樣式，殊不知這是噩夢的開始。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181129/2be4542b637942838e5aeb541516f768.gif">
+<meta property="article:published_time" content="2020-06-11T08:00:19.000Z">
+<meta property="article:modified_time" content="2020-09-13T05:24:14.204Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="前端自動化任務管理工具">
+<meta property="article:tag" content="Gulp">
+<meta property="article:tag" content="Sass">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181129/2be4542b637942838e5aeb541516f768.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Celeste 技術儲藏室" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Celeste 技術儲藏室</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">成長就是一種修練&lt;br&gt;願你我還能是最初的那個少年！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜尋"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜尋"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://celeste6666.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Gulp/whygulp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/Gulp/whygulp/" class="article-date">
+  <time class="dt-published" datetime="2020-06-11T08:00:19.000Z" itemprop="datePublished">2020-06-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/">前端自動化任務管理</a>►<a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/Gulp/">Gulp</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      &lt;為了Sass而學的Gulp&gt;-Gulp基礎安裝及任務製作SOP
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="前言-可以略過"><a href="#前言-可以略過" class="headerlink" title="前言(可以略過)"></a>前言(可以略過)</h1><p>如標題，為了練習Sass，所以最近切板練習時常常用Sass來處理樣式，殊不知這是噩夢的開始。</p>
+<span id="more"></span>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181129/2be4542b637942838e5aeb541516f768.gif"><br>之前在<a href="https://celeste6666.github.io/2020/04/19/SassBasicNo1/">Sass基礎學習No.1-Sass簡介</a>有介紹過幾種Sass的編譯方式，之前我自己是選擇用<a target="_blank" rel="noopener" href="https://prepros.io/">Prepros</a>，但不知道是我電腦問題還是Prepros出問題了(我相信一定是我電腦太爛，該買新的了！)，導致我一直沒辦法編譯成功，又有點懶得學Gulp，我就轉戰<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass">VS code編輯器插件：Live Sass Compiler</a>，結果更慘，每次編譯都要等好久。──這個等來等去，找問題的時間花了我快3天(心累)。<br>為了節省我寶貴的切版練習時間，就決定來學一下Gulp，看看編譯速度能不能快一點。</p>
+<h1 id="Gulp-安裝"><a href="#Gulp-安裝" class="headerlink" title="Gulp 安裝"></a>Gulp 安裝</h1><p>我自己是照著<a target="_blank" rel="noopener" href="https://gulpjs.com/docs/en/getting-started/quick-start">Gulp官網的GET STARTED</a>安裝的，所以大家也可以直接去官網看喔！</p>
+<p>如果沒有安裝過Node.js的要先去安裝，這裡提供<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js官網</a>，拉到最下方有個<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">To download Node.js, see</a>。</p>
+<p>因為我是很久以前安裝Node.js的，印象中會跟npm一起安裝。<br>如果沒有可以到<a target="_blank" rel="noopener" href="https://www.npmjs.com/get-npm">npm</a>下載。</p>
+<p>要確定自己是不是有安裝過上面幾個環境，可以透過下面幾個指令碼確認。<br>以下有<code>$</code>都是在Command Line裡執行的！</p>
+<ol>
+<li><p>確認Node版本</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --version</span><br></pre></td></tr></table></figure></li>
+<li><p>確認npm版本</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm --version</span><br></pre></td></tr></table></figure></li>
+<li><p>確認npx版本</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx --version</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="建立Gulp環境"><a href="#建立Gulp環境" class="headerlink" title="建立Gulp環境"></a>建立Gulp環境</h2><p>通常<code>$</code>是不需要打的。</p>
+<ul>
+<li><p>建立全域的Gulp環境(一台電腦安裝一次就好)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --global gulp-cli</span><br></pre></td></tr></table></figure></li>
+<li><p>新建一個要使用Gulp管理工具的資料夾並進入它<br>要先<code>cd &lt;fileName&gt;</code>到想要新建資料夾的地方，如果是桌面就先將目前位置<code>cd</code>過去，再進行下面步驟。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir project</span><br><span class="line">$ cd project</span><br></pre></td></tr></table></figure></li>
+<li><p>建立一個儲存Node.js套件的package.json檔案<br>這個package.json檔案會將所下載使用的套件資料儲存在裡面。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
+<p>在下完指令後，會產生一些問題，如果沒有要修改甚麼就直接一直按<code>Enter</code>就好。<br>之後會產生一個package.json檔案，這是一些這個資料夾的相關資料(name, version, description,devDependencies,dependencies,etc)。</p>
+</li>
+<li><p>建立儲存Gulp套件資料的資料夾(node_modules)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev gulp</span><br></pre></td></tr></table></figure>
+<p><code>--save-dev gulp(套件名)</code>的意思就是下載現在的套件(gulp)並將他的版本加入到package.json檔案中的devDependencies裡。</p>
+<p>為什麼要把套件相關資料加入到package.json檔案中？<br>這是為了在多人協作的時候，其他人可以直接下<code>npm install</code>，就可以依據原本設定在package.json檔案中的套件資料，下載指定版本套件。</p>
+</li>
+<li><p>新增gulpfile.js儲存任務</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch gulpfile.js</span><br></pre></td></tr></table></figure>
+<p>以後要執行的任務都要寫在這裡面。</p>
+<p><strong>測試</strong><br>在gulpfile.js中寫下</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  function defaultTask(cb) &#123;</span><br><span class="line">  // place code for your default task here</span><br><span class="line">  cb();</span><br><span class="line">&#125;</span><br><span class="line">  exports.default = defaultTask</span><br></pre></td></tr></table></figure>
+<p><strong>運行</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安裝Gulp套件<br>可以到<a target="_blank" rel="noopener" href="https://gulpjs.com/plugins/">PLUGINS</a>下載套件。<br>安裝<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/gulp-sass">gulp-sass套件</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm i --save-dev gulp-sass</span><br><span class="line">$ npm i gulp-sass</span><br></pre></td></tr></table></figure>
+
+
+<p>有沒有<code>--save-dev</code>差異在哪裡？<br><a target="_blank" rel="noopener" href="https://courses.hexschool.com/courses/gulp/lectures/11953927">六角學院-使用 gulp 進行網頁前端自動化(可預覽)</a>課程中有提到，當儲存套件時下<code>--save-dev</code>，套件相關資料儲存package.json檔案中的devDependencies裡，代表著現在這個套件供開發時使用，而<strong>沒有</strong>下<code>--save-dev</code>(如上圖右上方的安裝語法)或是下<code>--save</code>時套件相關資料儲存package.json檔案中的dependencies裡，代表著現在這個套件供產品上架時使用。<br>我自己是覺得像是gulp-sass就是只在開發時才會使用到，當網頁上架之後就不會再用到了。<br>課程裡面也提到像是把產品放上HeroKu時，它預設只會安裝dependencies裡的資料(也就是<strong>沒有</strong>下<code>--save-dev</code>或是下<code>--save</code>的套件)，所以假設將gulp套件安裝在devDependencies裡的話，產品需要運行gulp時，將無法運行。</p>
+</li>
+</ul>
+<h1 id="Gulp任務運行"><a href="#Gulp任務運行" class="headerlink" title="Gulp任務運行"></a>Gulp任務運行</h1><p>以下程式碼皆是寫在gulpfile.js裡面的喔！</p>
+<h2 id="如何撰寫任務"><a href="#如何撰寫任務" class="headerlink" title="如何撰寫任務"></a>如何撰寫任務</h2><h4 id="宣告並命名剛載入的PLUGIN"><a href="#宣告並命名剛載入的PLUGIN" class="headerlink" title="宣告並命名剛載入的PLUGIN"></a>宣告並命名剛載入的PLUGIN</h4><p>在gulpfile.js最上方，必須將剛剛下載的套件命名，以便之後在撰寫任務時，可以透過變數名執行該套件。<br>有下npm install(或npm i)所下載的套件都必須先宣告及命名，包含gulp自己本身。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="撰寫的SOP"><a href="#撰寫的SOP" class="headerlink" title="撰寫的SOP"></a>撰寫的SOP</h4><p><strong>基本公式</strong></p>
+
+<p><strong>function任務內容撰寫</strong></p>
+
+
+<p>在六角的Gulp課程中，有提到gulp將每個不同的任務用<strong>pipe</strong>連接，pipe的中文意思就是管子，也因此可以把**gulp.src(‘來源資料’)<strong>想像成水，</strong>pipe(任務)<strong>想成水會經過的管子，每根管子都有自己要做的任務，當然可以將管子不斷的增加(一直加pipe(任務))，並且最後一根管子的任務就是將水導向目的地(水桶??)，也就是</strong>pipe(gulp.dest(‘資料傳送目的地’))**，記得導向目的地是最後一根管子(pipe)的任務喔！</p>
+<h4 id="運行gulp"><a href="#運行gulp" class="headerlink" title="運行gulp"></a>運行gulp</h4><p>在Command Line裡執行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp &lt;taskName&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="以gulp-sass套件為範例-自己的分析，如果有錯誤麻煩各位幫忙指出"><a href="#以gulp-sass套件為範例-自己的分析，如果有錯誤麻煩各位幫忙指出" class="headerlink" title="以gulp sass套件為範例(自己的分析，如果有錯誤麻煩各位幫忙指出)"></a>以gulp sass套件為範例(自己的分析，如果有錯誤麻煩各位幫忙指出)</h2><p>這篇文章的最後就來分析gulp sass的寫法，畢竟我就是為了練習Sass才學的Gulp。<br>其實在每個套件下面都會附上使用方法，現在就來看看gulp sass的使用方法吧！</p>
+
+<p>現在來拆解它：</p>
+<ul>
+<li><p>先宣告套件的變數名。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>其他套件的宣告<br>我自己的字面解釋就是，gulp-sass的編譯器是使用’node-sass’這個套件，所以把它儲存在gulp-sass物件裡。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sass.compiler = <span class="built_in">require</span>(<span class="string">&#x27;node-sass&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>製作sass檔案編譯的任務<br>透過gulp套件製作一個名叫’sass’的任務，任務內容就是將sass檔案夾裡面所有子資料夾(**)裡面的所有副檔名為.scss的檔案，通過管子.pipe執行sass套件(<code>sass()</code>)，請注意這裡的sass()是指執行剛剛所宣告及命名的gulp-sass套件，不是指這個task的任務名稱，最後通過管子將編譯完成後的檔案透過<code>gulp.dest</code>匯入到css檔案裡。<br>補充說明：在<code>sass()</code>後面所接的<code>on(&#39;error&#39;, sass.logError)</code>指的是監控<code>error</code>事件，並在該事件發生時顯示錯誤資料(<code> sass.logError</code>)。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">&#x27;sass&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">&#x27;./sass/**/*.scss&#x27;</span>)</span><br><span class="line">  .pipe(sass().on(<span class="string">&#x27;error&#x27;</span>, sass.logError))</span><br><span class="line">  .pipe(gulp.dest(<span class="string">&#x27;./css&#x27;</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>其實寫到這裡，到Command Line去執行<code>$ gulp sass</code>就可以將.sass檔案編譯了！</p>
+</li>
+<li><p>最後的watch任務，就留到下一次筆記啦！</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://celeste6666.github.io/Gulp/whygulp/" data-id="ckoihb8r30004k8uh8hyqa74g" data-title="&lt;為了Sass而學的Gulp&gt;-Gulp基礎安裝及任務製作SOP" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" rel="tag">前端自動化任務管理工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/JSLearning/Basic/JavaScriptNo7DOM&Event/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript淺嚐紀錄No.7-了解一下DOM吧！
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Git/Basic/gitLearn2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">不可不知的版本控制系統Git No.2-本地數據庫中Git可以做到的事情？(上)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分類</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/%E4%B8%8D%E5%8F%AF%E4%B8%8D%E7%9F%A5%E7%9A%84%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6Git/">不可不知的版本控制Git</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E6%AD%B7%E5%8F%B2%E6%B2%BF%E9%9D%A9/">Asynchronous JS 歷史沿革</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/Asynchronous-JS-%E7%9A%84%E9%81%8B%E7%94%A8/">Asynchronous JS 的運用</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/JavaScript%E6%B7%BA%E5%9A%90%E7%B4%80%E9%8C%84/">JavaScript淺嚐紀錄</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/">Sass</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Sass/Sass%E5%9F%BA%E7%A4%8E%E5%AD%B8%E7%BF%92/">Sass基礎學習</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/">Vue.js</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/Vue-js-%E6%BA%90%E7%A2%BC%E5%88%86%E6%9E%90/">Vue.js 源碼分析</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/">跟 Vue.js 認識的30天</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/">前端練習</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/">HTML & CSS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/">Online Tutorials</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Background/">Background</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Button/">Button</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Loading-Animation/">Loading Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/">Text Typography</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/">HTML & CSS & JS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/">Jonah Lawrence • Dev Pro Tips</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/%E4%B8%B2%E6%8E%A5-API/">串接 API</a></li></ul></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/">前端自動化任務管理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86/Gulp/">Gulp</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/">線上課程</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/%E5%89%8D%E7%AB%AF/Alpha-Camp/">Alpha Camp</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alpha-Camp/" rel="tag">Alpha Camp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Background/" rel="tag">Background</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Button/" rel="tag">Button</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-reference%EF%BC%9F/" rel="tag">By reference？</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/By-value/" rel="tag">By value</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" rel="tag">DOM事件(DOM Event)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gulp/" rel="tag">Gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Loading-Animation/" rel="tag">Loading Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scss/" rel="tag">Scss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-Typography/" rel="tag">Text Typography</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue-js/" rel="tag">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" rel="tag">事件傳遞(Event Flow)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" rel="tag">事件監聽(Event Listener)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" rel="tag">冒泡事件(Event Bubbling)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E5%BC%8F-Function/" rel="tag">函式(Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" rel="tag">前端切版練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" rel="tag">前端練習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" rel="tag">前端自動化任務管理工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" rel="tag">回調(Callback Function)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" rel="tag">封裝(Encapsulation)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" rel="tag">捕獲事件(Event Capturing)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%A9%E4%BB%B6-object/" rel="tag">物件(object)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" rel="tag">線上課程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" rel="tag">變數(Varuable)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" rel="tag">變數儲存</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" rel="tag">資料結構 (data structure)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%A3%E5%88%97-Array/" rel="tag">陣列(Array)</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">標籤雲</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Alpha-Camp/" style="font-size: 10px;">Alpha Camp</a> <a href="/tags/Background/" style="font-size: 10px;">Background</a> <a href="/tags/Button/" style="font-size: 10px;">Button</a> <a href="/tags/By-reference%EF%BC%9F/" style="font-size: 10px;">By reference？</a> <a href="/tags/By-value/" style="font-size: 10px;">By value</a> <a href="/tags/CSS/" style="font-size: 17.5px;">CSS</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/DOM%E4%BA%8B%E4%BB%B6-DOM-Event/" style="font-size: 10px;">DOM事件(DOM Event)</a> <a href="/tags/Git/" style="font-size: 11.25px;">Git</a> <a href="/tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Loading-Animation/" style="font-size: 10px;">Loading Animation</a> <a href="/tags/Sass/" style="font-size: 17.5px;">Sass</a> <a href="/tags/Scss/" style="font-size: 16.25px;">Scss</a> <a href="/tags/Text-Typography/" style="font-size: 12.5px;">Text Typography</a> <a href="/tags/Vue-js/" style="font-size: 20px;">Vue.js</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E-Event-Flow/" style="font-size: 10px;">事件傳遞(Event Flow)</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%A3%E8%81%BD-Event-Listener/" style="font-size: 10px;">事件監聽(Event Listener)</a> <a href="/tags/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6-Event-Bubbling/" style="font-size: 10px;">冒泡事件(Event Bubbling)</a> <a href="/tags/%E5%87%BD%E5%BC%8F-Function/" style="font-size: 10px;">函式(Function)</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%88%87%E7%89%88%E7%B7%B4%E7%BF%92/" style="font-size: 13.75px;">前端切版練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" style="font-size: 10px;">前端練習</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8B%95%E5%8C%96%E4%BB%BB%E5%8B%99%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">前端自動化任務管理工具</a> <a href="/tags/%E5%9B%9E%E8%AA%BF-Callback-Function/" style="font-size: 10px;">回調(Callback Function)</a> <a href="/tags/%E5%B0%81%E8%A3%9D-Encapsulation/" style="font-size: 10px;">封裝(Encapsulation)</a> <a href="/tags/%E6%8D%95%E7%8D%B2%E4%BA%8B%E4%BB%B6-Event-Capturing/" style="font-size: 10px;">捕獲事件(Event Capturing)</a> <a href="/tags/%E7%89%A9%E4%BB%B6-object/" style="font-size: 10px;">物件(object)</a> <a href="/tags/%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" style="font-size: 10px;">線上課程</a> <a href="/tags/%E8%AE%8A%E6%95%B8-Varuable/" style="font-size: 10px;">變數(Varuable)</a> <a href="/tags/%E8%AE%8A%E6%95%B8%E5%84%B2%E5%AD%98/" style="font-size: 10px;">變數儲存</a> <a href="/tags/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-data-structure/" style="font-size: 10px;">資料結構 (data structure)</a> <a href="/tags/%E9%99%A3%E5%88%97-Array/" style="font-size: 10px;">陣列(Array)</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">彙整</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Vue/CodeAnalyze/VueReactivity/">Vue.js 源碼分析 - Vue 物件(Object)響應式原理</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo21Filter/">DAY21 | 跟 Vue.js 認識的30天 - Vue 過濾器(`filter`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo20Plugin/">DAY20 | 跟 Vue.js 認識的30天 - Vue 插件(Plugin)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo22$refs/">DAY22 | 跟 Vue.js 認識的30天 - Vue 常用 API 說明(`$refs`)</a>
+          </li>
+        
+          <li>
+            <a href="/Vue/Basic/VueNo19Directive/">DAY19 | 跟 Vue.js 認識的30天 - Vue 自定義指令(`directive`)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Celeste<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
