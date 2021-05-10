@@ -27,11 +27,16 @@
 <meta property="og:site_name" content="Celeste 技術儲藏室">
 <meta property="og:description" content="在網路上搜尋有關 Vue 響應式源碼文章時，真的是看不懂，所以研究了好幾天，希望自己理解的過程是對的。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/CodeAnalyze/VueReactivity/VueCodeStep.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/CodeAnalyze/VueReactivity/codeLoop.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/CodeAnalyze/VueReactivity/exampleReactivity.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/CodeAnalyze/VueReactivity/$data.PNG">
 <meta property="article:published_time" content="2021-02-27T09:20:00.000Z">
 <meta property="article:modified_time" content="2021-03-06T10:51:52.880Z">
 <meta property="article:author" content="Celeste">
 <meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/Vue/CodeAnalyze/VueReactivity/VueCodeStep.PNG">
 
 
 <link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Vue/CodeAnalyze/VueReactivity/">
@@ -281,14 +286,14 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  <span class="attr">text</span>: <span class="string">&quot;響應式&quot;</span>,</span><br><span class="line">  <span class="attr">person</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;Mark&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">    <span class="attr">likes</span>: &#123;</span><br><span class="line">      <span class="attr">fruit</span>: <span class="string">&quot;apple&quot;</span>,</span><br><span class="line">      <span class="attr">hobby</span>: <span class="string">&quot;reading&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>先上幾個 Vue 裡如何拆解物件變成響應式的步驟及循環圖。</p>
+<img src="/Celeste6666/Vue/CodeAnalyze/VueReactivity/VueCodeStep.PNG" class="" title="VueCodeStep">
 
+<img src="/Celeste6666/Vue/CodeAnalyze/VueReactivity/codeLoop.PNG" class="" title="codeLoop">
 
-
-
-
+<img src="/Celeste6666/Vue/CodeAnalyze/VueReactivity/exampleReactivity.PNG" class="" title="exampleReactivity">
 
 <h3 id="觀察-data"><a href="#觀察-data" class="headerlink" title="觀察 $data"></a>觀察 <code>$data</code></h3><p>接下來從 <code>console.log(this)</code> 中找到 <code>$data</code> 來觀察一下資料內有甚麼。</p>
-
+<img src="/Celeste6666/Vue/CodeAnalyze/VueReactivity/$data.PNG" class="" title="$data">
 
 <p>會發現每個物件中都有相似的幾個屬性，像是物件屬性值、 <code>getter</code> 、 <code>setter</code> 、 <code>__ob__</code>。</p>
 <p>接下來打開 <code>__ob__</code> 。</p>

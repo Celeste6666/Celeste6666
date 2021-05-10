@@ -27,13 +27,16 @@
 <meta property="og:site_name" content="Celeste 技術儲藏室">
 <meta property="og:description" content="在講計算(computed)之前，先來說說 Vue 自己擁有的屬性 $data：以[DAY02]跟 Vue.js 認識的30天 - Vue 的模板語法(Template Syntax)為例，當我們輸入 console.log(vm) 時(vm就是所創建出來的 Vue 實例)，會顯示出 vm 所包含的屬性及方法。特別的是， Vue 會將我們所設定的 data 展開來，作為 Vue 的屬性，也因此我們">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo3Computed/vmdata.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo3Computed/vm$data.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo3Computed/rerender.PNG">
 <meta property="og:image" content="https://img.youtube.com/vi/3wvoDxZq52w/0.jpg">
 <meta property="article:published_time" content="2020-09-16T11:32:27.000Z">
-<meta property="article:modified_time" content="2020-11-09T12:49:44.000Z">
+<meta property="article:modified_time" content="2021-05-10T12:34:21.399Z">
 <meta property="article:author" content="Celeste">
 <meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.youtube.com/vi/3wvoDxZq52w/0.jpg">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo3Computed/vmdata.PNG">
 
 
 <link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo3Computed/">
@@ -229,7 +232,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-09 20:49:44" itemprop="dateModified" datetime="2020-11-09T20:49:44+08:00">2020-11-09</time>
+        <time title="修改時間：2021-05-10 20:34:21" itemprop="dateModified" datetime="2021-05-10T20:34:21+08:00">2021-05-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,16 +260,17 @@
     <div class="post-body" itemprop="articleBody">
         <p>在講計算(computed)之前，先來說說 Vue 自己擁有的屬性 <code>$data</code>：<br>以<a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/oNxMyZw?editors=1012">[DAY02]跟 Vue.js 認識的30天 - Vue 的模板語法(Template Syntax)</a>為例，當我們輸入 <code>console.log(vm)</code> 時(vm就是所創建出來的 Vue 實例)，會顯示出 vm 所包含的屬性及方法。<br>特別的是， Vue 會將我們所設定的 <code>data</code> 展開來，作為 Vue 的屬性，也因此我們可以直接使用 <code>&#123;&#123; msg &#125;&#125;</code> 來讀取資料，而不是 <code>&#123;&#123; data.msg &#125;&#125;</code> 。</p>
 <span id="more"></span>
+
 <p>如果想要讀取所有設定的 <code>data</code> 資料，可以使用 <code>vm.$data</code> 來取得所有設定的 <code>data</code> 資料。</p>
+<img src="/Celeste6666/Vue/Basic/VueNo3Computed/vmdata.PNG" class="" title="vmdata">
 
-
-
+<img src="/Celeste6666/Vue/Basic/VueNo3Computed/vm$data.PNG" class="" title="vm$data">
 
 <h1 id="計算屬性-computed"><a href="#計算屬性-computed" class="headerlink" title="計算屬性(computed)"></a>計算屬性(computed)</h1><p>為了讓讓畫面易於維護及理解，可以使用計算屬性來進行複雜邏輯運算的程式碼。</p>
 <h2 id="如何使用計算屬性-computed"><a href="#如何使用計算屬性-computed" class="headerlink" title="如何使用計算屬性(computed)"></a>如何使用計算屬性(computed)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#example&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">message</span>: <span class="string">&#x27;Hello&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="comment">// getter</span></span><br><span class="line">    reversedMessage () &#123;</span><br><span class="line">      <span class="comment">// `this` 指向 vm Instance</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.message.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// vm.reversedMessage 的值是依賴於 vm.message ，所以當 vm.message 改變時，vm.reversedMessage也會跟著改變</span></span><br><span class="line"><span class="comment">// vm.message = &#x27;Goodbye&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="methods-跟-computed-的差別"><a href="#methods-跟-computed-的差別" class="headerlink" title="methods 跟 computed 的差別"></a>methods 跟 computed 的差別</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Computed reversed message: &quot;&#123;&#123; reversedMessage &#125;&#125;&quot;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>methods reversed message: &quot;&#123;&#123; reversedMessage2() &#125;&#125;&quot;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">  <span class="attr">el</span>: <span class="string">&#x27;#example&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  <span class="attr">data</span>: &#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">message</span>: <span class="string">&#x27;Hello&#x27;</span></span></span><br><span class="line"><span class="javascript">  &#125;,</span></span><br><span class="line"><span class="javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="title">reversedMessage2</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">return</span> <span class="built_in">this</span>.message.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">  &#125;,</span></span><br><span class="line"><span class="javascript">  <span class="attr">computed</span>: &#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 计算属性的 getter</span></span></span><br><span class="line"><span class="javascript">    reversedMessage () &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// `this` 指向 vm 实例</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">return</span> <span class="built_in">this</span>.message.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<img src="/Celeste6666/Vue/Basic/VueNo3Computed/rerender.PNG" class="" title="rerender">
 
 <p>會發現在 <code>methods</code> 裡的 <code>reversedMessage2()</code> 也會隨著 <code>data</code> 資料的改變而更著改變，這是因為當資料改變時，頁面會重新渲染( re-render )，如上圖，也因此當畫面渲染到 <code>reversedMessage2()</code> 時，也會再次調用它。</p>
 <p>但是 <code>computed</code> 是依賴於響應式資料進行緩存的，<code>computed</code> 裡的值經過計算過後就會存入緩存，也因此當這些響應式資料(如 <code>this.message</code>)沒有改變的話， <code>computed</code> 裡的值(如 <code>reversedMessage</code> )就會直接從緩存取得資料(之前的計算結果)並返回，而非重新計算。</p>
