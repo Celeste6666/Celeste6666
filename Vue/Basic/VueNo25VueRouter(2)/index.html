@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ico16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="接續上一篇 Vue Router 的筆記，這篇主要是來講解巢狀路由。何謂巢狀路由？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAY25 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (中)">
+<meta property="og:url" content="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="接續上一篇 Vue Router 的筆記，這篇主要是來講解巢狀路由。何謂巢狀路由？">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/nestedRouterComponent.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/nameView.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/router.PNG">
+<meta property="article:published_time" content="2021-05-28T11:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-31T08:13:52.000Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="Vue.js">
+<meta property="article:tag" content="Vue Router">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/nestedRouterComponent.PNG">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Vue&#x2F;Basic&#x2F;VueNo25VueRouter(2)&#x2F;&quot;,&quot;path&quot;:&quot;Vue&#x2F;Basic&#x2F;VueNo25VueRouter(2)&#x2F;&quot;,&quot;title&quot;:&quot;DAY25 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (中)&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>DAY25 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (中) | Celeste 技術儲藏室</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A2%E7%8B%80%E8%B7%AF%E7%94%B1"><span class="nav-number">1.</span> <span class="nav-text">巢狀路由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1"><span class="nav-number">2.</span> <span class="nav-text">命名路由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E8%A6%96%E5%9C%96"><span class="nav-number">3.</span> <span class="nav-text">命名視圖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B0%8E%E5%90%91%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">其他導向方法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DAY25 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (中)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-05-28 19:00:00" itemprop="dateCreated datePublished" datetime="2021-05-28T19:00:00+08:00">2021-05-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2021-05-31 16:13:52" itemprop="dateModified" datetime="2021-05-31T16:13:52+08:00">2021-05-31</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>接續上一篇 Vue Router 的筆記，這篇主要是來講解巢狀路由。<br>何謂巢狀路由？</p>
+<span id="more"></span>
+
+<h1 id="巢狀路由"><a href="#巢狀路由" class="headerlink" title="巢狀路由"></a>巢狀路由</h1><p>先看一下這張圖</p>
+
+
+<p>結構如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routers = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/link1&#x27;</span></span><br><span class="line">    <span class="attr">component</span>: Link1,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;profile&#x27;</span></span><br><span class="line">        <span class="attr">component</span>: PROFILE</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/link2&#x27;</span></span><br><span class="line">    <span class="attr">component</span>: Link2,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;post&#x27;</span></span><br><span class="line">        <span class="attr">component</span>: POST</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/link3&#x27;</span></span><br><span class="line">    <span class="attr">component</span>: Link3,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;news&#x27;</span></span><br><span class="line">        <span class="attr">component</span>: NEWS</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>對我來說巢狀路由的狀態就是，當點了某個連結 <code>&lt;router-link&gt;&lt;/router-link&gt;</code> ， <code>&lt;router-view&gt;&lt;/router-view&gt;</code> 就會導向某個模組 A ，在這個模組 A 裡也有一或多個 <code>&lt;router-link&gt;&lt;/router-link&gt;</code> ，而點選了模組 A 裡面的某個連結後，模組 A 裡面 <code>&lt;router-view&gt;&lt;/router-view&gt;</code> 就會導向模組 B。</p>
+<img src="/Vue/Basic/VueNo25VueRouter(2)/nestedRouterComponent.PNG" class="" title="nestedRouterComponent">
+
+<h1 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h1><p>除了給予路由路徑及模組外，還可以命名(<code>name</code>)該路由，並且該路由也可以透過該名來跳轉。</p>
+<p><strong>不帶參數</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routers = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: HOME</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>將上面的路由用在連結上</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123; name: &#x27;home&#x27;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>帶參數</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routers = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/user/:username&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;user&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: USER</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>將上面的路由用在連結上</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123; name: &#x27;user&#x27;, params: &#123;username: &#x27;Celeste&#x27;&#125; &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="命名視圖"><a href="#命名視圖" class="headerlink" title="命名視圖"></a>命名視圖</h1><p>想同時顯示多個模組的時候就可以利用此方法。</p>
+<img src="/Vue/Basic/VueNo25VueRouter(2)/nameView.PNG" class="" title="命名視圖">
+
+<p>上圖的結構如下</p>
+<p>沒有屬性 <code>name</code> 的 <code>&lt;router-view&gt;&lt;/router-view&gt;</code> 即適用 <code>default</code> 所設定的模組。</p>
+<p>另外同個路由下有多個模組需要顯示的話，一定要使用 <code>components:&#123;&#125;</code> 。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- /user --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/user&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span> <span class="attr">name</span>=<span class="string">&quot;B&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ComponentB = &#123;</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;ComponentB&lt;/p&gt;</span></span><br><span class="line"><span class="string">    &lt;router-link to=&quot;/user/profile&quot;&gt;&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">    &lt;router-view&gt;&lt;/router-view&gt;</span></span><br><span class="line"><span class="string">    &lt;router-view name=&quot;d&quot;&gt;&lt;/router-view&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> routers = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span>,</span><br><span class="line">    <span class="attr">components</span>: &#123;</span><br><span class="line">      <span class="attr">default</span>: ComponentA,</span><br><span class="line">      <span class="attr">B</span>:  ComponentB,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;profile&#x27;</span>,</span><br><span class="line">        <span class="attr">components</span>:&#123;</span><br><span class="line">          <span class="attr">default</span>: ComponentC,</span><br><span class="line">          <span class="attr">d</span>:  ComponentD,</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他導向方法"><a href="#其他導向方法" class="headerlink" title="其他導向方法"></a>其他導向方法</h1><p>除了上面所用的 <code>&lt;router-link :to=&quot;path&quot;&gt;&lt;/router-link&gt;</code> 外，還可以透過 <code>$router.push(location,onComplete?,onAbort?)</code> 前往其他路由。</p>
+<p>一定有很多人疑惑了 <code>$router</code> 跟 <code>$route</code> 有甚麼差別？<br><code>$router</code> 係為得到路由實例，而 <code>$route</code> 係為得到路由對象屬性。</p>
+<img src="/Vue/Basic/VueNo25VueRouter(2)/router.PNG" class="" title="router">
+
+<p><code>push()</code> 方法在 <code>$router</code> 裡的原型鏈(<code>__proto__</code>)上。</p>
+<p><strong><code>push</code>方法</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//直接前往該位址</span></span><br><span class="line"><span class="built_in">this</span>.$router.push(<span class="string">&#x27;/user&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//帶參數</span></span><br><span class="line"><span class="built_in">this</span>.$router.push(&#123; <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span>, <span class="attr">params</span>: &#123;<span class="attr">username</span>: <span class="string">&#x27;Celeste&#x27;</span>&#125;, <span class="attr">query</span>: &#123; <span class="attr">search</span>: <span class="string">&#x27;like&#x27;</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>replace</code>方法</strong></p>
+<p>會替代目前 history 中的紀錄。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$router.replace(<span class="string">&#x27;/user&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>go</code>方法</strong></p>
+<p>在瀏覽器紀錄中，往前或往後移動。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// n 為正 → 瀏覽器紀錄中往前 n 步</span></span><br><span class="line"><span class="comment">// n 為負 → 瀏覽器紀錄中往後 n 步</span></span><br><span class="line"><span class="built_in">this</span>.$router.go(n)</span><br></pre></td></tr></table></figure>
+
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="celeste6666" data-slug-hash="poeWRrz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="DAY25 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (中)">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/poeWRrz">
+  DAY25 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (中)</a> by Celeste6666 (<a target="_blank" rel="noopener" href="https://codepen.io/celeste6666">@celeste6666</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>參考資料</p>
+<p><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/named-routes.html">Vue Router - 命名路由</a></p>
+<p><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/named-views.html">Vue Router - 命名视图</a></p>
+<p><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/navigation.html">Vue Router - 编程式的导航</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue-js/" rel="tag"># Vue.js</a>
+              <a href="/tags/Vue-Router/" rel="tag"># Vue Router</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Vue/Basic/VueNo24VueRouter(1)/" rel="prev" title="DAY24 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (上)">
+                  <i class="fa fa-chevron-left"></i> DAY24 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (上)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Vue/Basic/VueNo26VueRouter(3)/" rel="next" title="DAY26 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (下)">
+                  DAY26 | 跟 Vue.js 認識的30天 - Vue 套餐之路由器 Vue Router (下) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

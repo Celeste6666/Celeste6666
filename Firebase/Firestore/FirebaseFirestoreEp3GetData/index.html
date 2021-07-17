@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ico16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="如何獲取數據Firestore 文件提及：  有兩種方法可以檢索存儲在 Cloud Firestore 中的數據。這些方法中的任何一種都可以用於文檔、文檔集合或取得查詢結果：  調用一個方法來獲取數據 (get())。 設置偵聽器以接收數據更改事件 (onSnapshot())。設置偵聽器時，Cloud Firestore 會向您的偵聽器發送數據的初始快照，然後在每次文檔更改時發送另一個快照。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EP03 | Firebase 中的資料庫 - 獲取 Cloud Firestore 資料庫">
+<meta property="og:url" content="https://celeste6666.github.io/Firebase/Firestore/FirebaseFirestoreEp3GetData/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="如何獲取數據Firestore 文件提及：  有兩種方法可以檢索存儲在 Cloud Firestore 中的數據。這些方法中的任何一種都可以用於文檔、文檔集合或取得查詢結果：  調用一個方法來獲取數據 (get())。 設置偵聽器以接收數據更改事件 (onSnapshot())。設置偵聽器時，Cloud Firestore 會向您的偵聽器發送數據的初始快照，然後在每次文檔更改時發送另一個快照。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-06-29T05:18:00.000Z">
+<meta property="article:modified_time" content="2021-07-08T09:15:58.000Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="Firebase">
+<meta property="article:tag" content="Firestore">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Firebase/Firestore/FirebaseFirestoreEp3GetData/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Firebase&#x2F;Firestore&#x2F;FirebaseFirestoreEp3GetData&#x2F;&quot;,&quot;path&quot;:&quot;Firebase&#x2F;Firestore&#x2F;FirebaseFirestoreEp3GetData&#x2F;&quot;,&quot;title&quot;:&quot;EP03 | Firebase 中的資料庫 - 獲取 Cloud Firestore 資料庫&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>EP03 | Firebase 中的資料庫 - 獲取 Cloud Firestore 資料庫 | Celeste 技術儲藏室</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%8D%B2%E5%8F%96%E6%95%B8%E6%93%9A"><span class="nav-number">1.</span> <span class="nav-text">如何獲取數據</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%81%B5%E8%81%BD%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">使用偵聽器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%B5%E8%81%BD%E6%96%87%E6%AA%94"><span class="nav-number">2.1.</span> <span class="nav-text">偵聽文檔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%B5%E8%81%BD%E9%9B%86%E5%90%88"><span class="nav-number">2.2.</span> <span class="nav-text">偵聽集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Snapshot-%E5%B1%AC%E6%80%A7%E5%8F%8A%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number">2.3.</span> <span class="nav-text">Snapshot 屬性及方法：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%B5%E8%81%BD%E6%9F%A5%E8%A9%A2%E6%96%87%E6%AA%94"><span class="nav-number">3.</span> <span class="nav-text">偵聽查詢文檔</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E6%95%B8%E6%93%9A%E7%9A%84%E6%8E%92%E5%BA%8F%E5%8F%8A%E9%99%90%E5%88%B6%E6%95%B8%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">指定數據的排序及限制數量</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Firebase/Firestore/FirebaseFirestoreEp3GetData/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EP03 | Firebase 中的資料庫 - 獲取 Cloud Firestore 資料庫
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-06-29 13:18:00" itemprop="dateCreated datePublished" datetime="2021-06-29T13:18:00+08:00">2021-06-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2021-07-08 17:15:58" itemprop="dateModified" datetime="2021-07-08T17:15:58+08:00">2021-07-08</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Firebase/" itemprop="url" rel="index"><span itemprop="name">Firebase</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Firebase/Cloud-Firestore/" itemprop="url" rel="index"><span itemprop="name">Cloud Firestore</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="如何獲取數據"><a href="#如何獲取數據" class="headerlink" title="如何獲取數據"></a>如何獲取數據</h1><p><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/firestore/query-data/get-data?authuser=2">Firestore 文件</a>提及：</p>
+<blockquote>
+<p>有兩種方法可以檢索存儲在 Cloud Firestore 中的數據。這些方法中的任何一種都可以<strong>用於文檔、文檔集合或取得查詢結果</strong>：</p>
+<ul>
+<li>調用一個方法來獲取數據 (<code>get()</code>)。</li>
+<li>設置偵聽器以接收數據更改事件 (<code>onSnapshot()</code>)。<br>設置偵聽器時，Cloud Firestore 會向您的偵聽器發送數據的初始快照，然後在<strong>每次文檔更改時</strong>發送另一個快照。</li>
+</ul>
+</blockquote>
+<p>必須注意到使用 <code>get()</code> 單純只是取得資料庫資料，並不具有獲取實時更新的效果，所以在添加資料或更新資料過後要再調用 <code>get()</code> 才可取得最新資料，而偵聽器 (<code>onSnapshot()</code>) 只需設置 1 次即可獲取實時更新。</p>
+<span id="more"></span>
+
+<p>這一篇文章主要紀錄 Firestore 中偵聽器 (<code>onSnapshot()</code>) 的學習。</p>
+<h1 id="使用偵聽器"><a href="#使用偵聽器" class="headerlink" title="使用偵聽器"></a>使用偵聽器</h1><h2 id="偵聽文檔"><a href="#偵聽文檔" class="headerlink" title="偵聽文檔"></a>偵聽文檔</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todoCollection = db.doc(<span class="string">&#x27;/todos/JUN/todo/HnJNwCjH2Wv7qELj9nRO&#x27;</span>);</span><br><span class="line">todoCollection.onSnapshot(<span class="function"><span class="params">snapshot</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 查看 firestore 文檔預設屬性及方法</span></span><br><span class="line">  <span class="built_in">console</span>.log(snapshot)</span><br><span class="line">  <span class="comment">// 透過 data() 取得文檔內容</span></span><br><span class="line">  <span class="built_in">console</span>.log(snapshot.data())</span><br><span class="line">&#125;, <span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;err：&#x27;</span>, err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="偵聽集合"><a href="#偵聽集合" class="headerlink" title="偵聽集合"></a>偵聽集合</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todoCollection = db.collection(<span class="string">&#x27;todos&#x27;</span>).doc(<span class="string">&#x27;JUN&#x27;</span>).collection(<span class="string">&#x27;todo&#x27;</span>);</span><br><span class="line"></span><br><span class="line">todoCollection.onSnapshot(<span class="function"><span class="params">snapshot</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 查看 firestore 文檔預設屬性及方法</span></span><br><span class="line">  <span class="built_in">console</span>.log(snapshot)</span><br><span class="line">  <span class="comment">// 透過 docs 取得集合內文檔陣列，如果想要針對每個文檔做動作，可以使用 forEach()</span></span><br><span class="line">  <span class="built_in">console</span>.log(snapshot.docs)</span><br><span class="line">  snapshot.docs.forEach(<span class="function"><span class="params">doc</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// doc代表每個文檔</span></span><br><span class="line">    <span class="comment">// 要取得文檔內容，同樣要用 data() 來取得</span></span><br><span class="line">    <span class="built_in">console</span>.log(doc.data())</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;, <span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;err：&#x27;</span>, err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Snapshot-屬性及方法："><a href="#Snapshot-屬性及方法：" class="headerlink" title="Snapshot 屬性及方法："></a>Snapshot 屬性及方法：</h2><ul>
+<li><p><code>exists</code> ： 文檔是否存在，存在即為 <code>true</code> 。</p>
+</li>
+<li><p> <code>id</code> ： 文檔 ID 。</p>
+</li>
+<li><p><code>metadata</code> ： 資料的狀態。</p>
+<ul>
+<li><p><code>fromCache</code> ： 資料來源， <code>true</code> 代表來自 Cache ，<code>false</code> 代表來自 Server 。</p>
+</li>
+<li><p><code>hasPendingWrites</code> ： 是否還有尚未寫入到後端的本地資料， <code>true</code> 代表有資料在本地端尚未寫入後端 ，<code>false</code> 代表來自資料已經被寫入後端。(偵聽器將在數據發送到後端之前收到新數據通知。)</p>
+</li>
+</ul>
+</li>
+<li><p><code>data()</code> ： 取得數據。(偵聽文檔)</p>
+</li>
+<li><p><code>docs</code> ： 取得文檔陣列。(偵聽集合)</p>
+</li>
+</ul>
+<blockquote>
+<p>有關於 SnapshotListenOptions (<code>includeMetadataChanges</code>) ，設定為 <code>true</code> ，可以幫助我們除了資料的更改時會收到 snapshot 外，在 <code>metadata</code> 有變化的時候也會收到 snapshot 。</p>
+</blockquote>
+<h1 id="偵聽查詢文檔"><a href="#偵聽查詢文檔" class="headerlink" title="偵聽查詢文檔"></a>偵聽查詢文檔</h1><p>資料使用 Firestore 提供<a target="_blank" rel="noopener" href="https://firebase.google.com/docs/firestore/query-data/queries#node.js_6">範例</a>。</p>
+<ol>
+<li><p>建立查詢對象：</p>
+<p> 利用 <code>db.collection(集合名).where(給定屬性, 比較運算符, 給定值)</code> 來建立查詢對象。</p>
+<p> Firestore 的比較運算符有下列幾種：</p>
+<ul>
+<li><p><code>&lt;</code> ： 小於。</p>
+</li>
+<li><p><code>&lt;=</code> ： 小於或等於。</p>
+</li>
+<li><p><code>==</code> ： 等於。</p>
+</li>
+<li><p><code>&gt;</code> ： 大於。</p>
+</li>
+<li><p><code>&gt;=</code> ： 大於或等於。</p>
+</li>
+<li><p><code>!=</code> ： 不等於。</p>
+</li>
+<li><p><code>in</code> ： 返回與給定值(可為多個)其中之一匹配的文檔，使用 == 及邏輯 OR 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//country 是字串</span></span><br><span class="line">db.collection(<span class="string">&#x27;cities&#x27;</span>).where(<span class="string">&#x27;country&#x27;</span>, <span class="string">&#x27;in&#x27;</span>, [<span class="string">&#x27;USA&#x27;</span>, <span class="string">&#x27;Japan&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
+<li><p><code>not-in</code> ： 返回與給定值(可為多個)皆不匹配(且不為null)的文檔，使用 != 及 邏輯 AND 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//country 是字串</span></span><br><span class="line">db.collection(<span class="string">&#x27;cities&#x27;</span>).where(<span class="string">&#x27;country&#x27;</span>, <span class="string">&#x27;not-in&#x27;</span>, [<span class="string">&#x27;USA&#x27;</span>, <span class="string">&#x27;Japan&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p> (對陣列)</p>
+<ul>
+<li><p><code>array-contains</code> ： 陣列根據給定值進行過濾。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// regions 是陣列</span></span><br><span class="line">db.collection(<span class="string">&#x27;cities&#x27;</span>).where(<span class="string">&#x27;regions&#x27;</span>, <span class="string">&#x27;array-contains&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;west_coast&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p><code>array-contains-any</code> ： 陣列根據給定值(可為多個)進行過濾，返回符合其中一個文檔。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// regions 是陣列</span></span><br><span class="line">db.collection(<span class="string">&#x27;cities&#x27;</span>).where(<span class="string">&#x27;regions&#x27;</span>, <span class="string">&#x27;array-contains-any&#x27;</span>,</span><br><span class="line">[<span class="string">&#x27;west_coast&#x27;</span>, <span class="string">&#x27;east_coast&#x27;</span>])</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>取得或偵聽查詢結果</p>
+<p> 透過 <code>get()</code> 或 <code>onSnapshot()</code> 來取得或偵聽查詢結果。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 獲得查詢結果</span></span><br><span class="line">searchQuery.get()</span><br><span class="line">.then(<span class="function"><span class="params">querySnapshot</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(querySnapshot)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 偵聽查詢結果</span></span><br><span class="line">searchQuery.onSnapshot(</span><br><span class="line">  <span class="function"><span class="params">querySnapshot</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(querySnapshot)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="指定數據的排序及限制數量"><a href="#指定數據的排序及限制數量" class="headerlink" title="指定數據的排序及限制數量"></a>指定數據的排序及限制數量</h1><p>使用 <code>orderBy()</code> 指定數據的排序順序，並且可以使用 <code>limit()</code> 限制檢索的文檔數量。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Firebase/" rel="tag"># Firebase</a>
+              <a href="/tags/Firestore/" rel="tag"># Firestore</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Firebase/Firestore/FirebaseFirestoreEp1Setting.md/" rel="prev" title="EP01 | Firebase 中的資料庫 - Cloud Firestore 的妙用">
+                  <i class="fa fa-chevron-left"></i> EP01 | Firebase 中的資料庫 - Cloud Firestore 的妙用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Vue/Basic/VueNo27Vuex(1)/" rel="next" title="DAY27 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (上)">
+                  DAY27 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (上) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
