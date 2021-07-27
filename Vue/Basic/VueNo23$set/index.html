@@ -27,15 +27,15 @@
 <meta property="og:site_name" content="Celeste 技術儲藏室">
 <meta property="og:description" content="在談到如何使用 $set 前，就必須先了解一下 Vue 是如何實現數據響應的，所以另外寫了一篇有關於 Vue 響應式原理 - Vue.js 源碼分析 - Vue 物件(Object)響應式原理的文章，簡單記錄一下自己的理解過程。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo23$set/reactivity1.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo23$set/objectReactivity.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo23$set/arrWithoutActivity.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo23$set/reactivity1.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo23$set/objectReactivity.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo23$set/arrWithoutActivity.PNG">
 <meta property="article:published_time" content="2021-02-14T04:20:00.000Z">
-<meta property="article:modified_time" content="2021-05-11T06:02:24.857Z">
+<meta property="article:modified_time" content="2021-07-27T11:34:41.446Z">
 <meta property="article:author" content="Celeste">
 <meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://celeste6666.github.io/Vue/Basic/VueNo23$set/reactivity1.PNG">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo23$set/reactivity1.PNG">
 
 
 <link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo23$set/">
@@ -231,7 +231,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-05-11 14:02:24" itemprop="dateModified" datetime="2021-05-11T14:02:24+08:00">2021-05-11</time>
+        <time title="修改時間：2021-07-27 19:34:41" itemprop="dateModified" datetime="2021-07-27T19:34:41+08:00">2021-07-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,17 +257,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>在談到如何使用 <code>$set</code> 前，就必須先了解一下 Vue 是如何實現數據響應的，所以另外寫了一篇有關於 Vue 響應式原理 - <a href="https://celeste6666.github.io/Vue/CodeAnalyze/VueReactivity/">Vue.js 源碼分析 - Vue 物件(Object)響應式原理</a>的文章，簡單記錄一下自己的理解過程。</p>
+        <p>在談到如何使用 <code>$set</code> 前，就必須先了解一下 Vue 是如何實現數據響應的，所以另外寫了一篇有關於 Vue 響應式原理 - <a href="https://celeste6666.github.io/Celeste6666/Vue/CodeAnalyze/VueReactivity/">Vue.js 源碼分析 - Vue 物件(Object)響應式原理</a>的文章，簡單記錄一下自己的理解過程。</p>
 <span id="more"></span>
 
 <p>Vue 資料的響應式是在 Vue Init 階段就將 <code>data</code> 變成響應式了(執行 <code>observe()</code>)，所以資料如果一開始沒有在 <code>data</code> 裡面的話，就不會是響應式的。</p>
-<img src="/Vue/Basic/VueNo23$set/reactivity1.PNG" class="" title="響應式">
+<img src="/Celeste6666/Vue/Basic/VueNo23$set/reactivity1.PNG" class="" title="響應式">
 
 <h1 id="讓資料變成響應式"><a href="#讓資料變成響應式" class="headerlink" title="讓資料變成響應式"></a>讓資料變成響應式</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一種</span></span><br><span class="line">Vue.set(object, propertyName, value)</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二種</span></span><br><span class="line"><span class="comment">// 實例方法 (vm 為實例名)</span></span><br><span class="line">vm.$set(object, propertyName, value)</span><br><span class="line"></span><br><span class="line"><span class="comment">//直接使用 this (this 指向實例本身)</span></span><br><span class="line"><span class="built_in">this</span>.$set(object, propertyName, value)</span><br></pre></td></tr></table></figure>
 
 <h2 id="物件"><a href="#物件" class="headerlink" title="物件"></a>物件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">people</span>:&#123;</span><br><span class="line">      <span class="attr">mark</span>:&#123;</span><br><span class="line">        <span class="attr">gender</span>: <span class="string">&#x27;male&#x27;</span>,</span><br><span class="line">        <span class="attr">age</span>: <span class="number">19</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不是響應式</span></span><br><span class="line">vm.people.mary = &#123;<span class="attr">gender</span>: <span class="string">&#x27;female&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span>&#125;</span><br><span class="line"><span class="comment">//轉為響應式正確寫法</span></span><br><span class="line">vm.$set(vm.people, <span class="string">&#x27;john&#x27;</span>, &#123;<span class="attr">gender</span>: <span class="string">&#x27;male&#x27;</span>, <span class="attr">age</span>: <span class="number">50</span>&#125;)</span><br></pre></td></tr></table></figure>
 
-<img src="/Vue/Basic/VueNo23$set/objectReactivity.PNG" class="" title="物件響應">
+<img src="/Celeste6666/Vue/Basic/VueNo23$set/objectReactivity.PNG" class="" title="物件響應">
 
 <p><strong>同時加入多個新屬性</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 必須確保屬性 people 已存在在 data 中</span></span><br><span class="line">vm.people = <span class="built_in">Object</span>.assign(&#123;&#125;, vm.people, &#123;michelle&#125;:&#123;<span class="attr">gender</span>: <span class="string">&#x27;female&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span>&#125;,<span class="attr">bill</span>:&#123;<span class="attr">gender</span>: <span class="string">&#x27;male&#x27;</span>, <span class="attr">age</span>: <span class="number">50</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
@@ -279,7 +279,7 @@
 <p>但上述幾種方法用在 Vue 中來改變陣列的值，將會將該值變成非響應式的。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">arr</span>: [</span><br><span class="line">      &#123; <span class="attr">name</span>: <span class="string">&quot;mary&quot;</span>, <span class="attr">gender</span>: <span class="string">&quot;female&quot;</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">name</span>: <span class="string">&quot;john&quot;</span>, <span class="attr">gender</span>: <span class="string">&quot;male&quot;</span>, <span class="attr">age</span>: <span class="number">50</span> &#125;,</span><br><span class="line">      <span class="number">3</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//非響應式</span></span><br><span class="line">vm.arr[<span class="number">2</span>] = &#123; <span class="attr">name</span>: <span class="string">&quot;Celeste&quot;</span>, <span class="attr">gender</span>: <span class="string">&quot;female&quot;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;;</span><br></pre></td></tr></table></figure>
 
-<img src="/Vue/Basic/VueNo23$set/arrWithoutActivity.PNG" class="" title="arrWithoutActivity">
+<img src="/Celeste6666/Vue/Basic/VueNo23$set/arrWithoutActivity.PNG" class="" title="arrWithoutActivity">
 
 <p>如果要想要改變陣列的值同時還要維持響應式的話，就必須使用 Vue 特別規定的幾種方法。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vm.$set(vm.arr, <span class="number">0</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Michelle&quot;</span>, <span class="attr">gender</span>: <span class="string">&quot;female&quot;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;);</span><br><span class="line"></span><br><span class="line">vm.arr.splice(<span class="number">1</span>, <span class="number">1</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;Celeste&quot;</span>, <span class="attr">gender</span>: <span class="string">&quot;female&quot;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;);</span><br></pre></td></tr></table></figure>

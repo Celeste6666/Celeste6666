@@ -308,7 +308,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-07-08 17:15:58" itemprop="dateModified" datetime="2021-07-08T17:15:58+08:00">2021-07-08</time>
+        <time title="修改時間：2021-07-27 19:27:30" itemprop="dateModified" datetime="2021-07-27T19:27:30+08:00">2021-07-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -346,6 +346,98 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Celeste6666/Firebase/Firestore/FirebaseFirestoreEp3GetData/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Firebase/Firestore/FirebaseFirestoreEp2AddData.md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Celeste6666/Firebase/Firestore/FirebaseFirestoreEp2AddData.md/" class="post-title-link" itemprop="url">EP02 | Firebase 中的資料庫 - 如何在 Cloud Firestore 中新增、刪除資料</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-06-23 13:18:00" itemprop="dateCreated datePublished" datetime="2021-06-23T13:18:00+08:00">2021-06-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2021-07-17 20:24:01" itemprop="dateModified" datetime="2021-07-17T20:24:01+08:00">2021-07-17</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Firebase/" itemprop="url" rel="index"><span itemprop="name">Firebase</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Firebase/Cloud-Firestore/" itemprop="url" rel="index"><span itemprop="name">Cloud Firestore</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本篇文章主要是來紀錄如何使用、更新及添加文檔，會做一個 TodoList 來說明。</p>
+<h1 id="使用-Firestore-的前提"><a href="#使用-Firestore-的前提" class="headerlink" title="使用 Firestore 的前提"></a>使用 Firestore 的前提</h1><p>上一篇文章有提到如何在 Firebase 創建 Firestore 資料庫，但仔細觀察一下 Firestore 文件說明中，針對初始化 Firestore 的寫法：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Celeste6666/Firebase/Firestore/FirebaseFirestoreEp2AddData.md/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -445,171 +537,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Firebase/Firestore/FirebaseFirestoreEp2AddData.md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
-      <meta itemprop="name" content="Celeste">
-      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Celeste 技術儲藏室">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/Firebase/Firestore/FirebaseFirestoreEp2AddData.md/" class="post-title-link" itemprop="url">EP02 | Firebase 中的資料庫 - 如何在 Cloud Firestore 中新增、刪除資料</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2021-06-18 13:18:00" itemprop="dateCreated datePublished" datetime="2021-06-18T13:18:00+08:00">2021-06-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-06-24 20:37:46" itemprop="dateModified" datetime="2021-06-24T20:37:46+08:00">2021-06-24</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Firebase/" itemprop="url" rel="index"><span itemprop="name">Firebase</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Firebase/Cloud-Firestore/" itemprop="url" rel="index"><span itemprop="name">Cloud Firestore</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本篇文章主要是來紀錄如何使用、更新及添加文檔，會做一個 TodoList 來說明。</p>
-<h1 id="使用-Firestore-的前提"><a href="#使用-Firestore-的前提" class="headerlink" title="使用 Firestore 的前提"></a>使用 Firestore 的前提</h1><p>上一篇文章有提到如何在 Firebase 創建 Firestore 資料庫，但仔細觀察一下 Firestore 文件說明中，針對初始化 Firestore 的寫法：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="comment">// Initialize Cloud Firestore through Firebase</span></span></span><br><span class="line"><span class="javascript">  firebase.initializeApp(&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">apiKey</span>: <span class="string">&#x27;### FIREBASE API KEY ###&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">authDomain</span>: <span class="string">&#x27;### FIREBASE AUTH DOMAIN ###&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">projectId</span>: <span class="string">&#x27;### CLOUD FIRESTORE PROJECT ID ###&#x27;</span></span></span><br><span class="line"><span class="javascript">  &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> db = firebase.firestore();</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>但在我們得到的 SDK 中是這樣的：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- The core Firebase JS SDK is always required and must be listed first --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js&quot;</span>&gt;</span><span class="handlebars"><span class="xml"><span class="tag">&lt;/&gt;</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="comment">&lt;!-- <span class="doctag">TODO:</span> Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries --&gt;</span></span></span></span><br><span class="line"><span class="xml"><span class="handlebars"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js&quot;</span>&gt;</span></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="comment">// Your web app&#x27;s Firebase configuration</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">// For Firebase JS SDK v7.20.0 and later, measurementId is optional</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> firebaseConfig = &#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">apiKey</span>: <span class="string">&quot;AIzaSyA3VJK2kf6oPs8fPLr4Oc0cigbWaOjEMIs&quot;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">authDomain</span>: <span class="string">&quot;my-first-firestore-b8b26.firebaseapp.com&quot;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">projectId</span>: <span class="string">&quot;my-first-firestore-b8b26&quot;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">storageBucket</span>: <span class="string">&quot;my-first-firestore-b8b26.appspot.com&quot;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">messagingSenderId</span>: <span class="string">&quot;1028819130660&quot;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">appId</span>: <span class="string">&quot;1:1028819130660:web:421f7eaea330f894be7bb1&quot;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">measurementId</span>: <span class="string">&quot;G-N71RBCWPK7&quot;</span></span></span><br><span class="line"><span class="javascript">  &#125;;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// Initialize Firebase</span></span></span><br><span class="line"><span class="javascript">  firebase.initializeApp(firebaseConfig);</span></span><br><span class="line"><span class="javascript">  firebase.analytics();</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>對比之後會發現，除了要在自己加入 Firestore 的 Library 之外，還必須使用 <code>var db = firebase.firestore();</code> 將 Firestore 初始化。</p>
-<h1 id="設置文檔"><a href="#設置文檔" class="headerlink" title="設置文檔"></a>設置文檔</h1><h2 id="自訂文檔ID"><a href="#自訂文檔ID" class="headerlink" title="自訂文檔ID"></a>自訂文檔ID</h2><p>如果想要在本地專案裡直接創建文檔，並且**自訂文檔名(ID)**的話，可以使用 <code>set()</code> ，接下來來說說 <code>set()</code> 的使用方法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 指定集合 todos 中的 JUN 文檔</span></span><br><span class="line"><span class="comment">// 如果文檔不存在，則會創建它。如果文檔確實存在，就選取該文檔</span></span><br><span class="line"><span class="comment">// 可以透過一個變數儲存文檔位置</span></span><br><span class="line"><span class="keyword">const</span> todosCollection = db.collection(<span class="string">&#x27;todos&#x27;</span>).doc(<span class="string">&#x27;JUN&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//透過 set() 在該文檔中寫入資料</span></span><br><span class="line"><span class="comment">// set(&#123;資料&#125;, &#123;merge: 合併與否&#125;)</span></span><br><span class="line"><span class="comment">// 透過 &#123;merge: true&#125; 來讓新資料與文檔其他資料合併</span></span><br><span class="line">todosCollection.set(&#123;<span class="attr">undo</span>: [<span class="string">&#x27;date with parents&#x27;</span>]&#125;, &#123;<span class="attr">merge</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully written!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<p>在 TodoList 中新增一筆資料，並且該筆資料送出後，會被儲存在 Firestore 裡。</p>
-
-
-
-
-<h2 id="自動生成文檔名-ID"><a href="#自動生成文檔名-ID" class="headerlink" title="自動生成文檔名(ID)"></a>自動生成文檔名(ID)</h2><p><strong><code>set()</code></strong></p>
-<p>在 <code>doc()</code> 中部寫入任何參數，即為隨機生成文檔 ID。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不指定文檔名，firestore會自動升成一組隨機的 ID 作為文檔名</span></span><br><span class="line"><span class="keyword">const</span> todosCollection = db.collection(<span class="string">&#x27;todos&#x27;</span>).doc();</span><br><span class="line">todosCollection.set(&#123;<span class="attr">undo</span>: [<span class="string">&#x27;date with parents&#x27;</span>]&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully written!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong><code>add()</code></strong></p>
-<p>等同於使用 <code>doc().set(...)</code> ，但更簡潔。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.collection(<span class="string">&#x27;todos&#x27;</span>).add(&#123;<span class="attr">undo</span>: [<span class="string">&#x27;date with parents&#x27;</span>]&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully written!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="更新文檔"><a href="#更新文檔" class="headerlink" title="更新文檔"></a>更新文檔</h1><p>如果只想更改文檔中某一項屬性值的話，要怎麼辦呢？<br>用 <code>set()</code> 可以嗎？<br>經過測試的確可以，但有一個前提是一定要加入 <code>&#123;merge: true&#125;</code> 這個參數，否則是覆蓋文檔原本的資料。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todosCollection = db.collection(<span class="string">&#x27;todos&#x27;</span>).doc(<span class="string">&#x27;JUN&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原本資料為 disappear: false</span></span><br><span class="line">todosCollection.set(&#123;</span><br><span class="line">    <span class="attr">disappear</span>: <span class="string">&#x27;No&#x27;</span></span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    <span class="attr">merge</span>: <span class="literal">true</span></span><br><span class="line">  &#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Updated ? No.&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>有沒有更簡潔的寫法？<br>有，就是使用 <code>update()</code> 。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> todosCollection = db.collection(<span class="string">&#x27;todos&#x27;</span>).doc(<span class="string">&#x27;JUN&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原本資料為 undo: [&#x27;date with parents&#x27;]</span></span><br><span class="line">todosCollection.undate(&#123;</span><br><span class="line">  <span class="attr">disappear</span>: <span class="string">&#x27;No&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully written!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>上面 2 種方法結果都是相同的。</p>
-
-
-
-
-<p>這時候又有一個疑問了，那就是要如何新增陣列值，這時候就要來了解一下 <code>firebase. firestore. FieldValue</code> 這個構造函數了，在 <code>firebase. firestore. FieldValue</code> 包含了幾種方法，除了新增、移除陣列值外，還可以追蹤伺服器何時收到更新以及在資料庫的數值中新增或減少指定數值。</p>
-<ul>
-<li><p>isEqual(val)：資料庫的該屬性資料與指定 val 是否相同。</p>
-</li>
-<li><p>arrayUnion(val)：從資料庫的該陣列值中新增指定 val，但只添加不存在的 val 。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">todosCollection.undate(&#123;</span><br><span class="line">  <span class="attr">undo</span>: firebase.firestore.FieldValue.arrayUnion(<span class="string">&#x27;writting&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully update!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-<li><p>arrayRemove(val)：從資料庫的該陣列值中刪除指定 val 。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">todosCollection.undate(&#123;</span><br><span class="line">  <span class="attr">undo</span>: firebase.firestore.FieldValue.arrayRemove(<span class="string">&#x27;reading&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully written!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-<li><p>increment(number)：對資料庫的當前數值進行新增或減少指定 number 。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">todosCollection.undate(&#123;</span><br><span class="line">  <span class="attr">undo</span>: firebase.firestore.FieldValue.arrayRemove(<span class="string">&#x27;saving&#x27;</span>),</span><br><span class="line">  <span class="attr">undoNum</span>: firebase.firestore.FieldValue.increment(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully written!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-<li><p>serverTimestamp()：跟踪服務器何時收到更新。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">todosCollection.undate(&#123;</span><br><span class="line">  <span class="attr">undo</span>: firebase.firestore.FieldValue.arrayRemove(<span class="string">&#x27;drinking&#x27;</span>),</span><br><span class="line">  <span class="attr">undoNum</span>: firebase.firestore.FieldValue.increment(<span class="number">1</span>),</span><br><span class="line">  <span class="attr">updateTime</span>: firebase.firestore.FieldValue.serverTimestamp()</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully written!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>除陣列更新外，要如何指定物件中某項值的更新，這時可以直接使用<strong>點表示法</strong>來引用文檔中的嵌套字段，並賦予新值。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">todosCollection.undate(&#123;</span><br><span class="line">  <span class="string">&#x27;author.name&#x27;</span>: <span class="string">&#x27;Celeste&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully written!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>特別提醒：指定物件屬性名時，一定要使用字串型式。</p>
-
-
-
-
-<h1 id="刪除文檔或文檔中指定屬性"><a href="#刪除文檔或文檔中指定屬性" class="headerlink" title="刪除文檔或文檔中指定屬性"></a>刪除文檔或文檔中指定屬性</h1><p>不論是刪除文檔或文檔中指定屬性都是使用 <code>delete()</code> ，只是使用的方法即位置不一樣。</p>
-<p><strong>刪除文檔中指定屬性</strong><br>在文檔使用 <code>update()</code> ，在欲刪除的屬性上使用 <code>firebase.firestore.FieldValue.delete()</code> 。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">db.collection(<span class="string">&#x27;todos&#x27;</span>).doc(<span class="string">&#x27;JUN&#x27;</span>).update(&#123;</span><br><span class="line">  <span class="attr">undo</span>: firebase.firestore.FieldValue.delete()</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully deleted!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong>刪除文檔</strong><br>在文檔使用 <code>delete()</code> 即可直接刪除文檔。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.collection(<span class="string">&#x27;todos&#x27;</span>).doc(<span class="string">&#x27;JUN&#x27;</span>).delete()</span><br><span class="line">.then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入成功</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Document successfully deleted!&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 寫入失敗</span></span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>參考資料</p>
-<p><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/firestore/manage-data/add-data?authuser=2">將數據添加到 Cloud Firestore</a></p>
-<p><a target="_blank" rel="noopener" href="https://firebase.google.com/docs/reference/js/firebase.firestore.FieldValue?authuser=2">firebase. firestore. FieldValue</a></p>
-
       
     </div>
 
@@ -1030,7 +957,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-05-11 14:02:24" itemprop="dateModified" datetime="2021-05-11T14:02:24+08:00">2021-05-11</time>
+        <time title="修改時間：2021-07-27 19:34:41" itemprop="dateModified" datetime="2021-07-27T19:34:41+08:00">2021-07-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1056,7 +983,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在談到如何使用 <code>$set</code> 前，就必須先了解一下 Vue 是如何實現數據響應的，所以另外寫了一篇有關於 Vue 響應式原理 - <a href="https://celeste6666.github.io/Vue/CodeAnalyze/VueReactivity/">Vue.js 源碼分析 - Vue 物件(Object)響應式原理</a>的文章，簡單記錄一下自己的理解過程。</p>
+          <p>在談到如何使用 <code>$set</code> 前，就必須先了解一下 Vue 是如何實現數據響應的，所以另外寫了一篇有關於 Vue 響應式原理 - <a href="https://celeste6666.github.io/Celeste6666/Vue/CodeAnalyze/VueReactivity/">Vue.js 源碼分析 - Vue 物件(Object)響應式原理</a>的文章，簡單記錄一下自己的理解過程。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Celeste6666/Vue/Basic/VueNo23$set/#more" rel="contents">
@@ -1121,7 +1048,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-05-10 20:48:26" itemprop="dateModified" datetime="2021-05-10T20:48:26+08:00">2021-05-10</time>
+        <time title="修改時間：2021-07-27 19:34:35" itemprop="dateModified" datetime="2021-07-27T19:34:35+08:00">2021-07-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">

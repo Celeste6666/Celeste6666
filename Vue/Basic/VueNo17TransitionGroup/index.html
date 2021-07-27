@@ -27,16 +27,16 @@
 <meta property="og:site_name" content="Celeste 技術儲藏室">
 <meta property="og:description" content="這一篇就來接續寫完 Vue 過渡及動畫的內容啦！希望能順利寫完我的 Vue 筆記。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo17TransitionGroup/flip.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo17TransitionGroup/moveWithoutAbsolute.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo17TransitionGroup/moveWithAbsolute.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo17TransitionGroup/flip.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo17TransitionGroup/moveWithoutAbsolute.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo17TransitionGroup/moveWithAbsolute.PNG">
 <meta property="og:image" content="https://img.youtube.com/vi/WOJWsYe3JVY/0.jpg">
 <meta property="article:published_time" content="2020-12-16T13:55:00.000Z">
-<meta property="article:modified_time" content="2021-02-12T12:39:20.173Z">
+<meta property="article:modified_time" content="2021-07-27T11:34:26.352Z">
 <meta property="article:author" content="Celeste">
 <meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://celeste6666.github.io/Vue/Basic/VueNo17TransitionGroup/flip.PNG">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo17TransitionGroup/flip.PNG">
 
 
 <link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo17TransitionGroup/">
@@ -232,7 +232,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-02-12 20:39:20" itemprop="dateModified" datetime="2021-02-12T20:39:20+08:00">2021-02-12</time>
+        <time title="修改時間：2021-07-27 19:34:26" itemprop="dateModified" datetime="2021-07-27T19:34:26+08:00">2021-07-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -266,7 +266,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;toggle=!toggle&quot;</span>&gt;</span>toggle<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">&quot;toggleTransition&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">&quot;toggle&quot;</span>&gt;</span>我是A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span>&gt;</span>我是B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css"><span class="selector-class">.toggleTransition-enter</span>,</span></span><br><span class="line"><span class="css"><span class="selector-class">.toggleTransition-leave-to</span> &#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.toggleTransition-enter-active</span>,</span></span><br><span class="line"><span class="css"><span class="selector-class">.toggleTransition-leave-active</span> &#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">transition</span>: all <span class="number">1s</span>;</span></span><br><span class="line"><span class="css">&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.toggleTransition-enter-to</span>,</span></span><br><span class="line"><span class="css"><span class="selector-class">.toggleTransition-leave</span> &#123;</span></span><br><span class="line"><span class="css">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span></span><br><span class="line"><span class="css">&#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在上面這個範例中，會發現沒辦法產生出轉場效果，如同之前提到過的 Vue 為了渲染效能的問題，會在切換相同元素標籤的情況下僅替換該元素標籤內部的內容，也因此在上方的例子中， Vue 在切換時僅會切換標籤內的文字，而非整個元素 <code>&lt;div&gt;</code> ，而因為這些 class <code>.v-*</code> 或 <code>.transitionName-*</code> 都是加在元素上的，而非文字，所以在只有文字被重新渲染的狀況下是不會有轉場效果的。</p>
-<p>詳細的元素複用可以參考 <a href="https://celeste6666.github.io/Vue/Basic/VueNo6VIf/">DAY06 | 跟 Vue.js 認識的30天 - Vue 的條件渲染(<code>v-if</code>、<code>v-show</code>)</a></p>
+<p>詳細的元素複用可以參考 <a href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo6VIf/">DAY06 | 跟 Vue.js 認識的30天 - Vue 的條件渲染(<code>v-if</code>、<code>v-show</code>)</a></p>
 <p>要怎麼讓切換是有動畫效果的呢？</p>
 <p><strong>第一種 - 加入 <code>key</code> 屬性</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;toggle=!toggle&quot;</span>&gt;</span>toggle<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">&quot;toggleTransition&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">&quot;toggle&quot;</span> <span class="attr">key</span>=<span class="string">&quot;A&quot;</span>&gt;</span>我是A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span> <span class="attr">key</span>=<span class="string">&quot;B&quot;</span>&gt;</span>我是B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -281,14 +281,16 @@
 <h2 id="過渡-轉場-模式"><a href="#過渡-轉場-模式" class="headerlink" title="過渡(轉場)模式"></a>過渡(轉場)模式</h2><p>在上面的範例中會發現元素在切換的過程中，會有一個正在消失，另一個慢慢出現的過程，也因此有一段時間是 2 個元素同時存在的狀況，所以有可能造成了破版的情況。</p>
 <p>這個就可以透過加入模式 <code>mode</code> 來解決， Vue 提供了 2 種模式可供選擇：</p>
 <ul>
-<li><code>mode=&#39;in-out&#39;</code> ：新元素先進入，完成後舊元素在離開。</li>
-<li><code>mode=&#39;out-in&#39;</code> ：舊元素先離開，完成後新元素在進入。</li>
+<li><p><code>mode=&#39;in-out&#39;</code> ：新元素先進入，完成後舊元素在離開。</p>
+</li>
+<li><p><code>mode=&#39;out-in&#39;</code> ：舊元素先離開，完成後新元素在進入。</p>
+</li>
 </ul>
 <p>同樣使用上方例子，但來達成舊元素先離開，新元素在進入的效果(<code>mode=&#39;out-in&#39;</code>)。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;toggle=!toggle&quot;</span>&gt;</span>toggle<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">&quot;toggleTransition&quot;</span> <span class="attr">mode</span>=<span class="string">&#x27;out-in&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">&quot;toggle&quot;</span> <span class="attr">key</span>=<span class="string">&quot;A&quot;</span>&gt;</span>我是A<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-else</span> <span class="attr">key</span>=<span class="string">&quot;B&quot;</span>&gt;</span>我是B<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>模組過渡的方法很簡單，就是在動態組件外邊加入 <code>&lt;transition&gt;</code> 標籤並加入 <code>.v-*</code> 或 <code>.transition-*</code> 等 class 樣式即可。 </p>
-<p>想了解動態組件可以先參考 <a href="https://celeste6666.github.io/Vue/Basic/VueNo15Dynamic/">DAY15 | 跟 Vue.js 認識的30天 - Vue 動態模組(Dynamic Components)</a>。</p>
+<p>模組過渡的方法很簡單，就是在動態組件外邊加入 <code>&lt;transition&gt;</code> 標籤並加入 <code>.v-*</code> 或 <code>.transition-*</code> 等 class 樣式即可。</p>
+<p>想了解動態組件可以先參考 <a href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo15Dynamic/">DAY15 | 跟 Vue.js 認識的30天 - Vue 動態模組(Dynamic Components)</a>。</p>
 <h1 id="列表過渡-轉場"><a href="#列表過渡-轉場" class="headerlink" title="列表過渡(轉場)"></a>列表過渡(轉場)</h1><p>先來知道文件中所說的，如何同時渲染整個列表，這時候要使用的是 <code>&lt;transition-group&gt;</code> 。</p>
 <p><code>&lt;transition-group&gt;</code> 跟 <code>&lt;transition&gt;</code> 有幾點不同及要注意的地方：</p>
 <ul>
@@ -315,7 +317,7 @@
 <p>需要注意的是使用 FLIP 过渡的元素不能设置为 <code>display: inline</code> 。作为替代方案，可以设置为 <code>display: inline-block</code> 或者放置于 <code>flex</code> 中。</p>
 </blockquote>
 <p>又來一個問題，那為什麼不能使用 <code>display: inline</code> 呢？先來看看<a target="_blank" rel="noopener" href="https://aerotwist.com/blog/flip-your-animations/">FLIP</a>文件內容：</p>
-<img src="/Vue/Basic/VueNo17TransitionGroup/flip.PNG" class="" title="flip">
+<img src="/Celeste6666/Vue/Basic/VueNo17TransitionGroup/flip.PNG" class="" title="flip">
 
 <p>簡單掃過會發現，<a target="_blank" rel="noopener" href="https://aerotwist.com/blog/flip-your-animations/">FLIP</a>有使用到 <code>transform</code> ，但是 <code>display: inline</code> 是無法使用 <code>transform</code> 效果的(可以參考<a target="_blank" rel="noopener" href="https://www.w3.org/TR/css-transforms-1/#terminology">Terminology - transformable element</a>)，也因此如果要使用 <code>.v-move</code> 或 <code>.transitionName-move</code> 的元素就不能是 <code>display: inline</code> 。</p>
 <p>也因此針對上方範例有 2 種解決辦法：</p>
@@ -329,9 +331,9 @@
 
 <p>變更元素或是加入 <code>display: inline-block</code> 後，會發現在加入數字時會有緩慢移動的動畫出現，但是在移除數字時還是不能出現這個效果，在 Vue 文件的範例中有提供一個方法來讓移除數字時能有動畫出現，那就是在 <code>.list-leave-active</code> 中加入 <code>position:absolute</code> 就可以解決了。</p>
 <p>就查詢網上資料，如 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/52901934/why-is-position-absolute-needed-for-move-transition-when-removing-item-from-list">stackoverflow</a> 及 <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/issues/6349">GitHub</a>，我認為是在移除的過程中(不加入 <code>position:absolute</code> )因為該移除元素(稱元素 A )仍然是有佔位的，直到動畫消失這個元素才會被真正移除，但在移除數字動畫開始之初，就會先透過 <a target="_blank" rel="noopener" href="https://aerotwist.com/blog/flip-your-animations/">FLIP</a> 計算元素 A 後面的元素需要移動多少位置，以便在這些後面元素中加入 <code>.v-move</code> ，但因為元素 A 是佔位的，所以 <a target="_blank" rel="noopener" href="https://aerotwist.com/blog/flip-your-animations/">FLIP</a> 會認為這些後面元素是不需移動的，所以並不會為這些元素加入 <code>.v-move</code> 。</p>
-<img src="/Vue/Basic/VueNo17TransitionGroup/moveWithoutAbsolute.PNG" class="" title="沒加 absolute">
+<img src="/Celeste6666/Vue/Basic/VueNo17TransitionGroup/moveWithoutAbsolute.PNG" class="" title="沒加 absolute">
 
-<img src="/Vue/Basic/VueNo17TransitionGroup/moveWithAbsolute.PNG" class="" title="沒加 absolute">
+<img src="/Celeste6666/Vue/Basic/VueNo17TransitionGroup/moveWithAbsolute.PNG" class="" title="沒加 absolute">
 
 <p>為了證實想法，是否加入 <code>position:absolute</code> 就是為了讓元素 A 成為不佔位的元素，以便讓 <a target="_blank" rel="noopener" href="https://aerotwist.com/blog/flip-your-animations/">FLIP</a> 替後邊元素計算位移距離，所以利用另一個屬性 <code>float</code> 來試試，發現也是成功的，結論就是只要找到方法讓該被移除元素在被移除之初就成為不佔位的元素即可讓 <a target="_blank" rel="noopener" href="https://aerotwist.com/blog/flip-your-animations/">FLIP</a> 動畫成功。</p>
 <h1 id="動態過渡-轉場"><a href="#動態過渡-轉場" class="headerlink" title="動態過渡(轉場)"></a>動態過渡(轉場)</h1><p>這裡利用 <code>v-bind:name</code> 來做一個切換動畫效果的範例。</p>
@@ -349,7 +351,7 @@
 <p>參考資料：</p>
 <p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/transitions.html"> Vue.js - 进入/离开 &amp; 列表过渡 </a></p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WOJWsYe3JVY"><img src="https://img.youtube.com/vi/WOJWsYe3JVY/0.jpg" alt="Yes"></a></p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/52901934/why-is-position-absolute-needed-for-move-transition-when-removing-item-from-list">stackoverflow</a> </p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/52901934/why-is-position-absolute-needed-for-move-transition-when-removing-item-from-list">stackoverflow</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/issues/6349">GitHub</a></p>
 
     </div>
