@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="Celeste 技術儲藏室">
 <meta property="og:description" content="這一篇筆記結束後，有關 Vue Router 基礎就先告一段落了，之後應該會來寫 Vue 的圖書館 Vuex 的筆記。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo26VueRouter(3)/redirect.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo26VueRouter(3)/redirect.PNG">
 <meta property="article:published_time" content="2021-05-31T08:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-14T07:28:43.000Z">
+<meta property="article:modified_time" content="2021-08-14T10:37:08.768Z">
 <meta property="article:author" content="Celeste">
 <meta property="article:tag" content="Vue.js">
 <meta property="article:tag" content="Vue Router">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://celeste6666.github.io/Vue/Basic/VueNo26VueRouter(3)/redirect.PNG">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo26VueRouter(3)/redirect.PNG">
 
 
 <link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo26VueRouter(3)/">
@@ -139,20 +139,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/Celeste6666/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Celeste6666/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/Celeste6666/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -230,7 +230,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-06-14 15:28:43" itemprop="dateModified" datetime="2021-06-14T15:28:43+08:00">2021-06-14</time>
+        <time title="修改時間：2021-08-14 18:37:08" itemprop="dateModified" datetime="2021-08-14T18:37:08+08:00">2021-08-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,7 +264,7 @@
 <p>簡單來說，就是要連到 A 位址並顯示 A 模組，但因遇到某些問題，想讓可點選 A 連結的地方全部重新導向 B 連結，這時候就可以透過 <code>redirect</code> 這個方法，直接讓點選 A 連結的地方都導向 B 連結，並顯示 B 模組。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.創建路由(創建模組及命名)</span></span><br><span class="line"><span class="keyword">const</span> HOME = &#123;</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`&lt;div style=&quot;background:yellow;color:black&quot;&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;HOME&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;`</span>,</span><br><span class="line">  <span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.$route.path);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ABOUT = &#123;</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`&lt;div style=&quot;background:blue;color:white&quot;&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;ABOUT&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;`</span>,</span><br><span class="line">  <span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.$route.path);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.定義路由</span></span><br><span class="line"><span class="comment">//原本導向 /home 的地方，全都導向 /about ，不只是網址改變而是連顯示的模組都變成 /about 會顯示的模組</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&quot;/home&quot;</span>, <span class="attr">component</span>: HOME, <span class="attr">redirect</span>: <span class="string">&quot;/about&quot;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&quot;/about&quot;</span>, <span class="attr">component</span>: ABOUT &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">//3. 創建 router 實例</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<img src="/Vue/Basic/VueNo26VueRouter(3)/redirect.PNG" class="" title="redirect">
+<img src="/Celeste6666/Vue/Basic/VueNo26VueRouter(3)/redirect.PNG" class="" title="redirect">
 
 <p><strong>別名(<code>alias</code>)</strong></p>
 <p>就是綽號的意思，就像是一個人擁有綽號後，當別人喊這個綽號時，你自然會知道是在叫你。</p>

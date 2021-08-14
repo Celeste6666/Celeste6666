@@ -28,9 +28,9 @@
 <meta property="og:description" content="前言(可以略過)如標題，為了練習Sass，所以最近切板練習時常常用Sass來處理樣式，殊不知這是噩夢的開始。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20181129/2be4542b637942838e5aeb541516f768.gif">
-<meta property="og:image" content="https://celeste6666.github.io/Gulp/whygulp/gulptest.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/Gulp/whygulp/gulptask.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/Gulp/whygulp/gulppipe.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Gulp/whygulp/gulptest.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Gulp/whygulp/gulptask.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Gulp/whygulp/gulppipe.PNG">
 <meta property="article:published_time" content="2020-06-11T08:00:19.000Z">
 <meta property="article:modified_time" content="2020-09-13T05:24:14.204Z">
 <meta property="article:author" content="Celeste">
@@ -143,20 +143,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/Celeste6666/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Celeste6666/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/Celeste6666/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -297,7 +297,7 @@
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  function defaultTask(cb) &#123;</span><br><span class="line">  // place code for your default task here</span><br><span class="line">  cb();</span><br><span class="line">&#125;</span><br><span class="line">  exports.default = defaultTask</span><br></pre></td></tr></table></figure>
 <p><strong>運行</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp</span><br></pre></td></tr></table></figure>
-<img src="/Gulp/whygulp/gulptest.PNG" class="" title="gulptest"></li>
+<img src="/Celeste6666/Gulp/whygulp/gulptest.PNG" class="" title="gulptest"></li>
 <li><p>安裝Gulp套件<br>可以到<a target="_blank" rel="noopener" href="https://gulpjs.com/plugins/">PLUGINS</a>下載套件。<br>安裝<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/gulp-sass">gulp-sass套件</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm i --save-dev gulp-sass</span><br><span class="line">$ npm i gulp-sass</span><br></pre></td></tr></table></figure>
 
@@ -310,9 +310,9 @@
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">&#x27;gulp-sass&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <h4 id="撰寫的SOP"><a href="#撰寫的SOP" class="headerlink" title="撰寫的SOP"></a>撰寫的SOP</h4><p><strong>基本公式</strong></p>
-<img src="/Gulp/whygulp/gulptask.PNG" class="" title="gulptask">
+<img src="/Celeste6666/Gulp/whygulp/gulptask.PNG" class="" title="gulptask">
 <p><strong>function任務內容撰寫</strong></p>
-<img src="/Gulp/whygulp/gulppipe.PNG" class="" title="gulppipe">
+<img src="/Celeste6666/Gulp/whygulp/gulppipe.PNG" class="" title="gulppipe">
 
 <p>在六角的Gulp課程中，有提到gulp將每個不同的任務用<strong>pipe</strong>連接，pipe的中文意思就是管子，也因此可以把**gulp.src(‘來源資料’)<strong>想像成水，</strong>pipe(任務)<strong>想成水會經過的管子，每根管子都有自己要做的任務，當然可以將管子不斷的增加(一直加pipe(任務))，並且最後一根管子的任務就是將水導向目的地(水桶??)，也就是</strong>pipe(gulp.dest(‘資料傳送目的地’))**，記得導向目的地是最後一根管子(pipe)的任務喔！</p>
 <h4 id="運行gulp"><a href="#運行gulp" class="headerlink" title="運行gulp"></a>運行gulp</h4><p>在Command Line裡執行</p>

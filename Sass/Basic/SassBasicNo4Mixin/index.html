@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="Celeste 技術儲藏室">
 <meta property="og:description" content="@mixin好用在哪？">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://celeste6666.github.io/Sass/Basic/SassBasicNo4Mixin/mixin&rwd.png">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Sass/Basic/SassBasicNo4Mixin/mixin&rwd.png">
 <meta property="article:published_time" content="2020-04-20T13:10:27.000Z">
 <meta property="article:modified_time" content="2021-05-14T10:15:58.483Z">
 <meta property="article:author" content="Celeste">
 <meta property="article:tag" content="Sass">
 <meta property="article:tag" content="Scss">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://celeste6666.github.io/Sass/Basic/SassBasicNo4Mixin/mixin&rwd.png">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/Sass/Basic/SassBasicNo4Mixin/mixin&rwd.png">
 
 
 <link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Sass/Basic/SassBasicNo4Mixin/">
@@ -139,20 +139,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/Celeste6666/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Celeste6666/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/Celeste6666/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -277,7 +277,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//.sass</span><br><span class="line">@mixin mobile</span><br><span class="line">    @media(max-width:576px)</span><br><span class="line">        @content</span><br><span class="line"></span><br><span class="line">@mixin pad</span><br><span class="line">    @media(max-width:767px)</span><br><span class="line">        @content</span><br><span class="line"></span><br><span class="line">.cart</span><br><span class="line">    +mobile</span><br><span class="line">        font-size: 16px</span><br><span class="line">        color: $Bistre</span><br><span class="line"></span><br><span class="line">.login</span><br><span class="line">    +pad</span><br><span class="line">        background: $Antique-fuchsia</span><br></pre></td></tr></table></figure>
 
 <h2 id="content的用意"><a href="#content的用意" class="headerlink" title="@content的用意"></a>@content的用意</h2><p>每個斷點的每個區塊都會有專屬於自己的樣式，這時候<code>@content</code>就是來處裡這個問題，在匯入(<code>@include</code>或<code>+</code> )mixinName後，下方直接寫入所需樣式，<code>@content</code>就會變所寫成所寫的樣式，成為這個斷點這個區塊的樣式，所以在每個區塊的<code>@content</code>就是所寫的樣式。可以參考下方圖片說明</p>
-<img src="/Sass/Basic/SassBasicNo4Mixin/mixin&rwd.png" class="" title="@mixin">
+<img src="/Celeste6666/Sass/Basic/SassBasicNo4Mixin/mixin&rwd.png" class="" title="@mixin">
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//@mixin裡可以再匯入另一個@mixin</span><br><span class="line">.login</span><br><span class="line">    +mobile</span><br><span class="line">        +text-border(3px,$Antique-fuchsia)</span><br></pre></td></tr></table></figure>
     </div>

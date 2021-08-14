@@ -20,15 +20,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;Celeste6666&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;Celeste6666&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
-<meta name="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+<meta name="description" content="在了解 Callback Functions Hell ，必須先知道甚麼是 Callback Functions ，而 Callback Functions 怎麼造成 Callback Functions Hell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="EP 03 | Asynchronous JS 的運用 - Callback Functions">
+<meta property="og:title" content="EP 03 | Asynchronous JS 的運用 - Callback Functions Hell">
 <meta property="og:url" content="https://celeste6666.github.io/Celeste6666/JSLearning/Asynchronous/Async03Callback/index.html">
 <meta property="og:site_name" content="Celeste 技術儲藏室">
-<meta property="og:description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+<meta property="og:description" content="在了解 Callback Functions Hell ，必須先知道甚麼是 Callback Functions ，而 Callback Functions 怎麼造成 Callback Functions Hell">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-03-19T14:55:27.000Z">
-<meta property="article:modified_time" content="2021-03-19T14:55:57.000Z">
+<meta property="article:published_time" content="2021-07-31T03:55:27.000Z">
+<meta property="article:modified_time" content="2021-08-06T07:03:35.000Z">
 <meta property="article:author" content="Celeste">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -38,10 +38,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;JSLearning&#x2F;Asynchronous&#x2F;Async03Callback&#x2F;&quot;,&quot;path&quot;:&quot;JSLearning&#x2F;Asynchronous&#x2F;Async03Callback&#x2F;&quot;,&quot;title&quot;:&quot;EP 03 | Asynchronous JS 的運用 - Callback Functions&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;JSLearning&#x2F;Asynchronous&#x2F;Async03Callback&#x2F;&quot;,&quot;path&quot;:&quot;JSLearning&#x2F;Asynchronous&#x2F;Async03Callback&#x2F;&quot;,&quot;title&quot;:&quot;EP 03 | Asynchronous JS 的運用 - Callback Functions Hell&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>EP 03 | Asynchronous JS 的運用 - Callback Functions | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
+<title>EP 03 | Asynchronous JS 的運用 - Callback Functions Hell | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
   
 
 
@@ -107,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目錄
@@ -120,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Callback-Functions"><span class="nav-number">1.</span> <span class="nav-text">Callback Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Callback-%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什麼是 Callback ？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Callback-Functions-%E6%80%8E%E9%BA%BC%E8%AE%8A%E6%88%90-Callback-Functions-Hell-%E7%9A%84%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">Callback Functions 怎麼變成 Callback Functions Hell 的？</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -135,20 +136,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/Celeste6666/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Celeste6666/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/Celeste6666/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -208,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          EP 03 | Asynchronous JS 的運用 - Callback Functions
+          EP 03 | Asynchronous JS 的運用 - Callback Functions Hell
         </h1>
 
         <div class="post-meta-container">
@@ -219,14 +220,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-03-19 22:55:27" itemprop="dateCreated datePublished" datetime="2020-03-19T22:55:27+08:00">2020-03-19</time>
+      <time title="創建時間：2021-07-31 11:55:27" itemprop="dateCreated datePublished" datetime="2021-07-31T11:55:27+08:00">2021-07-31</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-03-19 22:55:57" itemprop="dateModified" datetime="2021-03-19T22:55:57+08:00">2021-03-19</time>
+        <time title="修改時間：2021-08-06 15:03:35" itemprop="dateModified" datetime="2021-08-06T15:03:35+08:00">2021-08-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -252,7 +253,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p>在了解 Callback Functions Hell ，必須先知道甚麼是 Callback Functions ，而 Callback Functions 怎麼造成 Callback Functions Hell </p>
+<span id="more"></span>
+
+<h1 id="Callback-Functions"><a href="#Callback-Functions" class="headerlink" title="Callback Functions"></a>Callback Functions</h1><p>其實有寫過 JS 的 都應該有用過 Callback Functions(以下簡稱 Callback )，像是常用的 <code>forEach()</code> 、 <code>map()</code>、<code>filter()</code>、<code>setTimeout()</code> 等等。</p>
+<h2 id="什麼是-Callback-？"><a href="#什麼是-Callback-？" class="headerlink" title="什麼是 Callback ？"></a>什麼是 Callback ？</h2><p>範例一</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">arr.forEach(<span class="function"><span class="params">a</span> =&gt;</span> a % <span class="number">2</span> != <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>又或者是</p>
+<p>範例二</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMsg</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Hello Ajax&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getResponse</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">  xhr.open(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/1&#x27;</span>)</span><br><span class="line">  xhr.send()</span><br><span class="line"></span><br><span class="line">  xhr.addEventListener(<span class="string">&#x27;readystatechange&#x27;</span>, <span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr &lt; <span class="number">300</span>)&#123;</span><br><span class="line">        cb()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getResponse(getMsg)</span><br></pre></td></tr></table></figure>
+
+<p>在 freeCodeCamp 中 <a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/what-is-a-callback-function-in-javascript/">What is a Callback Function in JavaScript?</a> 寫到：</p>
+<blockquote>
+<p>A callback function is a function that is passed as an argument to another function, to be “called back” at a later time. A function that accepts other functions as arguments is called a higher-order function.</p>
+</blockquote>
+<p>簡單來說 Callback Function 指的就是做為另一個函數(以下稱函數 A )的引數，並且這個引數在函數 A 中會被調用，而這個接收其他函數作為引數的函數 A 又可以稱做 Higher-Order Function(高階函數)。</p>
+<p>所以上面那 2 個 JS 範例， 範例一中 <code>forEach()</code> 帶入的 <code>a =&gt; a % 2 != 0</code> 及範例二中 <code>getResponse()</code> 帶入的 <code>getMsg</code> 都是 Callback Function 。</p>
+<h1 id="Callback-Functions-怎麼變成-Callback-Functions-Hell-的？"><a href="#Callback-Functions-怎麼變成-Callback-Functions-Hell-的？" class="headerlink" title="Callback Functions 怎麼變成 Callback Functions Hell 的？"></a>Callback Functions 怎麼變成 Callback Functions Hell 的？</h1><p>假使透過異步函數得到資料後，要在執行另一個異步函數去取得另一個資料的話，以 Callback Functions 來寫的話會是怎樣？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getResponse</span>(<span class="params">url, cb</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">  xhr.open(<span class="string">&#x27;GET&#x27;</span>, url)</span><br><span class="line">  xhr.send()</span><br><span class="line"></span><br><span class="line">  xhr.addEventListener(<span class="string">&#x27;readystatechange&#x27;</span>, <span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span>)&#123;</span><br><span class="line">        cb(<span class="literal">undefined</span>, <span class="built_in">JSON</span>.parse(xhr.responseText))</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        cb(<span class="string">&#x27;cann\&#x27;t fetch!&#x27;</span>, <span class="literal">undefined</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getResponse(<span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/1&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err, data)</span><br><span class="line">  <span class="comment">// 取得 todos/1 資料後，再去調用 getResponse() 取得另一筆 todos/3 的資料</span></span><br><span class="line">  getResponse(<span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/3&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err, data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>而 Callback Functions Hell 的形成就是因為太多的  Callback Functions 被一層一層執行下去，導致代碼難以維護。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">getResponse(<span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/1&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err, data)</span><br><span class="line">  getResponse(<span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/3&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err, data)</span><br><span class="line">    getResponse(<span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/5&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err, data)</span><br><span class="line">      getResponse(<span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/5&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err, data)</span><br><span class="line">        getResponse(<span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/5&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(err, data)</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>上面這個範例看起來是不是會覺得很雜亂，想修改也無從下手的感覺，再想想看如果在繼續不斷的在上一層中調用 Callback Function 的話，是不是會覺得很恐怖，這也是為什麼會被稱作 Callback Functions Hell 。</p>
+<p>參考資料</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K-Q-xyrA89M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EQem2gugonA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     
@@ -268,13 +296,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Celeste6666/JSLearning/Asynchronous/Async02HttpRequest/" rel="prev" title="EP 02 | Asynchronous JS 的運用 - HTTP Requests">
-                  <i class="fa fa-chevron-left"></i> EP 02 | Asynchronous JS 的運用 - HTTP Requests
+                <a href="/Celeste6666/Firebase/Firestore/FirebaseFirestoreEp3GetData/" rel="prev" title="EP03 | Firebase 中的資料庫 - 獲取 Cloud Firestore 資料庫">
+                  <i class="fa fa-chevron-left"></i> EP03 | Firebase 中的資料庫 - 獲取 Cloud Firestore 資料庫
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Celeste6666/Sass/Basic/SassBasicNo1/" rel="next" title="Sass基礎學習No.1-Sass簡介">
-                  Sass基礎學習No.1-Sass簡介 <i class="fa fa-chevron-right"></i>
+                <a href="/Celeste6666/JSLearning/D3/D3Ep1Basic/" rel="next" title="EP01 | 學會 D3.js 製作圖表 - 基礎概念">
+                  EP01 | 學會 D3.js 製作圖表 - 基礎概念 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

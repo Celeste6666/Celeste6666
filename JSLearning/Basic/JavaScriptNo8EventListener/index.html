@@ -27,13 +27,13 @@
 <meta property="og:site_name" content="Celeste 技術儲藏室">
 <meta property="og:description" content="上一篇文章JavaScript淺嚐紀錄No.7-了解一下DOM吧！已經簡單的介紹DOM是甚麼了，有興趣的可以先去參考。這裡我只會去介紹addEventListener這個事件監聽器，本筆記不會提有關on-event處理器的事情！">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://celeste6666.github.io/JSLearning/Basic/JavaScriptNo8EventListener/addEventListener.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/addEventListener.PNG">
 <meta property="og:image" content="https://www.w3.org/TR/DOM-Level-3-Events/images/eventflow.svg">
-<meta property="og:image" content="https://celeste6666.github.io/JSLearning/Basic/JavaScriptNo8EventListener/eventflow.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/JSLearning/Basic/JavaScriptNo8EventListener/capturingphase.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/JSLearning/Basic/JavaScriptNo8EventListener/bubblingphase.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/JSLearning/Basic/JavaScriptNo8EventListener/special.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/JSLearning/Basic/JavaScriptNo8EventListener/specialeventflow.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/eventflow.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/capturingphase.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/bubblingphase.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/special.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/specialeventflow.PNG">
 <meta property="article:published_time" content="2020-07-03T11:25:19.000Z">
 <meta property="article:modified_time" content="2020-07-11T06:26:21.208Z">
 <meta property="article:author" content="Celeste">
@@ -44,7 +44,7 @@
 <meta property="article:tag" content="捕獲事件(Event Capturing)">
 <meta property="article:tag" content="冒泡事件(Event Bubbling)">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://celeste6666.github.io/JSLearning/Basic/JavaScriptNo8EventListener/addEventListener.PNG">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/addEventListener.PNG">
 
 
 <link rel="canonical" href="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/">
@@ -149,20 +149,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/Celeste6666/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Celeste6666/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/Celeste6666/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -268,7 +268,7 @@
     <div class="post-body" itemprop="articleBody">
         <p>上一篇文章<a href="https://celeste6666.github.io/2020/06/03/JavaScriptNo7_DOM&Event/">JavaScript淺嚐紀錄No.7-了解一下DOM吧！</a>已經簡單的介紹DOM是甚麼了，有興趣的可以先去參考。<br>這裡我只會去介紹addEventListener這個事件監聽器，本筆記不會提有關on-event處理器的事情！</p>
 <span id="more"></span>
-<h1 id="事件監聽器-addEventListener-寫法"><a href="#事件監聽器-addEventListener-寫法" class="headerlink" title="事件監聽器(addEventListener)寫法"></a>事件監聽器(addEventListener)寫法</h1><img src="/JSLearning/Basic/JavaScriptNo8EventListener/addEventListener.PNG" class="" title="addEventListener">
+<h1 id="事件監聽器-addEventListener-寫法"><a href="#事件監聽器-addEventListener-寫法" class="headerlink" title="事件監聽器(addEventListener)寫法"></a>事件監聽器(addEventListener)寫法</h1><img src="/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/addEventListener.PNG" class="" title="addEventListener">
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">currentTarget.addEventListener(handler,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;…&#125;,<span class="literal">true</span>/<span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
 
 <h1 id="事件-Event-從哪裡來的？"><a href="#事件-Event-從哪裡來的？" class="headerlink" title="事件(Event)從哪裡來的？"></a>事件(Event)從哪裡來的？</h1><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Event">MDN</a></p>
@@ -287,7 +287,7 @@
 <li>At target Phase：當event事件到達觸發event事件的元素時。</li>
 <li>Bubbling Phase：event事件從下(target元素)到上(根元素)，往來時路傳遞回去，並且在途中去觸發有綁定相同event事件的元素(第3個參數要設定<code>false</code>)。</li>
 </ul>
-<img src="/JSLearning/Basic/JavaScriptNo8EventListener/eventflow.PNG" class="" title="eventflow">
+<img src="/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/eventflow.PNG" class="" title="eventflow">
 
 <p>來看幾個範例：<br><strong>Capturing</strong><br>請開啟Chrome 開發者工具來檢視<code>event.target</code>。</p>
 <p class="codepen" data-height="255" data-theme-id="dark" data-default-tab="js,result" data-user="JOUCHUN" data-slug-hash="oNbpGyP" style="height: 255px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="capture phase">
@@ -296,7 +296,7 @@
   on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-<img src="/JSLearning/Basic/JavaScriptNo8EventListener/capturingphase.PNG" class="" title="capturingphase">
+<img src="/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/capturingphase.PNG" class="" title="capturingphase">
 
 <p>當點擊藍色Capturing按鈕時，會發現執行的順序是從<code>list</code>→<code>listCapturing</code>→<code>btnCapturing</code>，這是因為我們將這3個元素第3個參數都設定成<code>true</code>，所以<code>click</code>事件會從藍色<code>btnCapturing</code>這個DOM物件最上層開始往下，順序類似<code>body</code>→<code>list</code>→<code>listCapturing</code>→<code>btnCapturing</code>，我們沒有在<code>body</code>身上綁定事件監聽器，所以當事件傳遞到<code>body</code>時，並不會觸發任何行為，我們有在<code>list</code>及<code>listCapturing</code>身上各綁定了會在Capture Phase時被觸發的<code>click</code>事件(當然它們也都會在At target Phase時也會被觸發)，所以當事件傳遞到<code>list</code>→<code>listCapturing</code>時，會依序觸發綁定的事件。</p>
 <p><strong>Bubbling</strong><br>請開啟Chrome 開發者工具來檢視<code>event.target</code>。</p>
@@ -306,14 +306,14 @@
   on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-<img src="/JSLearning/Basic/JavaScriptNo8EventListener/bubblingphase.PNG" class="" title="bubblingphase">
+<img src="/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/bubblingphase.PNG" class="" title="bubblingphase">
 當點擊紅色Bubbling按鈕時，會發現執行的順序是跟上面的Capturing按鈕是相反的，是`btnBubbling`→`listBubbling`→`list`，這是因為我們將這3個元素第3個參數都設定成`false`，所以`click`事件會從紅色`btnBubbling`這個DOM物件開始往上，順序類似`btnBubbling`→`listBubbling`→`list`→`body`，同樣的我們並沒有在`body`身上綁定事件監聽器，所以當事件傳遞到`body`時，並不會觸發任何行為，我們有在`listBubbling`及`list`身上各綁定了會在Bubbling Phase時被觸發的`click`事件(當然它們也都會在At target Phase時也會被觸發)，所以當事件傳遞到`listBubbling`→`list`時，會依序觸發綁定的事件。
 
 <p>到這裡大家對事件傳遞應該都有一點概念了，但這時我卻產生了一個疑問，如果我是這麼綁定事件的話，會發生甚麼事？<br>我在<code>list</code>第3個參數設定<code>false</code>，而<code>btnCapturing</code>跟<code>listCapturing</code>設定為<code>true</code>，再來看看會是甚麼結果。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> listCapturing = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list-capturing&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> btnCapturing = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.btn-capturing&#x27;</span>)</span><br><span class="line">btnCapturing.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`btnCapturing event物件`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`currentTarget被監聽的元素(也是this):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`觸發click事件的元素(e.target):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e.target)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`btnCapturing的觸發階段:<span class="subst">$&#123;e.eventPhase&#125;</span>`</span>)</span><br><span class="line">&#125;, <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">listCapturing.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`listCapturing event物件`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`currentTarget被監聽的元素(也是this):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`觸發click事件的元素(e.target):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e.target)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`listCapturing的觸發階段:<span class="subst">$&#123;e.eventPhase&#125;</span>`</span>)</span><br><span class="line">&#125;, <span class="literal">true</span>)</span><br><span class="line">list.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`list event物件`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`currentTarget被監聽的元素(也是this):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`觸發click事件的元素(e.target):`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(e.target)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`list的觸發階段:<span class="subst">$&#123;e.eventPhase&#125;</span>`</span>)</span><br><span class="line">&#125;, <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
-<img src="/JSLearning/Basic/JavaScriptNo8EventListener/special.PNG" class="" title="special">
+<img src="/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/special.PNG" class="" title="special">
 <p>這時候會發現事件傳遞的方向其實一樣是<code>body</code>→<code>list</code>→<code>listCapturing</code>→<code>btnCapturing</code>→<code>btnCapturing</code>→<code>listCapturing</code>→<code>list</code>→<code>body</code>，同樣的因為<code>body</code>並沒有綁定任何監聽器所以會被略過，而在事件捕獲階段，到達<code>list</code>時，發現<code>list</code>並沒有綁定在當它處於捕獲階段時的事件監聽器，所以會略過它再到<code>listCapturing</code>→<code>btnCapturing</code>去執行事件函式，但這時候的<strong>事件傳遞</strong>並不會因為已經到了<code>btnCapturing</code>就停止，而是會繼續執行冒泡階段，所以會繼續從<code>btnCapturing</code>開始再繼續往上傳遞事件，但<code>btnCapturing</code>及<code>listCapturing</code>並沒有綁定會在冒泡階段執行的是監聽器，所以被略過，事件被傳遞到了<code>list</code>時，就發現原來你有綁定處於冒泡階段時的事件監聽器喔！那就來執行一下你的事件函式。</p>
-<img src="/JSLearning/Basic/JavaScriptNo8EventListener/specialeventflow.PNG" class="" title="specialeventflow">
+<img src="/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/specialeventflow.PNG" class="" title="specialeventflow">
 
 <blockquote>
 <p>到這我的結論就是：如果有一個DOM物件綁定事件監聽器的話，那麼這個事件一定會從上到下，再從下到上傳遞，至於這個event事件經過其他DOM物件時，會不會被觸發取決於事件傳遞到該DOM物件時，它有沒有綁定監聽器；甚麼時候被觸發，取決於綁定的第3個參數是<code>true</code>(Capture階段)還是<code>false</code>(Bubbling階段)，如果是<code>true</code>的話，那麼在事件傳遞是Capture階段經過該DOM物件的話，就會被觸發該事件函式，反之如果是<code>false</code>的話，就會在事件傳遞是Bubbling階段時被觸發。</p>

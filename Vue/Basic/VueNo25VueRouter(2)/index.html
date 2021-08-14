@@ -27,16 +27,16 @@
 <meta property="og:site_name" content="Celeste 技術儲藏室">
 <meta property="og:description" content="接續上一篇 Vue Router 的筆記，這篇主要是來講解巢狀路由。何謂巢狀路由？">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/nestedRouterComponent.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/nameView.PNG">
-<meta property="og:image" content="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/router.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo25VueRouter(2)/nestedRouterComponent.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo25VueRouter(2)/nameView.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo25VueRouter(2)/router.PNG">
 <meta property="article:published_time" content="2021-05-28T11:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-31T08:13:52.000Z">
+<meta property="article:modified_time" content="2021-08-14T10:37:11.891Z">
 <meta property="article:author" content="Celeste">
 <meta property="article:tag" content="Vue.js">
 <meta property="article:tag" content="Vue Router">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://celeste6666.github.io/Vue/Basic/VueNo25VueRouter(2)/nestedRouterComponent.PNG">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo25VueRouter(2)/nestedRouterComponent.PNG">
 
 
 <link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo25VueRouter(2)/">
@@ -141,20 +141,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/Celeste6666/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Celeste6666/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/Celeste6666/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -232,7 +232,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-05-31 16:13:52" itemprop="dateModified" datetime="2021-05-31T16:13:52+08:00">2021-05-31</time>
+        <time title="修改時間：2021-08-14 18:37:11" itemprop="dateModified" datetime="2021-08-14T18:37:11+08:00">2021-08-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routers = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/link1&#x27;</span></span><br><span class="line">    <span class="attr">component</span>: Link1,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;profile&#x27;</span></span><br><span class="line">        <span class="attr">component</span>: PROFILE</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/link2&#x27;</span></span><br><span class="line">    <span class="attr">component</span>: Link2,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;post&#x27;</span></span><br><span class="line">        <span class="attr">component</span>: POST</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/link3&#x27;</span></span><br><span class="line">    <span class="attr">component</span>: Link3,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;news&#x27;</span></span><br><span class="line">        <span class="attr">component</span>: NEWS</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 <p>對我來說巢狀路由的狀態就是，當點了某個連結 <code>&lt;router-link&gt;&lt;/router-link&gt;</code> ， <code>&lt;router-view&gt;&lt;/router-view&gt;</code> 就會導向某個模組 A ，在這個模組 A 裡也有一或多個 <code>&lt;router-link&gt;&lt;/router-link&gt;</code> ，而點選了模組 A 裡面的某個連結後，模組 A 裡面 <code>&lt;router-view&gt;&lt;/router-view&gt;</code> 就會導向模組 B。</p>
-<img src="/Vue/Basic/VueNo25VueRouter(2)/nestedRouterComponent.PNG" class="" title="nestedRouterComponent">
+<img src="/Celeste6666/Vue/Basic/VueNo25VueRouter(2)/nestedRouterComponent.PNG" class="" title="nestedRouterComponent">
 
 <h1 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h1><p>除了給予路由路徑及模組外，還可以命名(<code>name</code>)該路由，並且該路由也可以透過該名來跳轉。</p>
 <p><strong>不帶參數</strong></p>
@@ -284,7 +284,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123; name: &#x27;user&#x27;, params: &#123;username: &#x27;Celeste&#x27;&#125; &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="命名視圖"><a href="#命名視圖" class="headerlink" title="命名視圖"></a>命名視圖</h1><p>想同時顯示多個模組的時候就可以利用此方法。</p>
-<img src="/Vue/Basic/VueNo25VueRouter(2)/nameView.PNG" class="" title="命名視圖">
+<img src="/Celeste6666/Vue/Basic/VueNo25VueRouter(2)/nameView.PNG" class="" title="命名視圖">
 
 <p>上圖的結構如下</p>
 <p>沒有屬性 <code>name</code> 的 <code>&lt;router-view&gt;&lt;/router-view&gt;</code> 即適用 <code>default</code> 所設定的模組。</p>
@@ -295,7 +295,7 @@
 
 <h1 id="其他導向方法"><a href="#其他導向方法" class="headerlink" title="其他導向方法"></a>其他導向方法</h1><p>除了上面所用的 <code>&lt;router-link :to=&quot;path&quot;&gt;&lt;/router-link&gt;</code> 外，還可以透過 <code>$router.push(location,onComplete?,onAbort?)</code> 前往其他路由。</p>
 <p>一定有很多人疑惑了 <code>$router</code> 跟 <code>$route</code> 有甚麼差別？<br><code>$router</code> 係為得到路由實例，而 <code>$route</code> 係為得到路由對象屬性。</p>
-<img src="/Vue/Basic/VueNo25VueRouter(2)/router.PNG" class="" title="router">
+<img src="/Celeste6666/Vue/Basic/VueNo25VueRouter(2)/router.PNG" class="" title="router">
 
 <p><code>push()</code> 方法在 <code>$router</code> 裡的原型鏈(<code>__proto__</code>)上。</p>
 <p><strong><code>push</code>方法</strong></p>
