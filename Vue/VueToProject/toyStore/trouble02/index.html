@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Celeste6666/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Celeste6666/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Celeste6666/images/ico16.png">
+  <link rel="mask-icon" href="/Celeste6666/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Celeste6666/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;Celeste6666&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;Celeste6666&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="之前都是使用 axios 套件來做 API 串接的，但是既然有原生的 Web API 可以來操作 AJAX ，就來試試看！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="開發 Vue 問題挑戰 ─ 在 Vue 中使用 Fetch 上傳檔案">
+<meta property="og:url" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble02/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="之前都是使用 axios 套件來做 API 串接的，但是既然有原生的 Web API 可以來操作 AJAX ，就來試試看！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble02/%E5%8A%A0%E5%85%A5ContentType.PNG">
+<meta property="article:published_time" content="2021-09-14T06:06:27.000Z">
+<meta property="article:modified_time" content="2021-09-14T08:47:58.018Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble02/%E5%8A%A0%E5%85%A5ContentType.PNG">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble02/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;Vue&#x2F;VueToProject&#x2F;toyStore&#x2F;trouble02&#x2F;&quot;,&quot;path&quot;:&quot;Vue&#x2F;VueToProject&#x2F;toyStore&#x2F;trouble02&#x2F;&quot;,&quot;title&quot;:&quot;開發 Vue 問題挑戰 ─ 在 Vue 中使用 Fetch 上傳檔案&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>開發 Vue 問題挑戰 ─ 在 Vue 中使用 Fetch 上傳檔案 | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Celeste6666/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Celeste6666/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/Celeste6666/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/Celeste6666/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Celeste6666/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Celeste6666/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch-%E5%9F%BA%E7%A4%8E%E5%AF%AB%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">Fetch 基礎寫法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%95%8F%E9%A1%8C%EF%BC%9A%E5%A6%82%E4%BD%95%E9%80%8F%E9%81%8E-fetch-%E5%82%B3%E9%80%81-%E7%85%A7%E7%89%87%E6%AA%94%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">問題：如何透過 fetch 傳送 照片檔案</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/Celeste6666/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/Celeste6666/archives/">
+        
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/Celeste6666/categories/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/Celeste6666/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          開發 Vue 問題挑戰 ─ 在 Vue 中使用 Fetch 上傳檔案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2021-09-14 14:06:27 / 修改時間：16:47:58" itemprop="dateCreated datePublished" datetime="2021-09-14T14:06:27+08:00">2021-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Vue/Vue-%E5%B0%88%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">Vue 專案</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Vue/Vue-%E5%B0%88%E6%A1%88/%E7%8E%A9%E5%85%B7%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">玩具電商網站</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>之前都是使用 axios 套件來做 API 串接的，但是既然有原生的 Web API 可以來操作 AJAX ，就來試試看！</p>
+<span id="more"></span>
+
+<h1 id="Fetch-基礎寫法"><a href="#Fetch-基礎寫法" class="headerlink" title="Fetch 基礎寫法"></a>Fetch 基礎寫法</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fetch(url, &#123;</span><br><span class="line">  <span class="comment">// init</span></span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span> || <span class="string">&#x27;POST&#x27;</span> || <span class="string">&#x27;PUT&#x27;</span> || <span class="string">&#x27;PATCH&#x27;</span> || <span class="string">&#x27;DELETE&#x27;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>, <span class="comment">// HTTP 請求中，客戶端用來告訴伺服器自己傳的資料是什麼內容類型。</span></span><br><span class="line">    <span class="attr">Accept</span>: <span class="string">&#x27;application/json&#x27;</span>, <span class="comment">//  HTTP 請求標頭對伺服器告知用戶端可解讀的內容類型。</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: <span class="built_in">JSON</span>.stringify(data) <span class="comment">// 如果要傳送資料( &#x27;POST&#x27; || &#x27;PUT&#x27; || &#x27;PATCH&#x27; )， 則透過 body 傳送資料</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 透過 res.json() 來解讀回傳回來的資料</span></span><br><span class="line"><span class="comment">// res.json() 回傳回來的是一個 Promise ，所以要用 then 接收 resolve</span></span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</span><br><span class="line">  .then(<span class="function"><span class="params">json</span> =&gt;</span> <span class="built_in">console</span>.log(json))</span><br></pre></td></tr></table></figure>
+
+<h1 id="問題：如何透過-fetch-傳送-照片檔案"><a href="#問題：如何透過-fetch-傳送-照片檔案" class="headerlink" title="問題：如何透過 fetch 傳送 照片檔案"></a>問題：如何透過 fetch 傳送 照片檔案</h1><p>因為之前都是用 axios 來串接 API ，所以之前要上傳檔案時，使用 axios 的寫法是這樣的 ⬇️。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> formData = <span class="keyword">new</span> FormData;</span><br><span class="line">formData.append(<span class="string">&#x27;file&#x27;</span>, <span class="built_in">document</span>.querySelector(<span class="string">&#x27;input[type=&quot;file&quot;]&#x27;</span>).files[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">axios.post(url, formData, &#123;</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;multipart/form-data&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data))</span><br></pre></td></tr></table></figure>
+
+<p>所以在改寫成 fetch 時，順手的寫成這樣 ⬇️</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> formData = <span class="keyword">new</span> FormData;</span><br><span class="line">formData.append(<span class="string">&#x27;file&#x27;</span>, <span class="built_in">document</span>.querySelector(<span class="string">&#x27;input[type=&quot;file&quot;]&#x27;</span>).files[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">fetch(url, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;multipart/form-data&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: formData</span><br><span class="line">&#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</span><br><span class="line">  .then(<span class="function"><span class="params">json</span> =&gt;</span> <span class="built_in">console</span>.log(json))</span><br></pre></td></tr></table></figure>
+
+<p>但出現了錯誤：</p>
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble02/%E5%8A%A0%E5%85%A5ContentType.PNG" class="" title="TypeErr">
+
+<p>因為錯誤提示看起來像是 CORS 的問題，所以都是朝這方面去找答案的，所以加入 <code>mode:&#39;no-cors&#39;</code> ，無法解決，所以想說會不會是我用 Vue CLI 構建工具導致不同源，所以又上網找答案，所以我又在 devServer 上加入一堆配置項，結果還是沒辦法😢！這時候的我已經要耗費一天處理這個紅色警告了💢 💢 💢！！</p>
+<p>後面經過場外求助才發現原來是這個 <code>&#39;Content-Type&#39;: &#39;multipart/form-data&#39;</code> 導致問題的！</p>
+<p>後來認真看了一下 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Fetch_API/Using_Fetch#%E4%B8%8A%E5%82%B3%E6%AA%94%E6%A1%88">MDN</a> 的範例，才發現範例中也沒有加入 <code>&#39;Content-Type&#39;</code>。</p>
+<p>主要原因似乎是因為要上傳的資料(<code>formData</code>)的編碼類型就是設定為 <code>&#39;multipart/form-data&#39;</code> 了，所以如果在 <code>fetch</code> 中加入<code>&#39;Content-Type&#39;: &#39;multipart/form-data&#39;</code> ，就會因為重複指定而出錯。</p>
+<p>所以在上傳檔案出錯時，可以先看看是不是加了 <code>&#39;Content-Type&#39;</code>。</p>
+<p>正確寫法 ⬇️</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> formData = <span class="keyword">new</span> FormData;</span><br><span class="line">formData.append(<span class="string">&#x27;file&#x27;</span>, <span class="built_in">document</span>.querySelector(<span class="string">&#x27;input[type=&quot;file&quot;]&#x27;</span>).files[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">fetch(url, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">body</span>: formData</span><br><span class="line">&#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</span><br><span class="line">  .then(<span class="function"><span class="params">json</span> =&gt;</span> <span class="built_in">console</span>.log(json))</span><br></pre></td></tr></table></figure>
+<p>解答</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/35192841/how-do-i-post-with-multipart-form-data-using-fetch">How do I POST with multipart form data using fetch?</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34291688">踩坑篇–使用 fetch 上传文件</a></p>
+<p><a target="_blank" rel="noopener" href="https://muffinman.io/blog/uploading-files-using-fetch-multipart-form-data/">Uploading files using ‘fetch’ and ‘FormData’</a></p>
+<p>問題如下</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LYLRxxv" data-user="celeste6666" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/LYLRxxv">
+  test</a> by Celeste6666 (<a target="_blank" rel="noopener" href="https://codepen.io/celeste6666">@celeste6666</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Celeste6666/tags/Vue/" rel="tag"># Vue</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Celeste6666/Vue/Basic/VueNo30VueCLI/" rel="prev" title="DAY30 | 跟 Vue.js 認識的30天 - 使用 Vue CLI 建立 Vue 專案">
+                  <i class="fa fa-chevron-left"></i> DAY30 | 跟 Vue.js 認識的30天 - 使用 Vue CLI 建立 Vue 專案
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/Celeste6666/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Celeste6666/js/utils.js"></script><script src="/Celeste6666/js/motion.js"></script><script src="/Celeste6666/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

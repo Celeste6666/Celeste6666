@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Celeste6666/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Celeste6666/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Celeste6666/images/ico16.png">
+  <link rel="mask-icon" href="/Celeste6666/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Celeste6666/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;Celeste6666&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;Celeste6666&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="想說要挑戰 Vue 3 ，但後來才發現 Vuetify 不支持 Vue 3，所以才又決定要來挑戰 Vue 3 與 Bootstrap v5 版本做結合，結果一開始就出錯 😱 😱 😱。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="開發 Vue 問題挑戰 ─ Vue 與 Bootstrap 結合">
+<meta property="og:url" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="想說要挑戰 Vue 3 ，但後來才發現 Vuetify 不支持 Vue 3，所以才又決定要來挑戰 Vue 3 與 Bootstrap v5 版本做結合，結果一開始就出錯 😱 😱 😱。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/installBootstrap.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/error01.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/error02.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer01.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer02.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer03.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer04.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer05.PNG">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer06.PNG">
+<meta property="article:published_time" content="2021-08-15T16:26:27.000Z">
+<meta property="article:modified_time" content="2021-09-14T07:19:44.608Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/installBootstrap.PNG">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;Vue&#x2F;VueToProject&#x2F;toyStore&#x2F;trouble01&#x2F;&quot;,&quot;path&quot;:&quot;Vue&#x2F;VueToProject&#x2F;toyStore&#x2F;trouble01&#x2F;&quot;,&quot;title&quot;:&quot;開發 Vue 問題挑戰 ─ Vue 與 Bootstrap 結合&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>開發 Vue 問題挑戰 ─ Vue 與 Bootstrap 結合 | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Celeste6666/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Celeste6666/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/Celeste6666/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/Celeste6666/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Celeste6666/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Celeste6666/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%95%8F%E9%A1%8C%E4%B8%80%EF%BC%9A%E5%A6%82%E4%BD%95%E8%AE%93%E7%95%AB%E9%9D%A2%E5%91%88%E7%8F%BE-Bootstrap-%E6%A8%A3%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">問題一：如何讓畫面呈現 Bootstrap 樣式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%95%8F%E9%A1%8C%E4%BA%8C%EF%BC%9A%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E7%BE%A9-Bootstrap-%E8%AE%8A%E9%87%8F%E5%80%BC"><span class="nav-number">2.</span> <span class="nav-text">問題二：如何自定義 Bootstrap 變量值</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/Celeste6666/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/Celeste6666/archives/">
+        
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/Celeste6666/categories/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/Celeste6666/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/VueToProject/toyStore/trouble01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          開發 Vue 問題挑戰 ─ Vue 與 Bootstrap 結合
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-08-16 00:26:27" itemprop="dateCreated datePublished" datetime="2021-08-16T00:26:27+08:00">2021-08-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2021-09-14 15:19:44" itemprop="dateModified" datetime="2021-09-14T15:19:44+08:00">2021-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Vue/Vue-%E5%B0%88%E6%A1%88/" itemprop="url" rel="index"><span itemprop="name">Vue 專案</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Vue/Vue-%E5%B0%88%E6%A1%88/%E7%8E%A9%E5%85%B7%E9%9B%BB%E5%95%86%E7%B6%B2%E7%AB%99/" itemprop="url" rel="index"><span itemprop="name">玩具電商網站</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>想說要挑戰 Vue 3 ，但後來才發現 Vuetify 不支持 Vue 3，所以才又決定要來挑戰 Vue 3 與 Bootstrap v5 版本做結合，結果一開始就出錯 😱 😱 😱。</p>
+<span id="more"></span>
+
+<p>簡單的先用 Vue CLI 開始 Vue 專案。</p>
+<p>在用 NPM 載入 Bootstrap。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install bootstrap</span><br></pre></td></tr></table></figure>
+
+<p>之後再 src/main.js 中加入 <code>import bootstrap from &#39;bootstrap&#39;</code> 。</p>
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble01/installBootstrap.PNG" class="" title="載入Bootstrap">
+
+<h1 id="問題一：如何讓畫面呈現-Bootstrap-樣式"><a href="#問題一：如何讓畫面呈現-Bootstrap-樣式" class="headerlink" title="問題一：如何讓畫面呈現 Bootstrap 樣式"></a>問題一：如何讓畫面呈現 Bootstrap 樣式</h1><p>做完上面步驟之後，開始在 <code>*.vue</code> 檔中使用 Bootstrap 會發現試行不通的。</p>
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble01/error01.PNG" class="" title="沒有Bootstrap樣式">
+
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble01/error02.PNG" class="" title="沒有Bootstrap樣式">
+
+<p>後來在 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/42684661/adding-bootstrap-to-vue-cli-project">stack overFlow 這篇 QA</a> 找到解決方法 ─ 就是在 src/main.js 中加入 <code>import &#39;bootstrap/dist/css/bootstrap.min.css&#39;;</code> 。</p>
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer01.PNG" class="" title="呈現Bootstrap樣式">
+
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer02.PNG" class="" title="呈現Bootstrap樣式">
+
+<h1 id="問題二：如何自定義-Bootstrap-變量值"><a href="#問題二：如何自定義-Bootstrap-變量值" class="headerlink" title="問題二：如何自定義 Bootstrap 變量值"></a>問題二：如何自定義 Bootstrap 變量值</h1><p>在製作網頁時，一定都會有幾個常見顏色，要怎麼把這些顏色放入 Bootstrap 中，讓我們在寫 Bootstrap 時，可以很直覺的用 <code>primary</code> 、 <code>secondary</code> 、 <code>danger</code> 等等來直接使用自定義的顏色，而不是 Bootstrap 預設的顏色。</p>
+<p>這個問題研究了快 2 小時，因為一直在嘗試<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.1/customize/sass/"> Bootstrap Customize Sass </a>中的方法。</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">your-project/</span><br><span class="line">├── scss</span><br><span class="line">│   └── custom.scss</span><br><span class="line">└── node<span class="emphasis">_modules/</span></span><br><span class="line"><span class="emphasis">    └── bootstrap</span></span><br><span class="line"><span class="emphasis">        ├── js</span></span><br><span class="line"><span class="emphasis">        └── scss</span></span><br></pre></td></tr></table></figure>
+
+<p>新建了一個 custom.scss 。</p>
+<p>但自定義樣式一直不成功，所以我還一直幫自定義樣式換位置(從 2 到 5)，還是失敗，然後又嘗試把 custom.scss 移到 src/scss 下，一樣失敗了(這時候超想放棄改用 Vue2 加 Vuetify 的，改預設值超簡單) :sob: :sob: :sob:。</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Custom.scss</span></span><br><span class="line"><span class="comment">// Option B: Include parts of Bootstrap</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/functions&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. Include any default variable overrides here</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$primary</span>: <span class="number">#0074d9</span>;</span><br><span class="line"><span class="variable">$danger</span>: <span class="number">#ff4136</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$theme-colors</span>: (</span><br><span class="line">  <span class="string">&quot;primary&quot;</span>: <span class="variable">$primary</span>,</span><br><span class="line">  <span class="string">&quot;danger&quot;</span>: <span class="variable">$danger</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. Include remainder of required Bootstrap stylesheets</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/variables&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/mixins&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/root&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. Include any optional Bootstrap CSS as needed</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/utilities&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/reboot&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/type&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/images&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/containers&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/grid&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/helpers&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utililies.scss`</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;../node_modules/bootstrap/scss/utilities/api&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 6. Add additional custom code here</span></span><br></pre></td></tr></table></figure>
+
+<p>最後才在 <a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.1/getting-started/webpack/">Bootstrap Webpack and bundlers</a> 中找到解答(原來也很簡單:stuck_out_tongue_closed_eyes:)！</p>
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer03.PNG" class="" title="自定義顏色解答">
+
+<p>只要在 src/scss 下創建 <code>_custom.scss</code> 及 <code>main.scss</code> 後，在 <code>main.scss</code> 中寫下：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&quot;custom&quot;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;~bootstrap/scss/bootstrap&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>而 <code>_custom.scss</code> 下就直接寫下要自定義的樣式變量就好。</p>
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer04.PNG" class="" title="自定義顏色解答">
+
+<p>這時會發現還是沒有作用，還記的剛剛問題一中的解答嗎？ Bootstrap 樣式得另外載入 main.js 喔，而原本的 <code>import &#39;bootstrap/dist/css/bootstrap.min.css&#39;;</code> 可以不用寫了！ :clap: :clap: :clap:</p>
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer05.PNG" class="" title="載入自定義顏色SCSS">
+
+<img src="/Celeste6666/Vue/VueToProject/toyStore/trouble01/answer06.PNG" class="" title="成功">
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Celeste6666/tags/Vue/" rel="tag"># Vue</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Celeste6666/JSLearning/D3/D3Ep2S.tyle/" rel="prev" title="EP02 | 學會 D3.js 製作圖表 - 圖表隨資料改變樣式">
+                  <i class="fa fa-chevron-left"></i> EP02 | 學會 D3.js 製作圖表 - 圖表隨資料改變樣式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Celeste6666/Vue/Basic/VueNo28Vuex(2)/" rel="next" title="DAY28 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (中)">
+                  DAY28 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (中) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/Celeste6666/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Celeste6666/js/utils.js"></script><script src="/Celeste6666/js/motion.js"></script><script src="/Celeste6666/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Celeste6666/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Celeste6666/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Celeste6666/images/ico16.png">
+  <link rel="mask-icon" href="/Celeste6666/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Celeste6666/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;Celeste6666&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;Celeste6666&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="上一篇筆記寫到如何安裝，接下來就來開始使用 Vuex 做資料管理。之後的紀錄也都是用 CDN 做安裝喔！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DAY28 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (中)">
+<meta property="og:url" content="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo28Vuex(2)/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="上一篇筆記寫到如何安裝，接下來就來開始使用 Vuex 做資料管理。之後的紀錄也都是用 CDN 做安裝喔！">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-08-20T04:55:00.000Z">
+<meta property="article:modified_time" content="2021-08-22T07:03:41.000Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="Vue.js">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo28Vuex(2)/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;Vue&#x2F;Basic&#x2F;VueNo28Vuex(2)&#x2F;&quot;,&quot;path&quot;:&quot;Vue&#x2F;Basic&#x2F;VueNo28Vuex(2)&#x2F;&quot;,&quot;title&quot;:&quot;DAY28 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (中)&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>DAY28 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (中) | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Celeste6666/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Celeste6666/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/Celeste6666/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/Celeste6666/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Celeste6666/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Celeste6666/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B%E7%AC%AC%E4%B8%80%E5%80%8B-Vuex"><span class="nav-number">1.</span> <span class="nav-text">開始第一個 Vuex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#state-%E4%BD%9C%E7%94%A8%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">state 作用及使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getters-%E4%BD%9C%E7%94%A8%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">getters 作用及使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mutations-%E4%BD%9C%E7%94%A8%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">mutations 作用及使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#actions-%E4%BD%9C%E7%94%A8%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">actions 作用及使用方法</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/Celeste6666/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/Celeste6666/archives/">
+        
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/Celeste6666/categories/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/Celeste6666/tags/">
+          
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo28Vuex(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DAY28 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (中)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2021-08-20 12:55:00" itemprop="dateCreated datePublished" datetime="2021-08-20T12:55:00+08:00">2021-08-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2021-08-22 15:03:41" itemprop="dateModified" datetime="2021-08-22T15:03:41+08:00">2021-08-22</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>上一篇筆記寫到如何安裝，接下來就來開始使用 Vuex 做資料管理。<br>之後的紀錄也都是用 CDN 做安裝喔！</p>
+<span id="more"></span>
+
+<h1 id="開始第一個-Vuex"><a href="#開始第一個-Vuex" class="headerlink" title="開始第一個 Vuex"></a>開始第一個 Vuex</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;vm&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/vuex@3.6.2/dist/vuex.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="comment">// 資料</span></span><br><span class="line">    <span class="comment">// 類似 Vue 中 data 的作用</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">getters</span>: &#123;</span><br><span class="line">    <span class="comment">// 對 state 中某個屬性進行一些邏輯操作</span></span><br><span class="line">    <span class="comment">// 類似 Vue 中 computed 的作用</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">mutations</span>: &#123;</span><br><span class="line">    <span class="comment">// 更改 state 中屬性的值</span></span><br><span class="line">    <span class="comment">// 同步函數</span></span><br><span class="line">    <span class="comment">// 類似 Vue 中 methods 的作用</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">actions</span>: &#123;</span><br><span class="line">    <span class="comment">// 無法直接更改 state 中屬性的值，必須透過調用 mutation 才可進行更改</span></span><br><span class="line">    <span class="comment">// 異步函數</span></span><br><span class="line">    <span class="comment">// 類似 Vue 中 methods 的作用</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#vm&#x27;</span>,</span><br><span class="line">  store,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="state-作用及使用方法"><a href="#state-作用及使用方法" class="headerlink" title="state 作用及使用方法"></a><code>state</code> 作用及使用方法</h2><p><code>state</code> 類似於 Vue 中 <code>data</code> 的作用，就是用來儲存數據的地方，所以這些在多個模組中都會使用到的資料，就放在 <code>state</code> 裡，以便各模組取用。</p>
+<p><strong>用法</strong></p>
+<p>創建 Vuex 後，將資料放入 <code>state</code> 中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: &#123;</span><br><span class="line">      <span class="attr">firstName</span>: <span class="string">&#x27;Celeste&#x27;</span>,</span><br><span class="line">      <span class="attr">lastName</span>: <span class="string">&#x27;KUO&#x27;</span>,</span><br><span class="line">      <span class="attr">gender</span>: <span class="string">&#x27;female&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在 Vue 中註冊 <code>store</code>，讓 Vue 的所有模組都可以透過 <code>this.$state</code> 調用 <code>store</code> 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;vm&#x27;</span>,</span><br><span class="line">  <span class="comment">// 在 Vue 實例中註冊 store ，並且該 store 會被掛載到 Vue 實例的 $store 中</span></span><br><span class="line">  store,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>透過在模組中 <code>computed</code> 中取得 Vuex <code>store</code> 中的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;vm&#x27;</span>,</span><br><span class="line">  store,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">vmUser</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// store會被掛載到 Vue 實例(this)的 $store 中</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.state.user.firstName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// store.state.user.firstName 發生變化時，是否會作用到 Vue 實例上?</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  store.state.user.firstName = <span class="string">&#x27;Mark&#x27;</span></span><br><span class="line">&#125;,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<p>為什麼是使用 <code>computed</code> ? 因為 <code>computed</code> 的作用可以創建一種依賴關係，所以當 <code>store.state.user.name</code> 發生變化時，依賴於該值的 <code>vmUser</code> 也會發生變化。</p>
+<h2 id="getters-作用及使用方法"><a href="#getters-作用及使用方法" class="headerlink" title="getters 作用及使用方法"></a><code>getters</code> 作用及使用方法</h2><p>類似於 Vue 實例中 <code>computed</code> 的功能，透過在 Vuex <code>getters</code> 中先對 <code>state</code> 中某些屬性的值形成依賴，如果這些屬性值發生改變，那麼有依賴關係的 <code>getters</code> 的屬性也會發生變化。<br>如此一來，就不需要在每個模組中在對欲使用的 <code>state</code> 寫下邏輯操作了，使用 Vuex <code>getters</code> 只需要寫 1 次邏輯操作就可供多個模組使用。</p>
+<p>在 Vuex <code>getters</code> 中對 <code>state</code> 某些值形成依賴。<br>須注意 <code>getters</code> 的每個方法要固定將 <code>state</code> 作為其第一參數。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: &#123;</span><br><span class="line">      <span class="attr">firstName</span>: <span class="string">&#x27;Celeste&#x27;</span>,</span><br><span class="line">      <span class="attr">lastName</span>: <span class="string">&#x27;KUO&#x27;</span>,</span><br><span class="line">      <span class="attr">gender</span>: <span class="string">&#x27;female&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">getters</span>:&#123;</span><br><span class="line">    <span class="attr">fullName</span>: <span class="function"><span class="params">state</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;state.user.firstName&#125;</span> <span class="subst">$&#123;state.user.lastName&#125;</span>`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>透過在模組中 <code>computed</code> 中取得 Vuex <code>getters</code> 中的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span><br><span class="line">  store,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">vmUser</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// store會被掛載到 Vue 實例的 $store 中</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.state.user.firstName</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">vmFullName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// 透過 getters 取值</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.getters.fullName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// store.state.user.firstName 發生變化時， Vuex 實例中的 getters 是否會發生變化並作用到 Vue 實例上?</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  store.state.user.firstName = <span class="string">&#x27;Mark&#x27;</span></span><br><span class="line">&#125;,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Vuex <code>getters</code> 的每個方法也可將 <code>getters</code> 作為其第二參數，並可透過 <code>getters</code> 可與其他的 <code>getters</code> 方法的返回值建立依賴。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">todos</span>: [</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">text</span>: <span class="string">&quot;shopping&quot;</span>, <span class="attr">done</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">text</span>: <span class="string">&quot;washing&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">text</span>: <span class="string">&quot;walking&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">getters</span>: &#123;</span><br><span class="line">    <span class="comment">// 取得未完成的 todo 項目</span></span><br><span class="line">    <span class="attr">undones</span>: <span class="function">(<span class="params">state</span>) =&gt;</span> state.todos.filter(<span class="function">(<span class="params">item</span>) =&gt;</span> !item.done),</span><br><span class="line">    <span class="comment">// 透過第二參數 getters 取得 getters.undones 的返回值</span></span><br><span class="line">    <span class="comment">// 並與 getters.undones 建立依賴</span></span><br><span class="line">    <span class="comment">// 因此當 state.todos 發生變化，undones 會跟著發生變化，undonesLen也會跟著 undones發生改變</span></span><br><span class="line">    <span class="attr">undonesLen</span>: <span class="function">(<span class="params">state, getters</span>) =&gt;</span> getters.undones.length</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span><br><span class="line">  store,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">undones</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.getters.undones;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">undonesLen</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.getters.undonesLen;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// store.state.todos 發生變化時， Vuex 實例中的以 getters 作為第二參數的 undonesLen 是否會跟著發生變化並作用到 Vue 實例上?</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  store.state.todos = [</span><br><span class="line">    ...store.state.todos,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">text</span>: <span class="string">&quot;swimming&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;</span><br><span class="line">  ];</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>可以讓 <code>getters</code> 方法返回一個函數，之後即可調用該函數取得返回值(函數柯理化)。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">todos</span>: [</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">text</span>: <span class="string">&quot;shopping&quot;</span>, <span class="attr">done</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">text</span>: <span class="string">&quot;washing&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">text</span>: <span class="string">&quot;walking&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">getters</span>: &#123;</span><br><span class="line">    <span class="comment">// 使用柯理化函數</span></span><br><span class="line">    <span class="comment">// 調用 getTodoById 時，返回的是一個函數(id) =&gt; state.todos.find(item =&gt; item.id === id)</span></span><br><span class="line">    <span class="attr">getTodoById</span>: <span class="function">(<span class="params">state</span>) =&gt;</span> <span class="function">(<span class="params">id</span>) =&gt;</span> state.todos.find(<span class="function"><span class="params">item</span> =&gt;</span> item.id === id)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span><br><span class="line">  store,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">getTodoById</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.getters.getTodoById(id)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="mutations-作用及使用方法"><a href="#mutations-作用及使用方法" class="headerlink" title="mutations 作用及使用方法"></a><code>mutations</code> 作用及使用方法</h2><p>類似於 Vue 實例中 <code>methods</code> 的功能，並且更改 Vuex 的 <code>store</code> 中的值的唯一方法是提交(commit) <code>mutation</code>。</p>
+<p><code>mutation</code> 中的方法內容必須是同步函數，以便我們透過 Vue devtools 去做觀察 <code>state</code> 的變化。</p>
+<p>建立 <code>mutations</code> 中的方法，並且該方法將 <code>state</code> 作為第一參數。<br>建立的方法名稱為 type，而事件內容稱為 handler</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: &#123;</span><br><span class="line">      <span class="attr">firstName</span>: <span class="string">&#x27;Celeste&#x27;</span>,</span><br><span class="line">      <span class="attr">lastName</span>: <span class="string">&#x27;KUO&#x27;</span>,</span><br><span class="line">      <span class="attr">gender</span>: <span class="string">&#x27;female&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">mutations</span>: &#123;</span><br><span class="line">    <span class="comment">// type(state)&#123;handler&#125;</span></span><br><span class="line">    <span class="function"><span class="title">changeUserName</span>(<span class="params">state</span>)</span> &#123;</span><br><span class="line">      state.user.firstName = <span class="string">&#x27;Vita&#x27;</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>要觸發 <code>mutations</code> ，就必須透過 <code>store.commit(&#39;type&#39;)</code> 來調用該 mutations 方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span><br><span class="line">  store,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">vmUser</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="comment">// store 會被掛載到 Vue 實例的 $store 中</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.state.user.firstName;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">vmFullName</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.getters.fullName;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">changeUserName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// store 會被掛載到 Vue 實例的 $store 中</span></span><br><span class="line">      <span class="comment">// 所以 $store 中也有 commit 方法</span></span><br><span class="line">      <span class="built_in">this</span>.$store.commit(<span class="string">&#x27;changeUserName&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>mutations</code> 可接受其他數值(通常會是物件)做為第二參數(<code>payload</code>)喔！<br>透過 <code>store.commit(&#39;type&#39;, &#39;payload&#39;)</code> 調用該 <code>mutations</code> 時，將引數帶入 payload 的位置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: &#123;</span><br><span class="line">      <span class="attr">firstName</span>: <span class="string">&#x27;Celeste&#x27;</span>,</span><br><span class="line">      <span class="attr">lastName</span>: <span class="string">&#x27;KUO&#x27;</span>,</span><br><span class="line">      <span class="attr">gender</span>: <span class="string">&#x27;female&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">mutations</span>: &#123;</span><br><span class="line">    <span class="comment">// type(state, payload)&#123;handler&#125;</span></span><br><span class="line">    <span class="function"><span class="title">changeUserName</span>(<span class="params">state, payload</span>)</span> &#123;</span><br><span class="line">      state.user.firstName = payload;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span><br><span class="line">  store,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">vmUser</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="comment">// store 會被掛載到 Vue 實例的 $store 中</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.state.user.firstName;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">vmFullName</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.getters.fullName;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">changeUserName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// store 會被掛載到 Vue 實例的 $store 中</span></span><br><span class="line">      <span class="comment">// 所以 $store 中也有 commit 方法</span></span><br><span class="line">      <span class="built_in">this</span>.$store.commit(<span class="string">&#x27;changeUserName&#x27;</span>, <span class="string">&#x27;Vita&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>mutations</code> 中必須特別注意的事項：</p>
+<ul>
+<li><p>提前在你的 <code>store.state</code> 中初始化好所有所需屬性(如同 Vue <code>data</code> 一樣)。</p>
+</li>
+<li><p>透過展開運算符添加對象(個人偏好)。</p>
+</li>
+<li><p>可以使用常量作為方法名(type)。</p>
+</li>
+</ul>
+<h2 id="actions-作用及使用方法"><a href="#actions-作用及使用方法" class="headerlink" title="actions 作用及使用方法"></a><code>actions</code> 作用及使用方法</h2><p>類似於 Vue 實例中 <code>methods</code> 的功能，但不同於 <code>mutations</code>。<br>與 <code>mutations</code> 的差別：</p>
+<ul>
+<li><p>透過提交(<code>commit</code>) <code>mutations</code> 去更改 <code>state</code> 的值。</p>
+</li>
+<li><p>方法內容可以是包含異步函數。</p>
+</li>
+</ul>
+<p>建立一個 <code>actions</code> 方法。<br>該方法接受 <code>context</code> 作為第一參數， <code>context</code> 具有 <code>store</code> 相同的屬性及方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">todos</span>: [</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">text</span>: <span class="string">&quot;shopping&quot;</span>, <span class="attr">done</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">text</span>: <span class="string">&quot;washing&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">text</span>: <span class="string">&quot;walking&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">mutations</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">changeTodos</span>(<span class="params">state, payload</span>)</span>&#123;</span><br><span class="line">      state.todos = payload</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">actions</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">getNewTodos</span>(<span class="params">context</span>)</span> &#123;</span><br><span class="line">      fetch(<span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/5&#x27;</span>)</span><br><span class="line">        .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">        .then(<span class="function"><span class="params">json</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(json);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>之後透過提交(<code>commit</code>) <code>mutations</code> 去更改 <code>state</code> 的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">todos</span>: [</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">text</span>: <span class="string">&quot;shopping&quot;</span>, <span class="attr">done</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">text</span>: <span class="string">&quot;washing&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">text</span>: <span class="string">&quot;walking&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">mutations</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">changeTodos</span>(<span class="params">state, payload</span>)</span>&#123;</span><br><span class="line">      state.todos = [payload]</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">actions</span>: &#123;</span><br><span class="line">    <span class="comment">// `context` 具有 `store` 相同的屬性及方法</span></span><br><span class="line">    <span class="function"><span class="title">getNewTodos</span>(<span class="params">context</span>)</span> &#123;</span><br><span class="line">      fetch(<span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/5&#x27;</span>)</span><br><span class="line">        .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">        .then(<span class="function"><span class="params">json</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// 透過 context.commit(&#x27;mutation type&#x27;, payload) 更改 state</span></span><br><span class="line">          context.commit(<span class="string">&#x27;changeTodos&#x27;</span>, json)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>相信一定有很多人跟我有相同疑問，為什麼一定要透過提交 <code>mutation</code> 去更改 <code>state</code> 的值？<br>在網路上找到許多回答，其實在 <code>actions</code> 中變更 <code>state</code> 的值是可行的，但是為了好用 Vue devtools <strong>追蹤狀態修改</strong>，所以才建議在 <code>actions</code> 中使用提交 <code>mutation</code> 去更改 <code>state</code> 的值。</p>
+<p>參考文件：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904054108192776">vuex为什么不建议在action中修改state</a></p>
+<p>透過 <code>store.dispatch(&#39;方法名&#39;)</code> 觸發 <code>actions</code> 中指定的方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span><br><span class="line">  store,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">changeTodos</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.$store.dispatch(<span class="string">&#x27;getNewTodos&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>actions</code> 的第一參數可以透過 ES6 中的參數解構來獲得需要使用到的屬性或方法，如此一來程式碼也可以變得更簡潔喔！<br><code>actions</code> 可接受其他數值做為第二參數(<code>payload</code>)喔！</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">todos</span>: [</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">text</span>: <span class="string">&quot;shopping&quot;</span>, <span class="attr">done</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">text</span>: <span class="string">&quot;washing&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">      &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">text</span>: <span class="string">&quot;walking&quot;</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">mutations</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">changeTodos</span>(<span class="params">state, payload</span>)</span>&#123;</span><br><span class="line">      state.todos = [payload]</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">actions</span>: &#123;</span><br><span class="line">    <span class="comment">// 第一參數使用參數解構，因此會自動去取的 context 中的 commit 方法</span></span><br><span class="line">    <span class="function"><span class="title">getNewTodos</span>(<span class="params">&#123; commit &#125;, payload</span>)</span> &#123;</span><br><span class="line">      fetch(payload)</span><br><span class="line">        .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">        .then(<span class="function"><span class="params">json</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// 透過 context.commit(&#x27;mutation type&#x27;, payload) 更改 state</span></span><br><span class="line">          context.commit(<span class="string">&#x27;changeTodos&#x27;</span>, json)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&quot;#vm&quot;</span>,</span><br><span class="line">  store,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="function"><span class="title">changeTodos</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="comment">// 觸發 Vuex actions 中 getNewTodos 的方法，並且將 &quot;https://jsonplaceholder.typicode.com/todos/5&quot; 做為第二引數帶入 getNewTodos 的 payload</span></span><br><span class="line">      <span class="built_in">this</span>.$store.dispatch(<span class="string">&quot;getNewTodos&quot;</span>,<span class="string">&quot;https://jsonplaceholder.typicode.com/todos/5&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Demo</p>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="gORYbqv" data-user="celeste6666" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/gORYbqv">
+  DAY28 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (中)</a> by Celeste6666 (<a target="_blank" rel="noopener" href="https://codepen.io/celeste6666">@celeste6666</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>參考資料</p>
+<p><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/guide/">开始 → 核心概念</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Celeste6666/tags/Vue-js/" rel="tag"># Vue.js</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Celeste6666/Vue/VueToProject/toyStore/trouble01/" rel="prev" title="開發 Vue 問題挑戰 ─ Vue 與 Bootstrap 結合">
+                  <i class="fa fa-chevron-left"></i> 開發 Vue 問題挑戰 ─ Vue 與 Bootstrap 結合
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Celeste6666/Vue/Basic/VueNo29Vuex(3)/" rel="next" title="DAY29 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (下)">
+                  DAY29 | 跟 Vue.js 認識的30天 - Vue 套餐之圖書館 Vuex (下) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/Celeste6666/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Celeste6666/js/utils.js"></script><script src="/Celeste6666/js/motion.js"></script><script src="/Celeste6666/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
