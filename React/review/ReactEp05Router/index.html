@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Celeste6666/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Celeste6666/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Celeste6666/images/ico16.png">
+  <link rel="mask-icon" href="/Celeste6666/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Celeste6666/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;Celeste6666&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;Celeste6666&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="React Router v6 標籤路由定義: 根據不同的 url 地址顯示不同內容或頁面。 基礎使用:  下載: 在專案中下載 react-router-dom 工具 1npm i react-router-dom   補充: react-router-dom 是包含了 react-router (路由核心庫)，並添加一洩專用於 DOM 的組件。   實現最小化 Demo，實現 Home 與 A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EP05 | React 18 全家桶複習 - React-Router">
+<meta property="og:url" content="https://celeste6666.github.io/Celeste6666/React/review/ReactEp05Router/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="React Router v6 標籤路由定義: 根據不同的 url 地址顯示不同內容或頁面。 基礎使用:  下載: 在專案中下載 react-router-dom 工具 1npm i react-router-dom   補充: react-router-dom 是包含了 react-router (路由核心庫)，並添加一洩專用於 DOM 的組件。   實現最小化 Demo，實現 Home 與 A">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-11-30T03:00:27.000Z">
+<meta property="article:modified_time" content="2022-12-28T12:10:05.851Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp05Router/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;React&#x2F;review&#x2F;ReactEp05Router&#x2F;&quot;,&quot;path&quot;:&quot;React&#x2F;review&#x2F;ReactEp05Router&#x2F;&quot;,&quot;title&quot;:&quot;EP05 | React 18 全家桶複習 - React-Router&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>EP05 | React 18 全家桶複習 - React-Router | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Celeste6666/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Celeste6666/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/Celeste6666/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/Celeste6666/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Celeste6666/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Celeste6666/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E7%B1%A4"><span class="nav-number">1.</span> <span class="nav-text">標籤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AF%94%E8%BC%83-BrowerRouter-%E8%88%87-HashRouter"><span class="nav-number">1.1.</span> <span class="nav-text">比較 BrowerRouter 與 HashRouter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NavLink-%E8%88%87-Link"><span class="nav-number">1.2.</span> <span class="nav-text">NavLink 與 Link</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#useRoutes-%E8%B7%AF%E7%94%B1%E8%A1%A8%E3%80%81Outlet-%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1%E6%A8%99%E7%B1%A4"><span class="nav-number">2.</span> <span class="nav-text">useRoutes 路由表、Outlet 嵌套路由標籤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%82%B3%E5%8F%83"><span class="nav-number">3.</span> <span class="nav-text">路由傳參</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-Hooks"><span class="nav-number">4.</span> <span class="nav-text">其他 Hooks</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/Celeste6666/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/Celeste6666/archives/">
+        
+          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/Celeste6666/categories/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/Celeste6666/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp05Router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EP05 | React 18 全家桶複習 - React-Router
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2022-11-30 11:00:27" itemprop="dateCreated datePublished" datetime="2022-11-30T11:00:27+08:00">2022-11-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2022-12-28 20:10:05" itemprop="dateModified" datetime="2022-12-28T20:10:05+08:00">2022-12-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/" itemprop="url" rel="index"><span itemprop="name">React 全家桶</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/React-Router/" itemprop="url" rel="index"><span itemprop="name">React-Router</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>React Router v6</p>
+<h3 id="標籤"><a href="#標籤" class="headerlink" title="標籤"></a>標籤</h3><p>路由定義: 根據不同的 url 地址顯示不同內容或頁面。</p>
+<p>基礎使用:</p>
+<ol>
+<li><p>下載: 在專案中下載 react-router-dom 工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i react-router-dom</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>補充: react-router-dom 是包含了 react-router (路由核心庫)，並添加一洩專用於 DOM 的組件。</p>
+</blockquote>
+</li>
+<li><p>實現最小化 Demo，實現 Home 與 About 頁面的切換</p>
+<span id="more"></span>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BrowerRouter, Link, Routers, Router &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是 Home</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">About</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是 About</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &#123;<span class="comment">/*聲明當前要用一個非 hash 模式的路由*/</span>&#125;</span><br><span class="line">    &lt;BrowerRouter&gt;</span><br><span class="line">      &#123;<span class="comment">/*指定跳轉的組件， to 用來配置路由地址*/</span>&#125;</span><br><span class="line">      &lt;Link to=<span class="string">&quot;/&quot;</span>&gt;首頁&lt;/Link&gt;</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>關於<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">      &#123;<span class="comment">/*路由出口，路由對應的組件在這裡渲染*/</span>&#125;</span><br><span class="line">      &lt;Routes&gt;</span><br><span class="line">        &#123;<span class="comment">/*指定路徑和組件的對應關係， path 代表路徑， element 代表組件 path 跟 element 成對出現*/</span>&#125;</span><br><span class="line">        &lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Home</span>/&gt;</span></span>&#125; /&gt;</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/about&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">About</span>/&gt;</span>&#125; /&gt;</span></span><br><span class="line">      &lt;Routes&gt;</span><br><span class="line">    &lt;/BrowerRouter&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>BrowerRouter、 Link、 Routers、 Router 是使用 ReactRouter 基礎的使用，配置大致如上。</p>
+<h4 id="比較-BrowerRouter-與-HashRouter"><a href="#比較-BrowerRouter-與-HashRouter" class="headerlink" title="比較 BrowerRouter 與 HashRouter"></a>比較 BrowerRouter 與 HashRouter</h4><ul>
+<li>BrowerRouter 呈現的 url<br><code>localhost:5500/home</code></li>
+<li>HashRouter 呈現的 url<br><code>localhost:5500/#/home</code></li>
+</ul>
+<h4 id="NavLink-與-Link"><a href="#NavLink-與-Link" class="headerlink" title="NavLink 與 Link"></a>NavLink 與 Link</h4><ul>
+<li><p>Link</p>
+<ul>
+<li>基本寫法:<br><code>&lt;Link to=&quot;/home&quot;&gt;首頁&lt;/Link&gt;</code>。</li>
+<li>類似 <code>&lt;a href=&quot;../home&quot;&gt;首頁&lt;/a&gt;</code></li>
+<li>連結被點選時，不會主動產生 <code>active</code> (class 屬性值)。</li>
+</ul>
+</li>
+<li><p>NavLink</p>
+<ul>
+<li>基本寫法:<br><code>&lt;NavLink to=&quot;/home&quot;&gt;首頁&lt;/NavLink&gt;</code>。</li>
+<li>當被點擊時，預設會產生 <code>active</code> (class 屬性值)。</li>
+<li>類似 <code>&lt;a href=&quot;../home&quot; class=&quot;active&quot;&gt;首頁&lt;/a&gt;</code>。</li>
+<li>透過將函數傳給 className 或 style 就可自訂義 <code>active</code> 的名稱。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> activeClassName = <span class="string">&#x27;underline&#x27;</span>;</span><br><span class="line"><span class="comment">// isActive 是連結渲染時，該函數就會被調用，傳給他的一個 object去判斷目前是否被點選</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&#x27;/home&#x27;</span> <span class="attr">className</span>=<span class="string">&#123;(&#123;</span> <span class="attr">isActive</span> &#125;) =&gt;</span> (isActive ? activeClassName : undefined)&#125;&gt;</span></span><br><span class="line"><span class="xml">  首頁</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="useRoutes-路由表、Outlet-嵌套路由標籤"><a href="#useRoutes-路由表、Outlet-嵌套路由標籤" class="headerlink" title="useRoutes 路由表、Outlet 嵌套路由標籤"></a>useRoutes 路由表、Outlet 嵌套路由標籤</h3><p>在寫路由與組件的對應關係時，會發現其實配置是相似的，都是由 path 跟 element 組成。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">/*指定路徑和組件的對應關係， path 代表路徑， element 代表組件 path 跟 element 成對出現*/</span>&#125;</span><br><span class="line">&lt;Route path=<span class="string">&quot;/&quot;</span> element=&#123;<span class="xml"><span class="tag">&lt;<span class="name">Home</span>/&gt;</span></span>&#125; /&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/about&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">About</span>/&gt;</span>&#125; /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>為了讓頁面更簡潔，更能夠實現狀態管理的方便性，將上面的路由變成一個路由表 ⬇️⬇️⬇️</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// routes.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; Navigate &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">&#x27;./Home&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Message <span class="keyword">from</span> <span class="string">&#x27;./Message&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> News <span class="keyword">from</span> <span class="string">&#x27;./News&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> About <span class="keyword">from</span> <span class="string">&#x27;./About&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以陣列顯示路由表</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [</span><br><span class="line">  <span class="comment">// 路由1</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>,</span><br><span class="line">    <span class="comment">// children 代表二級路由，寫法跟一級路由一樣由陣列組成</span></span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 必須注意二級路由的 path 不能加 /</span></span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;message&#x27;</span>,</span><br><span class="line">        <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Message</span> /&gt;</span></span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;news&#x27;</span>,</span><br><span class="line">        <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">News</span> /&gt;</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 路由2</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/about&quot;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">About</span> /&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 其他不匹配的路由都會跳轉到 /home</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/home&quot;</span> /&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> routes <span class="keyword">from</span> <span class="string">&quot;./routes&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowerRouter, Link, useRoutes &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 根據路由表生成對應的路由規則</span></span><br><span class="line">  <span class="keyword">const</span> element = useRoutes(routes)</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">BrowerRouter</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/&quot;</span>&gt;</span>首頁<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>關於<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">      &#123;/*註冊路由*/&#125;</span></span><br><span class="line"><span class="xml">      &#123;element&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">BrowerRouter</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>二級路由的頁面需要使用到 Outlet 標籤跟 React 說明，二級路由所設定的畫面要放在哪位置 ⬇️</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Home.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; Outlet, Link &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是 Home 頁<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;/*二級路由的連結地址可以直接簡寫成路由表上的 path 值*/&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#x27;message&#x27;</span>&gt;</span>訊息<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#x27;news&#x27;</span>&gt;</span>新聞<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      我是二級路由呈現位置</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Outlet</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Message.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Message</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是 Message<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// News.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">News</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是 News<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="路由傳參"><a href="#路由傳參" class="headerlink" title="路由傳參"></a>路由傳參</h3><p>在很多時候，是需要透過動態傳參給路由，來呈現不同產品頁面的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [</span><br><span class="line">  <span class="comment">// 路由1</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;message&#x27;</span>,</span><br><span class="line">        <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Message</span> /&gt;</span></span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;news&#x27;</span>,</span><br><span class="line">        <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">News</span> /&gt;</span></span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">About</span> /&gt;</span></span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&#x27;/home&#x27;</span> /&gt;</span></span>,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>useParams</p>
+<ul>
+<li><p>寫法(路由表):<br><code>path: &quot;message/:id&quot;</code><br>:id 就是路由接收組件傳遞的參數的值。</p>
+</li>
+<li><p>可以多重結合<br><code>path: &quot;message/:id/:name&quot;</code></p>
+<p>抽出 home 中的 message 做範例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">  <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>,</span><br><span class="line">  children: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;message/:id/:name&#x27;</span>,</span><br><span class="line">      <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Message</span> /&gt;</span></span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;news&#x27;</span>,</span><br><span class="line">      <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">News</span> /&gt;</span></span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>傳參組件傳遞參數寫法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Home.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; Outlet, Link &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是 Home 頁<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#x27;message/1234/Celeste&#x27;</span>&gt;</span>訊息<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#x27;news&#x27;</span>&gt;</span>新聞<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      我是二級路由呈現位置</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Outlet</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>url 呈現<br><code>localhost:5500/home/message/1234/Celeste</code><br>此時的 1234 就是組件傳遞的 id 的參數值，而 Celeste 就是 name 的參數值。</p>
+</li>
+<li><p>組件透過 useParams 接收參數</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useParams &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Message</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> params = useParams();</span><br><span class="line">  <span class="built_in">console</span>.log(params); <span class="comment">// &#123;id: 1234, name: &#x27;Celeste&#x27;&#125;</span></span><br><span class="line">  <span class="comment">// 解構</span></span><br><span class="line">  <span class="keyword">const</span> [id, name] = useParams();</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      id: &#123;id&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      name: &#123;name&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>useSearchParams</p>
+<ul>
+<li><p>寫法(路由表):<br><code>path: &quot;news&quot;</code><br>?id 就是路由接收組件傳遞的 search 參數的值。<br><strong>search 參數不用佔位。</strong></p>
+<p>抽出 home 中的 news 做範例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">  <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>,</span><br><span class="line">  children: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;message/:id/:name&#x27;</span>,</span><br><span class="line">      <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">Message</span> /&gt;</span></span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// search 參數不需要再路由表中呈現</span></span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;news&#x27;</span>,</span><br><span class="line">      <span class="attr">element</span>: <span class="xml"><span class="tag">&lt;<span class="name">News</span> /&gt;</span></span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>傳參組件傳遞參數寫法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Home.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; Outlet, Link &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是 Home 頁<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#x27;message/1234/Celeste&#x27;</span>&gt;</span>訊息<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#x27;news?id=1234&amp;name=Celeste&#x27;</span>&gt;</span>新聞<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      我是二級路由呈現位置</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Outlet</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>url 呈現<br><code>localhost:5500/home/news?id=1234&amp;name=Celeste</code><br>此時的 1234 就是組件傳遞的 id 的 search 參數值，而 Celeste 就是 name 的參數值。</p>
+</li>
+<li><p>組件透過 useSearchParams 接收參數</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useSearchParams &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">News</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> searchParams = useSearchParams();</span><br><span class="line">  <span class="built_in">console</span>.log(searchParams); <span class="comment">// 是一個陣列 [URLSearchParams, f]</span></span><br><span class="line">  <span class="comment">// useSearchParams 傳的值跟 useState 很像，第一個就是 search 參數，第二個是更新 search 的方法</span></span><br><span class="line">  <span class="keyword">const</span> [search, setSearch] = useSearchParams();</span><br><span class="line">  <span class="comment">// 此時的 search 還不能直接被查看，需透過 get(查看的參數名) 來查看</span></span><br><span class="line">  <span class="built_in">console</span>.log(search.get(<span class="string">&#x27;id&#x27;</span>));</span><br><span class="line">  <span class="built_in">console</span>.log(search.get(<span class="string">&#x27;name&#x27;</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      id: &#123;search.get(&#x27;id&#x27;)&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      name: &#123;search.get(&#x27;name&#x27;)&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setSearch(&#x27;id=9876&amp;name=Smith&#x27;)&#125;&gt;改變 search 參數<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>除了上面 2 個接收參數的方法外，還可以使用 <code>useLocation</code> 或 <code>useMatches</code> 來取得頁面更詳細的訊息。</p>
+<p>如果透過 state (此 state 非彼 state)來傳路由參數的話，就需要用 <code>useLocation</code> 來接收 state 參數:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link</span><br><span class="line">  to=<span class="string">&#x27;news&#x27;</span></span><br><span class="line">  state=&#123;&#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="number">234</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;jack&#x27;</span>,</span><br><span class="line">  &#125;&#125;&gt;</span><br><span class="line">  新聞</span><br><span class="line">&lt;/Link&gt;</span><br></pre></td></tr></table></figure>
+
+<p>透過 <code>useLocation</code> 來接收</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// News.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; useLocation &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">News</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> location = useLocation();</span><br><span class="line">  <span class="built_in">console</span>.log(location); <span class="comment">// &#123;詳細資料&#125;</span></span><br><span class="line">  <span class="keyword">const</span> &#123;</span><br><span class="line">    <span class="attr">state</span>: &#123; id, name &#125;,</span><br><span class="line">  &#125; = useLocation();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是 News</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      id: &#123;id&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      name: &#123;name&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他-Hooks"><a href="#其他-Hooks" class="headerlink" title="其他 Hooks"></a>其他 Hooks</h3><ul>
+<li><p>useNavigate</p>
+<p>實現編程式導航。</p>
+<ul>
+<li><p>寫法:<br><code>useNavigate()(路徑, options: &#123; replace, state&#125;)</code></p>
+</li>
+<li><p>範例:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useNavigate &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> navigate = useNavigate();</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    我是 App &lt;br/&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="xml">      navigate(&quot;/about&quot;, &#123;</span></span><br><span class="line"><span class="xml">        // replace 在歷史紀錄上是否取代跳轉前的頁面</span></span><br><span class="line"><span class="xml">        replace: false, // 預設</span></span><br><span class="line"><span class="xml">        // 傳遞 state 參數給跳轉的頁面</span></span><br><span class="line"><span class="xml">        state: &#123; id: 1234, name: &quot;Celeste&quot; &#125;,</span></span><br><span class="line"><span class="xml">      &#125;)</span></span><br><span class="line"><span class="xml">    &#125;&#125;&gt;點選我跳轉到 About<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>跳轉上一頁或下一頁<br><code>useNavigate()(-1)</code> 跳轉上一頁<br><code>useNavigate()(1)</code> 跳轉下一頁</p>
+</li>
+</ul>
+</li>
+<li><p>useNavigationType</p>
+<p>查看進入該路徑時，是透過 PUSH、 REPLACE、POP(刷新頁面或直接進入) 哪一種。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// News.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; useLocation, useNavigationType &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">News</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(useNavigationType()); <span class="comment">// PUSH、 REPLACE、POP</span></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是 News<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>useOutlet</p>
+<p>查看目前組件中的嵌套路由組件內容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Home.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; Outlet, Link, useOutlet &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(useOutlet()); <span class="comment">// 當嵌套路由組件掛載時，就可以查看相關訊息</span></span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">我是 Home 頁<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#x27;message&#x27;</span>&gt;</span>訊息<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#x27;news&#x27;</span>&gt;</span>新聞<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span></span><br><span class="line"><span class="xml">我是二級路由呈現位置</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Outlet</span> /&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Celeste6666/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Celeste6666/React/review/ReactEp04Hooks/" rel="prev" title="EP04 | React 18 全家桶複習 - Hooks的使用">
+                  <i class="fa fa-chevron-left"></i> EP04 | React 18 全家桶複習 - Hooks的使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Celeste6666/React/review/ReactEp06RouterVerify/" rel="next" title="EP06 | React 18 全家桶複習 - React-Router (路由驗證及攔截)">
+                  EP06 | React 18 全家桶複習 - React-Router (路由驗證及攔截) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/Celeste6666/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Celeste6666/js/utils.js"></script><script src="/Celeste6666/js/motion.js"></script><script src="/Celeste6666/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Celeste6666/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Celeste6666/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Celeste6666/images/ico16.png">
+  <link rel="mask-icon" href="/Celeste6666/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Celeste6666/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;Celeste6666&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;Celeste6666&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="結合 react 的 redux 使用方法 下載 npm i react-redux  透過 react-redux 中的 Provider 注入 Redux 的狀態給組件  1234567891011&#x2F;&#x2F; ...引入其他模組import &amp;#123; Provider &amp;#125; from &quot;react-redux&quot;;import store from &quot;.&#x2F;01">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EP10 | React 18 全家桶複習 - React-Redux">
+<meta property="og:url" content="https://celeste6666.github.io/Celeste6666/React/review/ReactEp09ReactRedux/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="結合 react 的 redux 使用方法 下載 npm i react-redux  透過 react-redux 中的 Provider 注入 Redux 的狀態給組件  1234567891011&#x2F;&#x2F; ...引入其他模組import &amp;#123; Provider &amp;#125; from &quot;react-redux&quot;;import store from &quot;.&#x2F;01">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-12-04T12:00:27.000Z">
+<meta property="article:modified_time" content="2022-12-28T12:11:38.938Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp09ReactRedux/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;React&#x2F;review&#x2F;ReactEp09ReactRedux&#x2F;&quot;,&quot;path&quot;:&quot;React&#x2F;review&#x2F;ReactEp09ReactRedux&#x2F;&quot;,&quot;title&quot;:&quot;EP10 | React 18 全家桶複習 - React-Redux&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>EP10 | React 18 全家桶複習 - React-Redux | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Celeste6666/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Celeste6666/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/Celeste6666/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/Celeste6666/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Celeste6666/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Celeste6666/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E5%90%88-react-%E7%9A%84-redux-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">結合 react 的 redux 使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-redux-Hooks"><span class="nav-number">2.</span> <span class="nav-text">React-redux Hooks</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/Celeste6666/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/Celeste6666/archives/">
+        
+          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/Celeste6666/categories/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/Celeste6666/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp09ReactRedux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EP10 | React 18 全家桶複習 - React-Redux
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2022-12-04 20:00:27" itemprop="dateCreated datePublished" datetime="2022-12-04T20:00:27+08:00">2022-12-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2022-12-28 20:11:38" itemprop="dateModified" datetime="2022-12-28T20:11:38+08:00">2022-12-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/" itemprop="url" rel="index"><span itemprop="name">React 全家桶</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/Redux/" itemprop="url" rel="index"><span itemprop="name">Redux</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/Redux/React-Redux/" itemprop="url" rel="index"><span itemprop="name">React-Redux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="結合-react-的-redux-使用方法"><a href="#結合-react-的-redux-使用方法" class="headerlink" title="結合 react 的 redux 使用方法"></a>結合 react 的 redux 使用方法</h3><ol>
+<li><p>下載 <code>npm i react-redux</code></p>
+</li>
+<li><p>透過 react-redux 中的 Provider 注入 Redux 的狀態給組件</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...引入其他模組</span></span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">&quot;react-redux&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&quot;./01.redux/store&quot;</span>;</span><br><span class="line"><span class="comment">/* 1.透過 Provider 將 redux 儲存庫數據傳入到組件中 */</span></span><br><span class="line">root.render(</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">StrictMode</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">RouterProvider</span> <span class="attr">router</span>=<span class="string">&#123;router&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">StrictMode</span>&gt;</span></span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<span id="more"></span></li>
+<li><p>在組件中透過 react-redux 提供的 connect()(組件名) 讓 redux 中 store 的 state 及 dispatch 與組件產生聯繫，無須再透過 store.subscribe() 方法訂閱 store 。]</p>
+</li>
+</ol>
+<blockquote>
+<p>注意: export 出去的要是經過 connect 後的組件。</p>
+</blockquote>
+<pre><code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; deleteTodo, getTodos &#125; <span class="keyword">from</span> <span class="string">&quot;./01.redux/actions/todoAction&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">&quot;react-redux&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params">&#123; todos, deleteTodo, getTodos &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 4.redux 的狀態經過 conncect 後會透過 props 傳入</span></span><br><span class="line">  <span class="comment">// const [todo, setTodo] = useState(store.getState());</span></span><br><span class="line">  <span class="keyword">const</span> deleteItem = <span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 4. redux 的 dispatch 經過 conncect 處理後會透過 props 傳入</span></span><br><span class="line">    <span class="comment">// store.dispatch(deleteTodo(item));</span></span><br><span class="line">    <span class="comment">// setTodo(store.getState());</span></span><br><span class="line">    deleteTodo(item);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 透過 react-redux 的 connect 取代</span></span><br><span class="line">  <span class="comment">// store.subscribe(() =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&quot;@home訂閱的資料更新啦&quot;);</span></span><br><span class="line">  <span class="comment">//   setTodo(store.getState());</span></span><br><span class="line">  <span class="comment">// &#125;);</span></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 4.redux 的狀態經過 conncect 後會透過 props 傳入</span></span><br><span class="line">    <span class="comment">//if (store.getState().length === 0) &#123;</span></span><br><span class="line">    <span class="keyword">if</span> (todos.length === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;@home 發出數據請求&quot;</span>);</span><br><span class="line">      <span class="comment">// 4. redux 的 dispatch 經過 conncect 處理後會透過 props 傳入</span></span><br><span class="line">      <span class="comment">// store.dispatch(getTodos());</span></span><br><span class="line">      getTodos();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;@home緩存&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, []);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是Home，放置所有 todo 資料</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;todos.map((item) =&gt; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">          &#123;item.title&#125;</span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">            <span class="attr">onClick</span>=<span class="string">&#123;(e)</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="xml">              deleteItem(item);</span></span><br><span class="line"><span class="xml">            &#125;&#125;</span></span><br><span class="line"><span class="xml">          &gt;</span></span><br><span class="line"><span class="xml">            刪除</span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">      ))&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//3. connect(參數1: mapStateToProps, 參數2: mapDispatchToProps)</span></span><br><span class="line"><span class="comment">// mapStateToProps 是一個 function，可接收 redux 的state，對其執行代碼並返回要傳給 props 的值</span></span><br><span class="line"><span class="keyword">const</span> mapStateToProps = <span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;@mapStateToProps&quot;</span>, state);</span><br><span class="line">  <span class="comment">// 這個會返回給組件的 props</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">todos</span>: state</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// mapDispatchToProps 也是一個 function，但可以直接簡化一個對象 &#123;對象名: actionCreator名&#125;</span></span><br><span class="line"><span class="comment">// 因為 react-redux 會自動幫其調用 bindActionCreators</span></span><br><span class="line"><span class="comment">// 當透過props調用對象名時，react-redux就會自動協助調用 dispatch(actionCreator名)</span></span><br><span class="line"><span class="keyword">const</span> mapDispatchToProps = &#123;</span><br><span class="line">  <span class="comment">// deleteTodo(傳入 props 的 dispatch 名): deleteTodo(引入的actionCreator名)</span></span><br><span class="line">  deleteTodo,</span><br><span class="line">  getTodos</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 透過 connect 使得組件與 redux 發生關聯，並將 redux 儲存的狀態及 dispatch 傳給組件的 props</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, mapDispatchToProps)(Home);</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h3 id="React-redux-Hooks"><a href="#React-redux-Hooks" class="headerlink" title="React-redux Hooks"></a>React-redux Hooks</h3><ul>
+<li><p>useSelector() 取代使用 connect 中的 mapStateToProps: 如果值相同可以調用緩存結果(shallowEqual 會協助比較)，不會重新調用。</p>
+</li>
+<li><p>useDispatch() 取代 connect 中的 mapDispatchToProps</p>
+</li>
+</ul>
+<blockquote>
+<p>透過 Hooks 就無需再去使用 connect 來將store 中的 state 及 dispatch 傳給組件的 props了</p>
+</blockquote>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; deleteTodo, getTodos &#125; <span class="keyword">from</span> <span class="string">&quot;./01.redux/actions/todoAction&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; shallowEqual, useSelector, useDispatch &#125; <span class="keyword">from</span> <span class="string">&quot;react-redux&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. useDispatch 取代了 connect 方法傳遞的 mapDispatchToProps</span></span><br><span class="line">  <span class="keyword">const</span> dispatch = useDispatch();</span><br><span class="line">  <span class="comment">// 2. useSelector 取代了 connect 方法傳遞的 mapStateToProps</span></span><br><span class="line">  <span class="keyword">const</span> todos = useSelector(<span class="function">(<span class="params">state</span>) =&gt;</span> state, shallowEqual);</span><br><span class="line">  <span class="keyword">const</span> deleteItem = <span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    deleteTodo(item);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (todos.length === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;@home 發出數據請求&quot;</span>);</span><br><span class="line">      dispatch(getTodos());</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;@home緩存&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, []);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是Home，放置所有 todo 資料</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;todos.map((item) =&gt; (</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">          &#123;item.title&#125;</span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">            <span class="attr">onClick</span>=<span class="string">&#123;(e)</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="xml">              deleteItem(item);</span></span><br><span class="line"><span class="xml">            &#125;&#125;</span></span><br><span class="line"><span class="xml">          &gt;</span></span><br><span class="line"><span class="xml">            刪除</span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">      ))&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  <iframe src="https://codesandbox.io/embed/react-redux-hooks-x8jnf1?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="react-redux-hooks"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Celeste6666/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Celeste6666/React/review/ReactEp08Redux/" rel="prev" title="EP08 | React 18 全家桶複習 - Redux">
+                  <i class="fa fa-chevron-left"></i> EP08 | React 18 全家桶複習 - Redux
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Celeste6666/React/review/ReactEp10ReduxToolkit/" rel="next" title="EP09 | React 18 全家桶複習 - Redux Toolkit">
+                  EP09 | React 18 全家桶複習 - Redux Toolkit <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/Celeste6666/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Celeste6666/js/utils.js"></script><script src="/Celeste6666/js/motion.js"></script><script src="/Celeste6666/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

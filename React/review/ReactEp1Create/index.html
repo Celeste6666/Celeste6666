@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Celeste6666/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Celeste6666/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Celeste6666/images/ico16.png">
+  <link rel="mask-icon" href="/Celeste6666/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Celeste6666/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;Celeste6666&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;Celeste6666&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="相關配置說明本次練習的 React 版本為 v18 並以 function component 作為主要講解及練習。 創建第一個 React 項目 全局安裝 12npm i -g create-react-appcreate-react-app 項目名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EP01 | React 18 全家桶複習 - 創建 React 項目">
+<meta property="og:url" content="https://celeste6666.github.io/Celeste6666/React/review/ReactEp1Create/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="相關配置說明本次練習的 React 版本為 v18 並以 function component 作為主要講解及練習。 創建第一個 React 項目 全局安裝 12npm i -g create-react-appcreate-react-app 項目名">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-11-26T03:24:27.000Z">
+<meta property="article:modified_time" content="2022-12-28T12:09:18.828Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp1Create/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;React&#x2F;review&#x2F;ReactEp1Create&#x2F;&quot;,&quot;path&quot;:&quot;React&#x2F;review&#x2F;ReactEp1Create&#x2F;&quot;,&quot;title&quot;:&quot;EP01 | React 18 全家桶複習 - 創建 React 項目&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>EP01 | React 18 全家桶複習 - 創建 React 項目 | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Celeste6666/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Celeste6666/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/Celeste6666/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/Celeste6666/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Celeste6666/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Celeste6666/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E9%97%9C%E9%85%8D%E7%BD%AE%E8%AA%AA%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">相關配置說明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%B5%E5%BB%BA%E7%AC%AC%E4%B8%80%E5%80%8B-React-%E9%A0%85%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">創建第一個 React 項目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E8%A3%BD-src-%E5%85%A7%E6%BA%90%E4%BB%A3%E7%A2%BC"><span class="nav-number">3.</span> <span class="nav-text">自製 src 內源代碼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX-%E8%AA%9E%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">JSX 語法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E7%B5%84%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">函式組件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/Celeste6666/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/Celeste6666/archives/">
+        
+          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/Celeste6666/categories/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/Celeste6666/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp1Create/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EP01 | React 18 全家桶複習 - 創建 React 項目
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2022-11-26 11:24:27" itemprop="dateCreated datePublished" datetime="2022-11-26T11:24:27+08:00">2022-11-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2022-12-28 20:09:18" itemprop="dateModified" datetime="2022-12-28T20:09:18+08:00">2022-12-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/" itemprop="url" rel="index"><span itemprop="name">React 全家桶</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="相關配置說明"><a href="#相關配置說明" class="headerlink" title="相關配置說明"></a>相關配置說明</h3><p>本次練習的 React 版本為 v18 並以 function component 作為主要講解及練習。</p>
+<h3 id="創建第一個-React-項目"><a href="#創建第一個-React-項目" class="headerlink" title="創建第一個 React 項目"></a>創建第一個 React 項目</h3><ul>
+<li><p>全局安裝</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i -g create-react-app</span><br><span class="line">create-react-app 項目名</span><br></pre></td></tr></table></figure>
+<span id="more"></span></li>
+<li><p>局部安裝</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app 項目名</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>過程中會安裝 react(react 頂級庫)、react-dom(web 的運行環境)、react-scripts(react 運行及打包腳本配置)</p>
+<blockquote>
+<p>此處可能遇到的問題<br>如果無法順利安裝，請確定是否有成功安裝 Node.js 及 npm (node -v 檢查)<br>如果都有順利安裝，則可再檢查環境變數 Path 路徑是否設定正確，可否正確地找到 node 指令的位置(%NODE_PATH%\npm-global)</p>
+</blockquote>
+<p>成功安裝的畫面<br>:arrow_down:</p>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|—— README.md 使用方法檔案</span><br><span class="line">|—— node_modules 所有依賴安裝的文件夾</span><br><span class="line">|—— package-lock.json 鎖定安裝時的版本號，確保下載時的依賴能一致</span><br><span class="line">|—— package.json</span><br><span class="line">|—— public 靜態公共目錄</span><br><span class="line">|—— src 源代碼位置</span><br></pre></td></tr></table></figure>
+
+<h3 id="自製-src-內源代碼"><a href="#自製-src-內源代碼" class="headerlink" title="自製 src 內源代碼"></a>自製 src 內源代碼</h3><ol>
+<li><p>刪除除 index.js 外的其他文件。</p>
+</li>
+<li><p>檢視 index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">&#x27;react-dom/client&#x27;</span>; <span class="comment">//</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./index.css&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App&#x27;</span>; <span class="comment">// 原始畫面</span></span><br><span class="line"><span class="comment">//import reportWebVitals from &#x27;./reportWebVitals&#x27;; //暫時不需要，可以刪除</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> root = ReactDOM.createRoot(<span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>));</span><br><span class="line"></span><br><span class="line">root.render(</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">React.StrictMode</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">React.StrictMode</span>&gt;</span></span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zh-hant.reactjs.org/docs/react-dom-client.html#createroot">React-DOM v18 版本</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh-hant.reactjs.org/docs/strict-mode.html">React.StrictMode 作用</a></p>
+<h3 id="JSX-語法"><a href="#JSX-語法" class="headerlink" title="JSX 語法"></a>JSX 語法</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.casper.tw/development/2020/09/17/js-expression/">JavaScript Expression</a> 及屬性都用 <code>&#123;expression || 屬性&#125;</code> 包裹</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">APP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">&quot;Celeste&quot;</span>;</span><br><span class="line">  <span class="keyword">let</span> img = &#123;<span class="attr">name</span>: <span class="string">&quot;照片&quot;</span>, <span class="attr">src</span>: <span class="string">&quot;http://...&quot;</span>&#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      使用 JSX</span></span><br><span class="line"><span class="xml">      &#123;name&#125;</span></span><br><span class="line"><span class="xml">      &#123;img.src&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>用大括號 {} 將 map() function 迭代包含在 JSX 裡面</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">APP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">        &#123;</span></span><br><span class="line"><span class="xml">          numbers.map((number) =&gt;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;number&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">          )</span></span><br><span class="line"><span class="xml">        &#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>指定樣式屬性名不能用 class ，須改用 className。</p>
+</li>
+<li><p>在 HTML 標籤中使用 style 屬性時，要用 style={<strong>{ key: value }(object)</strong>} 的形式去寫。</p>
+</li>
+<li><p>自訂義標籤必須閉合，<APP> 是錯誤的，<APP />才正確。</p>
+<ul>
+<li>自訂義標籤須以<strong>大寫字母開頭</strong>， react 才能去渲染相應的 Component。</li>
+<li>小寫字母開頭，會被視為是 HTML 中的同名元素。</li>
+</ul>
+</li>
+</ul>
+<p>注意： 多行 JSX 須用<strong>括號包裹</strong>來避免遇到自動分號補足的麻煩(避免與他行相連造成 JS 不必要的誤認)。</p>
+<h3 id="函式組件"><a href="#函式組件" class="headerlink" title="函式組件"></a>函式組件</h3><p>本次練習主要集中在 Function Component (FC)，關於 Class Component 就不另介紹。</p>
+<p>Component 的目的是透過將 UI 拆分成各個獨立且可複用的程式碼。</p>
+<p>透過 FC 返回 JSX 代碼，React 就能夠渲染這些代碼產生的畫面。<br>注意： FC 是沒有 this 的，所以在 FC 中是不會出現 this。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">APP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我會變成一個組件 <span class="tag">&lt;<span class="name">APP</span> /&gt;</span>，之後就可以放置在畫面中囉!!!</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Celeste6666/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Celeste6666/Vue/VueToProject/toyStore/trouble03/" rel="prev" title="開發 Vue 問題挑戰 ─ 在 Vue 中使用 VeeValidate 驗證表單">
+                  <i class="fa fa-chevron-left"></i> 開發 Vue 問題挑戰 ─ 在 Vue 中使用 VeeValidate 驗證表單
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Celeste6666/React/review/ReactEp2Event/" rel="next" title="EP02 | React 18 全家桶複習 - 事件綁定">
+                  EP02 | React 18 全家桶複習 - 事件綁定 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/Celeste6666/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Celeste6666/js/utils.js"></script><script src="/Celeste6666/js/motion.js"></script><script src="/Celeste6666/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -29,9 +29,9 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://img.youtube.com/vi/Y50_RSWpWkA/0.jpg">
 <meta property="article:published_time" content="2020-09-13T05:26:27.000Z">
-<meta property="article:modified_time" content="2020-11-09T12:48:38.000Z">
+<meta property="article:modified_time" content="2022-12-09T12:23:33.018Z">
 <meta property="article:author" content="Celeste">
-<meta property="article:tag" content="Vue.js">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img.youtube.com/vi/Y50_RSWpWkA/0.jpg">
 
@@ -138,20 +138,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/Celeste6666/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Celeste6666/categories/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/Celeste6666/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -229,7 +229,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-09 20:48:38" itemprop="dateModified" datetime="2020-11-09T20:48:38+08:00">2020-11-09</time>
+        <time title="修改時間：2022-12-09 20:23:33" itemprop="dateModified" datetime="2022-12-09T20:23:33+08:00">2022-12-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,11 +237,11 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+          <a href="/Celeste6666/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+          <a href="/Celeste6666/categories/Vue/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
         </span>
     </span>
 
@@ -271,7 +271,7 @@
 <li><code>data</code>物件裡面放置各種可以用來響應連動的資料。</li>
 </ul>
 <h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p><strong>資料響應</strong><br><strong>使用模板語句將<code>data</code>內資料渲染到被綁定的 DOM 物件</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--被 Vue 綁定的 DOM 物件--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--載入 Vue 的 CDN --&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--撰寫 Vue --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue (&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">data</span>: &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// data資料</span></span></span><br><span class="line"><span class="javascript">      <span class="attr">message</span>: <span class="string">&#x27;Helle Vue！&#x27;</span></span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">  &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--被 Vue 綁定的 DOM 物件--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--載入 Vue 的 CDN --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--撰寫 Vue --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> vm = <span class="keyword">new</span> Vue (&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="attr">data</span>: &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// data資料</span></span></span><br><span class="line"><span class="javascript">      <span class="attr">message</span>: <span class="string">&#x27;Helle Vue！&#x27;</span></span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">  &#125;)</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="celeste6666" data-slug-hash="LYNmovX" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="[DAY01]漸進式了解 VueJS -前言">
   <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/LYNmovX">
@@ -290,7 +290,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/Celeste6666/tags/Vue-js/" rel="tag"># Vue.js</a>
+              <a href="/Celeste6666/tags/Vue/" rel="tag"># Vue</a>
           </div>
 
         
@@ -325,7 +325,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

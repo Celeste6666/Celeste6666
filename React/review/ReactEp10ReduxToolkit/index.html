@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Celeste6666/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Celeste6666/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Celeste6666/images/ico16.png">
+  <link rel="mask-icon" href="/Celeste6666/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Celeste6666/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;Celeste6666&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;Celeste6666&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="使用 Redux Toolkit (RTK) 可以簡化傳統 Redux 的重複性操作。目前 Redux 也推薦使用 RTK。 RTK 創建 reducer 及生成對應 action 安裝 RTK 包 npm install @reduxjs&#x2F;toolkit。  在 reducer 下創建 slice 檔案，使用 createSlice 創建 reducer 及 action。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EP09 | React 18 全家桶複習 - Redux Toolkit">
+<meta property="og:url" content="https://celeste6666.github.io/Celeste6666/React/review/ReactEp10ReduxToolkit/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="使用 Redux Toolkit (RTK) 可以簡化傳統 Redux 的重複性操作。目前 Redux 也推薦使用 RTK。 RTK 創建 reducer 及生成對應 action 安裝 RTK 包 npm install @reduxjs&#x2F;toolkit。  在 reducer 下創建 slice 檔案，使用 createSlice 創建 reducer 及 action。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2022-12-05T03:00:27.000Z">
+<meta property="article:modified_time" content="2022-12-28T12:11:57.201Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp10ReduxToolkit/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;React&#x2F;review&#x2F;ReactEp10ReduxToolkit&#x2F;&quot;,&quot;path&quot;:&quot;React&#x2F;review&#x2F;ReactEp10ReduxToolkit&#x2F;&quot;,&quot;title&quot;:&quot;EP09 | React 18 全家桶複習 - Redux Toolkit&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>EP09 | React 18 全家桶複習 - Redux Toolkit | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Celeste6666/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Celeste6666/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/Celeste6666/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/Celeste6666/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Celeste6666/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Celeste6666/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RTK-%E5%89%B5%E5%BB%BA-reducer-%E5%8F%8A%E7%94%9F%E6%88%90%E5%B0%8D%E6%87%89-action"><span class="nav-number">1.</span> <span class="nav-text">RTK 創建 reducer 及生成對應 action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RTK-%E7%95%B0%E6%AD%A5%E6%95%B8%E6%93%9A%E8%AB%8B%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">RTK 異步數據請求</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/Celeste6666/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/Celeste6666/archives/">
+        
+          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/Celeste6666/categories/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/Celeste6666/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp10ReduxToolkit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EP09 | React 18 全家桶複習 - Redux Toolkit
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2022-12-05 11:00:27" itemprop="dateCreated datePublished" datetime="2022-12-05T11:00:27+08:00">2022-12-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2022-12-28 20:11:57" itemprop="dateModified" datetime="2022-12-28T20:11:57+08:00">2022-12-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/" itemprop="url" rel="index"><span itemprop="name">React 全家桶</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/Redux/" itemprop="url" rel="index"><span itemprop="name">Redux</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/Redux/Redux-Toolkit/" itemprop="url" rel="index"><span itemprop="name">Redux Toolkit</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>使用 Redux Toolkit (RTK) 可以簡化傳統 Redux 的重複性操作。目前 Redux 也推薦使用 RTK。</p>
+<h3 id="RTK-創建-reducer-及生成對應-action"><a href="#RTK-創建-reducer-及生成對應-action" class="headerlink" title="RTK 創建 reducer 及生成對應 action"></a>RTK 創建 reducer 及生成對應 action</h3><ol>
+<li><p>安裝 RTK 包 <code>npm install @reduxjs/toolkit</code>。</p>
+</li>
+<li><p>在 reducer 下創建 slice 檔案，使用 createSlice 創建 reducer 及 action。</p>
+<span id="more"></span>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 通過 creatSlice 來創建 reducer</span></span><br><span class="line"><span class="keyword">import</span> &#123; createSlice &#125; <span class="keyword">from</span> <span class="string">&#x27;@reduxjs/toolkit&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> todoSlice = createSlice(&#123;</span><br><span class="line">  <span class="comment">// name 用來生成 action 中的 type</span></span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;todos&#x27;</span>,</span><br><span class="line">  <span class="comment">// initialState 用來設定 state 的初始值</span></span><br><span class="line">  <span class="attr">initialState</span>: &#123;</span><br><span class="line">    <span class="attr">todoArr</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">userId</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;delectus aut autem&#x27;</span>,</span><br><span class="line">        <span class="attr">completed</span>: <span class="literal">false</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 指定 state 的各種操作，可以直接添加對 state 執行的方法</span></span><br><span class="line">  <span class="attr">reducers</span>: &#123;</span><br><span class="line">    <span class="comment">// 通過不同方法來指定對 state 的不同操作,</span></span><br><span class="line">    <span class="function"><span class="title">deleteTodo</span>(<span class="params">state, action</span>)</span> &#123;</span><br><span class="line">      <span class="comment">// state 是一個代理對象，可以直接修改</span></span><br><span class="line">      <span class="comment">// state.name = &quot;XXX&quot;</span></span><br><span class="line">      <span class="keyword">return</span> state.todoArr.filter(<span class="function">(<span class="params">item</span>) =&gt;</span> item.id !== action.payload);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. createSlice 會自動生成 actionCreator，無須自己在創建，並導出讓組件可以來取得 action</span></span><br><span class="line"><span class="built_in">console</span>.log(todoSlice.actions);</span><br><span class="line"><span class="comment">// 透過解構賦值將 todoSlice.actions 拆開出來，每個都是函數</span></span><br><span class="line"><span class="comment">// actionCreator 調用後的結構會是 &#123;type: name/函數名, payload: 參數&#125;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> &#123; deleteTodo &#125; = todoSlice.actions;</span><br></pre></td></tr></table></figure></li>
+<li><p>導入並透過 RTK 的 configureStore 來構建資料庫。</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2. 透過 RTK 構建資料庫</span></span><br><span class="line"><span class="keyword">import</span> &#123; configureStore &#125; <span class="keyword">from</span> <span class="string">&#x27;@reduxjs/toolkit&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 導入 reducer</span></span><br><span class="line"><span class="keyword">import</span> &#123; todoSlice &#125; <span class="keyword">from</span> <span class="string">&#x27;./reducers/todoSlice&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4. 創建 store</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> configureStore(&#123;</span><br><span class="line">  <span class="comment">// 使用到的 reducers</span></span><br><span class="line">  <span class="attr">reducer</span>: &#123;</span><br><span class="line">    <span class="comment">// 注意引入的是每個 slice 裡的 reducer 屬性</span></span><br><span class="line">    <span class="comment">// 屬性名是之後要透過 state來訪問用的</span></span><br><span class="line">    <span class="attr">todos</span>: todoSlice.reducer,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>在組件中使用 react-redux Hooks 取得或變更數據。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useSelector, useDispatch &#125; <span class="keyword">from</span> <span class="string">&#x27;react-redux&#x27;</span>;</span><br><span class="line"><span class="comment">// 導入 action</span></span><br><span class="line"><span class="keyword">import</span> &#123; deleteTodo &#125; <span class="keyword">from</span> <span class="string">&#x27;./01.redux/reducers/todoSlice&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 7. 透過 React-Redux hooks 中的 useSelector 來加載 state 數據</span></span><br><span class="line">  <span class="keyword">const</span> todoArr = useSelector(<span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// state會是所有的資料</span></span><br><span class="line">    <span class="built_in">console</span>.log(state);</span><br><span class="line">    <span class="keyword">return</span> state.todos.todoArr;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">// 8. 使用 React-Redux hooks 中的 useDispatch 來派發 action</span></span><br><span class="line">  <span class="keyword">const</span> dispatch = useDispatch();</span><br><span class="line">  <span class="keyword">const</span> deleteItem = <span class="function">(<span class="params">id</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// action 透過 createSlice 已經自動生成，可以直接取用(需先導入)</span></span><br><span class="line">    <span class="comment">// id 為 action 的 payload</span></span><br><span class="line">    dispatch(deleteTodo(id));</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是Home，放置所有 todo 資料</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">        &#123;todoArr.map((item) =&gt; (</span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            &#123;item.title&#125;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">              <span class="attr">onClick</span>=<span class="string">&#123;(e)</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="xml">                deleteItem(item.id);</span></span><br><span class="line"><span class="xml">              &#125;&#125;&gt;</span></span><br><span class="line"><span class="xml">              刪除</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">        ))&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="RTK-異步數據請求"><a href="#RTK-異步數據請求" class="headerlink" title="RTK 異步數據請求"></a>RTK 異步數據請求</h3><ol>
+<li>在 slice.js 中透過 createAsyncThunk 來處理異步數據。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;createAsyncThunk, createSlice&#125; <span class="keyword">from</span> <span class="string">&#x27;@reduxjs/toolkit&#x27;</span>;</span><br><span class="line"><span class="comment">// A. 透過 createAsyncThunk 來創建異步的 actionCreator並實現異步數據取得</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchTodoArr = createAsyncThunk(&#123;</span><br><span class="line">  <span class="comment">// action.type</span></span><br><span class="line">  <span class="string">&quot;todos/fetchTodoArr&quot;</span>,</span><br><span class="line">  <span class="comment">// payloadCreator(arg, thunkAPI)，一個 Promise</span></span><br><span class="line">  <span class="keyword">async</span>(args, thunkAPI) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 可以透過 thunkAPI 來使用 store 的 getState、dispatch</span></span><br><span class="line">    <span class="comment">// thunkAPI 還提供了 rejectWithValue 方法來處理錯誤訊息、fulfiiiWithValue 來處理成功訊息(但通常都是直接回傳資料，無須使用)</span></span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(<span class="string">`https://jsonplaceholder.typicode.com/todo`</span>);</span><br><span class="line">    <span class="keyword">if</span> (res.status === <span class="number">404</span>) &#123;</span><br><span class="line">      <span class="comment">// 要記得 return</span></span><br><span class="line">      <span class="keyword">return</span> thunkAPI.rejectWithValue(<span class="string">&quot;獲取數據失敗&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> json = <span class="keyword">await</span> res.json();</span><br><span class="line">    <span class="comment">// 給 reducer 的 action.payload</span></span><br><span class="line">    <span class="keyword">return</span> json;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在 createSlice 中會有一個屬性 extraReducers 用來處理異步 action 傳回的資料。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> todoSlice = createSlice(&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  <span class="attr">reducers</span>: &#123;</span><br><span class="line">    <span class="comment">//會自動生成(同步) actionCreator 的 reducer 位置</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//B. 將異步 action (由 createAsyncThunk創建)放置位置</span></span><br><span class="line">  <span class="attr">extraReducers</span>: &#123;</span><br><span class="line">    <span class="comment">// C. 異步數據成功取得後，要執行的 reducer 內容</span></span><br><span class="line">    [fetchTodoArr.fulfilled]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 如果是重新賦值給state的話要記得 return return 的東西才是實際存在外面 store 的</span></span><br><span class="line">      state.todoArr = action.payload;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// C. 異步數據取得失敗後，要執行的 reducer 內容，action.payload 即是 rejectWithValue(內容) 回傳的內容</span></span><br><span class="line">    [fetchTodoArr.rejected]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">      state.status = <span class="number">404</span>;</span><br><span class="line">      state.errorText = action.payload;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在組件中依然是透過 react-redux Hooks (useSelector、useDispatch)來獲取資料。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useEffect &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useSelector, useDispatch &#125; <span class="keyword">from</span> <span class="string">&#x27;react-redux&#x27;</span>;</span><br><span class="line"><span class="comment">// 導入 action</span></span><br><span class="line"><span class="keyword">import</span> &#123; deleteTodo, fetchTodoArr &#125; <span class="keyword">from</span> <span class="string">&#x27;./01.redux/reducers/todoSlice&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> todoArr = useSelector(<span class="function">(<span class="params">state</span>) =&gt;</span> state.todos.todoArr);</span><br><span class="line">  <span class="keyword">const</span> todoStatus = useSelector(<span class="function">(<span class="params">state</span>) =&gt;</span> state.todos.status);</span><br><span class="line">  <span class="keyword">const</span> todoErrText = useSelector(<span class="function">(<span class="params">state</span>) =&gt;</span> state.todos.errorText);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> dispatch = useDispatch();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//D. 透過異步取得數據</span></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (todoArr.length === <span class="number">0</span>) &#123;</span><br><span class="line">      dispatch(fetchTodoArr());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, []);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是Home，放置所有 todo 資料</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">        &#123;todoStatus !== 200 &amp;&amp; todoArr.length === 0 ? (</span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;todoErrText&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">        ) : (</span></span><br><span class="line"><span class="xml">          todoArr.map((item) =&gt; (</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">              &#123;item.title&#125;</span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                <span class="attr">onClick</span>=<span class="string">&#123;(e)</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="xml">                  deleteItem(item.id);</span></span><br><span class="line"><span class="xml">                &#125;&#125;&gt;</span></span><br><span class="line"><span class="xml">                刪除</span></span><br><span class="line"><span class="xml">              <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">          ))</span></span><br><span class="line"><span class="xml">        )&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<iframe src="https://codesandbox.io/embed/redux-toolkit-p3lm2p?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Redux Toolkit"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Celeste6666/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Celeste6666/React/review/ReactEp09ReactRedux/" rel="prev" title="EP10 | React 18 全家桶複習 - React-Redux">
+                  <i class="fa fa-chevron-left"></i> EP10 | React 18 全家桶複習 - React-Redux
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/Celeste6666/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Celeste6666/js/utils.js"></script><script src="/Celeste6666/js/motion.js"></script><script src="/Celeste6666/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

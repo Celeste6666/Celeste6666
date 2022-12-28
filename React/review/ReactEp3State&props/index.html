@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Celeste6666/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Celeste6666/images/ico32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Celeste6666/images/ico16.png">
+  <link rel="mask-icon" href="/Celeste6666/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Celeste6666/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;celeste6666.github.io&quot;,&quot;root&quot;:&quot;&#x2F;Celeste6666&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;Celeste6666&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜尋...&quot;,&quot;empty&quot;:&quot;我們無法找到任何有關 ${query} 的搜索結果&quot;,&quot;hits_time&quot;:&quot;${hits} 找到 ${time} 個結果&quot;,&quot;hits&quot;:&quot;找到 ${hits} 個結果&quot;}}</script>
+<meta name="description" content="狀態(state)使用方法 - useState() 導入 useState 函數。 調用 useState 函數，並傳入狀態初始值。const [數據名, 修改相應數據狀態方法] &#x3D; useState(初始值) 從 useState 函數返回值中，拿到狀態及修改狀態的方法。 在 JSX 中展示狀態。 調用修改狀態方法更新狀態。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EP03 | React 18 全家桶複習 - 狀態(state)及參數(props)">
+<meta property="og:url" content="https://celeste6666.github.io/Celeste6666/React/review/ReactEp3State&props/index.html">
+<meta property="og:site_name" content="Celeste 技術儲藏室">
+<meta property="og:description" content="狀態(state)使用方法 - useState() 導入 useState 函數。 調用 useState 函數，並傳入狀態初始值。const [數據名, 修改相應數據狀態方法] &#x3D; useState(初始值) 從 useState 函數返回值中，拿到狀態及修改狀態的方法。 在 JSX 中展示狀態。 調用修改狀態方法更新狀態。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://celeste6666.github.io/Celeste6666/React/review/ReactEp3State&props/transmit.png">
+<meta property="article:published_time" content="2022-11-28T05:01:27.000Z">
+<meta property="article:modified_time" content="2022-12-28T12:09:33.625Z">
+<meta property="article:author" content="Celeste">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://celeste6666.github.io/Celeste6666/React/review/ReactEp3State&props/transmit.png">
+
+
+<link rel="canonical" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp3State&props/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-TW&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;celeste6666.github.io&#x2F;Celeste6666&#x2F;React&#x2F;review&#x2F;ReactEp3State&amp;props&#x2F;&quot;,&quot;path&quot;:&quot;React&#x2F;review&#x2F;ReactEp3State&amp;props&#x2F;&quot;,&quot;title&quot;:&quot;EP03 | React 18 全家桶複習 - 狀態(state)及參數(props)&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>EP03 | React 18 全家桶複習 - 狀態(state)及參數(props) | Celeste 技術儲藏室</title><script src="/Celeste6666/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/Celeste6666/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Celeste6666/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Celeste 技術儲藏室</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">成長就是一種修練<br>願你我還能是最初的那個少年！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/Celeste6666/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-tags"><a href="/Celeste6666/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/Celeste6666/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/Celeste6666/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8B%80%E6%85%8B-state-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95-useState"><span class="nav-number">1.</span> <span class="nav-text">狀態(state)使用方法 - useState()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%97%E6%8E%A7%E7%B5%84%E4%BB%B6%E5%8F%8A%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%B5%84%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">受控組件及非受控組件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-%E7%B5%84%E4%BB%B6%E9%96%93%E9%80%9A%E4%BF%A1-%E9%80%9A%E9%81%8E%E5%8F%83%E6%95%B8-props"><span class="nav-number">3.</span> <span class="nav-text">React 組件間通信 - 通過參數(props)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%88%B6%E5%82%B3%E5%AD%90"><span class="nav-number">3.1.</span> <span class="nav-text">父傳子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E5%82%B3%E7%88%B6"><span class="nav-number">3.2.</span> <span class="nav-text">子傳父</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%84%E5%BC%9F%E9%96%93"><span class="nav-number">3.3.</span> <span class="nav-text">兄弟間</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%B1%A4%E5%B5%8C%E5%A5%97%E7%9A%84%E7%B5%84%E4%BB%B6-createContext-%E4%BE%86%E5%AF%A6%E7%8F%BE%E8%B7%A8%E7%B5%84%E4%BB%B6%E9%80%9A%E4%BF%A1"><span class="nav-number">3.4.</span> <span class="nav-text">多層嵌套的組件 - createContext 來實現跨組件通信</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Celeste"
+      src="/Celeste6666/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Celeste</p>
+  <div class="site-description" itemprop="description">我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/Celeste6666/archives/">
+        
+          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/Celeste6666/categories/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/Celeste6666/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Celeste6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Celeste6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aafree2014@gmail.com" title="E-Mail → mailto:aafree2014@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/React/review/ReactEp3State&props/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
+      <meta itemprop="name" content="Celeste">
+      <meta itemprop="description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Celeste 技術儲藏室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          EP03 | React 18 全家桶複習 - 狀態(state)及參數(props)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2022-11-28 13:01:27" itemprop="dateCreated datePublished" datetime="2022-11-28T13:01:27+08:00">2022-11-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2022-12-28 20:09:33" itemprop="dateModified" datetime="2022-12-28T20:09:33+08:00">2022-12-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/" itemprop="url" rel="index"><span itemprop="name">React 全家桶</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/React-%E5%85%A8%E5%AE%B6%E6%A1%B6/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="狀態-state-使用方法-useState"><a href="#狀態-state-使用方法-useState" class="headerlink" title="狀態(state)使用方法 - useState()"></a>狀態(state)使用方法 - useState()</h3><ol>
+<li>導入 <code>useState</code> 函數。</li>
+<li>調用 <code>useState</code> 函數，並傳入狀態初始值。<br><code>const [數據名, 修改相應數據狀態方法] = useState(初始值)</code></li>
+<li>從 <code>useState</code> 函數返回值中，拿到狀態及修改狀態的方法。</li>
+<li>在 JSX 中展示狀態。</li>
+<li>調用修改狀態方法更新狀態。<span id="more"></span>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// useState</span></span><br><span class="line"><span class="comment">// 1. 導入 useState 函數。</span></span><br><span class="line"><span class="comment">// 2. 執行 useState 函數並傳入初始值。</span></span><br><span class="line"><span class="comment">// 3. [數據名, 修改相應數據狀態方法] = useState(初始值)</span></span><br><span class="line"><span class="comment">// 4. 使用數據 修改數據</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">APP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// [數據狀態, 修改相應數據狀態方法] -- 順序不可換</span></span><br><span class="line">  <span class="comment">// [count, setCount] 是一個解構賦值，代表useState()返回一個陣列</span></span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;/* 使用數據 */&#125;</span></span><br><span class="line"><span class="xml">      &#123;count&#125;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">      &#123;/* 修改數據 */&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="xml">          setCount(count + 1);</span></span><br><span class="line"><span class="xml">        &#125;&#125;</span></span><br><span class="line"><span class="xml">      &gt;</span></span><br><span class="line"><span class="xml">        加1</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>注意事項: <code>useState()</code> 不能被嵌套在其他 <code>if</code> / <code>for</code> / 其他函數中。</p>
+</blockquote>
+<p>錯誤 :no_entry_sign:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">APP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 錯誤</span></span><br><span class="line">  <span class="keyword">if</span>(num == <span class="number">2</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;count&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="xml">          setCount(count + 1);</span></span><br><span class="line"><span class="xml">        &#125;&#125;</span></span><br><span class="line"><span class="xml">      &gt;</span></span><br><span class="line"><span class="xml">        加1</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>重點： React的狀態(state) 是不可直接更改的，必須透過相應的狀態修改方法 才能正確修改。</strong></p>
+<h3 id="受控組件及非受控組件"><a href="#受控組件及非受控組件" class="headerlink" title="受控組件及非受控組件"></a>受控組件及非受控組件</h3><ul>
+<li><p>受控組件</p>
+<p>可以被 React 狀態(state) 控制的組件。</p>
+<p>React 組件狀態是放在 state 中，而表單元素的 value 值也代表自己當前值。 React 通過將 state 與表單元素的 value 綁定再一起，在通過 state 來控制標單的值，從而保證單一數據元的特性。</p>
+</li>
+<li><p>非受控組件</p>
+<p>通過手動操作 DOM 的方式來獲取表單的值(通過原生 DOM 來獲得)，表單的值不受 React 的 state 控制。</p>
+<p>在 React 中透過使用 Refs 就可以取得 DOM 節點。</p>
+</li>
+</ul>
+<h3 id="React-組件間通信-通過參數-props"><a href="#React-組件間通信-通過參數-props" class="headerlink" title="React 組件間通信 - 通過參數(props)"></a>React 組件間通信 - 通過參數(props)</h3><p>目的: 每個組件都是獨立且封閉的，默認情況下**只能使用自己的數據(state)**，但在開發過程值中，組件不可避免的需要互相傳遞一些數據，讓各組件間進行互相溝通、數據傳遞就叫組件通信。</p>
+<img src="/Celeste6666/React/review/ReactEp3State&props/transmit.png" class="" title="組件通信">
+
+<h4 id="父傳子"><a href="#父傳子" class="headerlink" title="父傳子"></a>父傳子</h4><p>父組件將要傳入的值，透過標籤的自定義屬性加入。<br>子組件通過參數 props 可獲得父組件傳入的值(會是一個 object)。</p>
+<p><strong>父組件 App</strong><br>&lt;自定義標籤 標籤自定義屬性名=傳入子組件值 /&gt;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="comment">// 必須先載入子組件</span></span><br><span class="line"><span class="keyword">import</span> Son <span class="keyword">from</span> <span class="string">&#x27;./Son&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">APP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [message, setMessage] = useState(<span class="string">&quot;我是父組件&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是父組件</span></span><br><span class="line"><span class="xml">      我是父組件的 message: &#123;message&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        我是子組件</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">Son</span> <span class="attr">text</span>=<span class="string">&#123;message&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">        // 傳到子組件中時，會以 &#123;text: &quot;message 值&quot;&#125; 呈現</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>子組件 Son</strong><br>Function Component 中會有一個參數 props，通過該參數即可獲得從上層傳入的所有值，會以 object 呈現。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 參數 props 必須要寫</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(props); <span class="comment">// props 是一個對象</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> [message, setMessage] = useState(<span class="string">&quot;我是子組件 Son&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是子組件 Son</span></span><br><span class="line"><span class="xml">      我接收了父(上)層傳來的 message: &#123;props.text&#125;。<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line"><span class="xml">      我代表了自己本身的 message: &#123;message&#125;。</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="子傳父"><a href="#子傳父" class="headerlink" title="子傳父"></a>子傳父</h4><p>在父組件中定義一個 function，並將該 function 通過 props 的方式先傳入到子組件。在子組件調用該 function 時，就可以通過傳入子組件參數的方法來讓父組件獲得子組件的值。</p>
+<p><strong>父組件 App</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Son <span class="keyword">from</span> <span class="string">&#x27;./Son&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">APP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [message, setMessage] = useState(<span class="string">&quot;我是父組件&quot;</span>);</span><br><span class="line">  <span class="comment">// 將該方法傳給子組件</span></span><br><span class="line">  <span class="keyword">const</span> getChildValue = <span class="function">(<span class="params">childValue</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(childValue);</span><br><span class="line">    <span class="comment">// 這裡執行的是父組件的 setMessage()，不是子組件的</span></span><br><span class="line">    <span class="comment">// 因為在函數被放入堆中時，就產生閉包將父組件的 setMessage()存入到閉包環境中</span></span><br><span class="line">    setMessage(<span class="string">`我是父組件的 message， <span class="subst">$&#123;childValue&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是父組件</span></span><br><span class="line"><span class="xml">      我是父組件的 message: &#123;message&#125;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        我是子組件</span></span><br><span class="line"><span class="xml">        &#123;/* props 可以接收方法 */&#125;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">Son</span> <span class="attr">getChildValue</span>=<span class="string">&#123;getChildValue&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>子組件 Son</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [message, setMessage] = useState(<span class="string">&quot;我是子組件 Son&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [text, setText] = useState(<span class="string">&quot;數據被修改了&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是子組件 Son</span></span><br><span class="line"><span class="xml">      我代表了自己本身的 message: &#123;message&#125;。</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="xml">          // 調用父組件傳入的方法</span></span><br><span class="line"><span class="xml">          props.getChildValue(text);</span></span><br><span class="line"><span class="xml">        &#125;&#125;</span></span><br><span class="line"><span class="xml">      &gt;</span></span><br><span class="line"><span class="xml">        改變父組件中的 message</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="兄弟間"><a href="#兄弟間" class="headerlink" title="兄弟間"></a>兄弟間</h4><p>兄弟間的通信非常麻煩，Son 組件必須先將值傳給父組件(App)，再由父組件(App)通過 props 傳給 Daughter 組件。</p>
+<p><strong>父組件 App</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Son <span class="keyword">from</span> <span class="string">&#x27;./Son&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Daughter <span class="keyword">from</span> <span class="string">&#x27;./Daughter&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">APP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> [message, setMessage] = useState(<span class="string">&quot;我是父組件&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 當子組件 Son 調用並傳入實參後，調用相應的 state 更新方法，將父組件的值更新，就會觸發重新渲染，並將新值傳給子組件 Daughter</span></span><br><span class="line">  <span class="keyword">const</span> getChildValue = <span class="function">(<span class="params">childValue</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(childValue);</span><br><span class="line">    setMessage(<span class="string">`我是父組件的 message，我要將 Son 組件的值 \&quot;<span class="subst">$&#123;childValue&#125;</span>\&quot; 傳給 Daughter 組件`</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是父組件</span></span><br><span class="line"><span class="xml">      我是父組件的 message: &#123;message&#125;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        我是子組件群</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">Son</span> <span class="attr">getChildValue</span>=<span class="string">&#123;getChildValue&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">Daughter</span> <span class="attr">message</span>=<span class="string">&#123;message&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>子組件 Son</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [message, setMessage] = useState(<span class="string">&quot;我是子組件 Son &quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是子組件 Son</span></span><br><span class="line"><span class="xml">      我代表了自己本身的 message: &#123;message&#125;。</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">      &#123;/* 使用父組件傳來的方法，將子組件的值往上傳*/&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="xml">          props.getChildValue(message);</span></span><br><span class="line"><span class="xml">        &#125;&#125;</span></span><br><span class="line"><span class="xml">      &gt;</span></span><br><span class="line"><span class="xml">        改變父組件中的 message</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>子組件 Daughter</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Daughter</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      我是子組件Daughter</span></span><br><span class="line"><span class="xml">      &#123;/* 通過 props 接收父組件傳來的值 */&#125;</span></span><br><span class="line"><span class="xml">      我要接收 Son 組件訊息: &#123;props.message&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="多層嵌套的組件-createContext-來實現跨組件通信"><a href="#多層嵌套的組件-createContext-來實現跨組件通信" class="headerlink" title="多層嵌套的組件 - createContext 來實現跨組件通信"></a>多層嵌套的組件 - createContext 來實現跨組件通信</h4><p>如果通信只有一層，使用上面的方法還不算麻煩，但是如果有多層的話，那簡直是惡夢。<br>如果是父組件要傳值給孫組件(2層)，則可以通過 React 的 createContext 方法來解決通信問題。</p>
+<p>每個組件都是一個檔案的情況下</p>
+<ol>
+<li>創建一個新的檔案(Transmit.js)專門用來放置要傳遞的值的初始值，調用 createContext(defaultValue)。</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createContext &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Transmit = createContext(&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>引入 Transmit ，並使用 Transmit.Provider 包裹根組件，並提供數據。</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Transmit &#125; <span class="keyword">from</span> <span class="string">&#x27;./Transmit&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Son <span class="keyword">from</span> <span class="string">&#x27;./Son&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">APP</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [message, setMessage] = useState(<span class="string">&quot;我是父組件&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">Transmit.Provider</span> <span class="attr">value</span>=<span class="string">&#123;message&#125;</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;/* 根組件內容 */&#125;</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        我是父組件</span></span><br><span class="line"><span class="xml">        我是父組件的 message: &#123;message&#125;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">          我是子組件</span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">Son</span> /&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">Transmit.Provider</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>需要用到數據的組件，使用 useContext(欲取得的數據的檔案) 來獲取數據。</li>
+</ol>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;useContext&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; Transmit &#125; <span class="keyword">from</span> <span class="string">&#x27;./Transmit&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">GrandChild</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> msg = useContext(Transmit);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      GrandChild 組件:</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;msg&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可將 Transmit.js 是唯一個存放數據的空間，比較好理解。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Celeste6666/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Celeste6666/React/review/ReactEp2Event/" rel="prev" title="EP02 | React 18 全家桶複習 - 事件綁定">
+                  <i class="fa fa-chevron-left"></i> EP02 | React 18 全家桶複習 - 事件綁定
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Celeste6666/React/review/ReactEp04Hooks/" rel="next" title="EP04 | React 18 全家桶複習 - Hooks的使用">
+                  EP04 | React 18 全家桶複習 - Hooks的使用 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/Celeste6666/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">若要轉載文章，麻煩請保留原作者名稱與原始連結。</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/Celeste6666/js/utils.js"></script><script src="/Celeste6666/js/motion.js"></script><script src="/Celeste6666/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

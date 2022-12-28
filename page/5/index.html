@@ -28,7 +28,7 @@
 <meta property="og:description" content="我是Celeste，這裡將記錄我成為前端工程師前累積的知識，並希望自己能夠堅持住寫下技術筆記的習慣，有錯誤也請各位不吝指點。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:author" content="Celeste">
-<meta property="article:tag" content="前端,JavaScript,HTML,CSS,SASS,SCSS">
+<meta property="article:tag" content="前端,JavaScript,HTML,CSS,SASS,SCSS,React,Vue">
 <meta name="twitter:card" content="summary">
 
 
@@ -133,20 +133,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/Celeste6666/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/Celeste6666/categories/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/Celeste6666/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -192,7 +192,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo8VOn/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo13Emit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -205,7 +205,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/Vue/Basic/VueNo8VOn/" class="post-title-link" itemprop="url">DAY08 | 跟 Vue.js 認識的30天 - Vue 的事件監聽(`v-on`)</a>
+          <a href="/Celeste6666/Vue/Basic/VueNo13Emit/" class="post-title-link" itemprop="url">DAY13 | 跟 Vue.js 認識的30天 - Vue 模組自定義事件(Custom Events)</a>
         </h2>
 
         <div class="post-meta-container">
@@ -216,14 +216,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-09-23 19:00:00" itemprop="dateCreated datePublished" datetime="2020-09-23T19:00:00+08:00">2020-09-23</time>
+      <time title="創建時間：2020-11-01 19:40:00" itemprop="dateCreated datePublished" datetime="2020-11-01T19:40:00+08:00">2020-11-01</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-07-27 19:28:50" itemprop="dateModified" datetime="2021-07-27T19:28:50+08:00">2021-07-27</time>
+        <time title="修改時間：2022-12-09 20:25:01" itemprop="dateModified" datetime="2022-12-09T20:25:01+08:00">2022-12-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -231,11 +231,11 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+          <a href="/Celeste6666/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+          <a href="/Celeste6666/categories/Vue/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
         </span>
     </span>
 
@@ -249,10 +249,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在 JS 中有監聽器 <code>addeventListener</code> ，而 Vue 也有自己一套 DOM 元素監聽器的指令 <code>v-on</code> ， Vue 也配置了幾個修飾符來替代像是 <code>preventDefault()</code> 、  <code>stopPropagation()</code> 等等的。</p>
+          <p>每次寫筆記都在想要怎麼寫得讓大家(包含未來的我)看得懂，所以每次都要寫很久，但好像自己的內容有點太無聊了 XD 。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo8VOn/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo13Emit/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -283,7 +283,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo7VFor/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice06/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -296,7 +296,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/Vue/Basic/VueNo7VFor/" class="post-title-link" itemprop="url">DAY07 | 跟 Vue.js 認識的30天 - Vue 的列表渲染(`v-for`)</a>
+          <a href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice06/" class="post-title-link" itemprop="url">EP06 | 跟著影片做前端切版練習 - Glowing Loader Ring Animation</a>
         </h2>
 
         <div class="post-meta-container">
@@ -307,14 +307,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-09-22 14:53:00" itemprop="dateCreated datePublished" datetime="2020-09-22T14:53:00+08:00">2020-09-22</time>
+      <time title="創建時間：2020-10-31 19:06:00" itemprop="dateCreated datePublished" datetime="2020-10-31T19:06:00+08:00">2020-10-31</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-09 20:51:04" itemprop="dateModified" datetime="2020-11-09T20:51:04+08:00">2020-11-09</time>
+        <time title="修改時間：2021-01-05 13:43:48" itemprop="dateModified" datetime="2021-01-05T13:43:48+08:00">2021-01-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -322,11 +322,19 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" itemprop="url" rel="index"><span itemprop="name">前端練習</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML & CSS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/" itemprop="url" rel="index"><span itemprop="name">Online Tutorials</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Loading-Animation/" itemprop="url" rel="index"><span itemprop="name">Loading Animation</span></a>
         </span>
     </span>
 
@@ -340,10 +348,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><code>v-for</code> 就是 JavaScript 裡的迴圈，基於一組資料來製作相同元素區塊。<br>先簡單講一下 JavaScript 裡 <code>for...in</code> 、 <code>for...of</code> 的使用方法及差別。</p>
+          <img src="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice06/GlowingLoaderRingAnimation.PNG" class="" title="GlowingLoaderRingAnimation">
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo7VFor/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice06/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -374,7 +382,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo6VIf/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice05/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -387,7 +395,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/Vue/Basic/VueNo6VIf/" class="post-title-link" itemprop="url">DAY06 | 跟 Vue.js 認識的30天 - Vue 的條件渲染(`v-if`、`v-show`)</a>
+          <a href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice05/" class="post-title-link" itemprop="url">EP05 | 跟著影片做前端切版練習 - Wrap Text Around Circle Shape</a>
         </h2>
 
         <div class="post-meta-container">
@@ -398,14 +406,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-09-21 12:32:00" itemprop="dateCreated datePublished" datetime="2020-09-21T12:32:00+08:00">2020-09-21</time>
+      <time title="創建時間：2020-10-27 13:08:00" itemprop="dateCreated datePublished" datetime="2020-10-27T13:08:00+08:00">2020-10-27</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-09 20:50:46" itemprop="dateModified" datetime="2020-11-09T20:50:46+08:00">2020-11-09</time>
+        <time title="修改時間：2021-01-05 13:43:54" itemprop="dateModified" datetime="2021-01-05T13:43:54+08:00">2021-01-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -413,11 +421,19 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" itemprop="url" rel="index"><span itemprop="name">前端練習</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML & CSS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/" itemprop="url" rel="index"><span itemprop="name">Online Tutorials</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/" itemprop="url" rel="index"><span itemprop="name">Text Typography</span></a>
         </span>
     </span>
 
@@ -431,10 +447,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在 JS 中我們是利用 <code>if(condition)&#123;statement1&#125;else&#123;statement2&#125;</code> 來設定條件並決定執行哪一段陳述式(statement)，如果 <code>condition</code> 為 <code>truthy</code> 就執行 <code>statement1</code> ，否則就執行 <code>statement2</code> 。</p>
+          <img src="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice05/WrapTextAroundCircleShape.PNG" class="" title="WrapTextAroundCircleShape">
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo6VIf/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice05/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -465,7 +481,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo5VBind/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo12Props/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -478,7 +494,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/Vue/Basic/VueNo5VBind/" class="post-title-link" itemprop="url">DAY05 | 跟 Vue.js 認識的30天 - Vue 的屬性綁定(`v-bind`)</a>
+          <a href="/Celeste6666/Vue/Basic/VueNo12Props/" class="post-title-link" itemprop="url">DAY12 | 跟 Vue.js 認識的30天 - Vue 模組資料傳遞(`props`)</a>
         </h2>
 
         <div class="post-meta-container">
@@ -489,14 +505,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-09-18 23:00:00" itemprop="dateCreated datePublished" datetime="2020-09-18T23:00:00+08:00">2020-09-18</time>
+      <time title="創建時間：2020-10-26 20:43:00" itemprop="dateCreated datePublished" datetime="2020-10-26T20:43:00+08:00">2020-10-26</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-09 20:50:22" itemprop="dateModified" datetime="2020-11-09T20:50:22+08:00">2020-11-09</time>
+        <time title="修改時間：2022-12-09 20:24:57" itemprop="dateModified" datetime="2022-12-09T20:24:57+08:00">2022-12-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -504,11 +520,11 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+          <a href="/Celeste6666/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+          <a href="/Celeste6666/categories/Vue/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
         </span>
     </span>
 
@@ -522,10 +538,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>很多時候我們會利用 <code>class</code> 來切換樣式，這時候其實就可以利用 Vue 的指令 <code>v-bind</code> 來動態切換 <code>class</code> 。</p>
+          <h1 id="props-的命名及使用"><a href="#props-的命名及使用" class="headerlink" title="props 的命名及使用"></a><code>props</code> 的命名及使用</h1><p>HTML attribute 是大小寫不敏感的，所以必須要注意 <code>prop</code> 的命名跟使用。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo5VBind/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo12Props/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -556,7 +572,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo4Watch/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -569,7 +585,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/Vue/Basic/VueNo4Watch/" class="post-title-link" itemprop="url">DAY04 | 跟 Vue.js 認識的30天 - Vue 的資料偵聽(`watch`)</a>
+          <a href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice04/" class="post-title-link" itemprop="url">EP04 | 跟著影片做前端切版練習 - CSS Mix Blend Mode Text Scrolling Effects</a>
         </h2>
 
         <div class="post-meta-container">
@@ -580,14 +596,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-09-18 15:00:00" itemprop="dateCreated datePublished" datetime="2020-09-18T15:00:00+08:00">2020-09-18</time>
+      <time title="創建時間：2020-10-24 21:34:00" itemprop="dateCreated datePublished" datetime="2020-10-24T21:34:00+08:00">2020-10-24</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-05-10 20:36:29" itemprop="dateModified" datetime="2021-05-10T20:36:29+08:00">2021-05-10</time>
+        <time title="修改時間：2021-01-05 13:43:59" itemprop="dateModified" datetime="2021-01-05T13:43:59+08:00">2021-01-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -595,11 +611,19 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" itemprop="url" rel="index"><span itemprop="name">前端練習</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML & CSS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/" itemprop="url" rel="index"><span itemprop="name">Online Tutorials</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/" itemprop="url" rel="index"><span itemprop="name">Text Typography</span></a>
         </span>
     </span>
 
@@ -613,10 +637,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>之前也都沒使用過 <code>watch</code> ，所以趁這個機會好好了解一下它。</p>
+          <img src="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice04/CSSMixBlendModeTextScrollingEffects.PNG" class="" title="CSSMixBlendModeTextScrollingEffects">
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo4Watch/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice04/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -647,7 +671,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo3Computed/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -660,7 +684,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/Vue/Basic/VueNo3Computed/" class="post-title-link" itemprop="url">DAY03 | 跟 Vue.js 認識的30天 - Vue 的資料計算(`computed`)</a>
+          <a href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice03/" class="post-title-link" itemprop="url">EP03 | 跟著影片做前端切版練習 - Css Text Layers Typography</a>
         </h2>
 
         <div class="post-meta-container">
@@ -671,14 +695,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-09-16 19:32:27" itemprop="dateCreated datePublished" datetime="2020-09-16T19:32:27+08:00">2020-09-16</time>
+      <time title="創建時間：2020-10-23 21:34:00" itemprop="dateCreated datePublished" datetime="2020-10-23T21:34:00+08:00">2020-10-23</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-05-10 20:34:21" itemprop="dateModified" datetime="2021-05-10T20:34:21+08:00">2021-05-10</time>
+        <time title="修改時間：2021-01-05 13:44:02" itemprop="dateModified" datetime="2021-01-05T13:44:02+08:00">2021-01-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -686,11 +710,19 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" itemprop="url" rel="index"><span itemprop="name">前端練習</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML & CSS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/" itemprop="url" rel="index"><span itemprop="name">Online Tutorials</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/" itemprop="url" rel="index"><span itemprop="name">Text Typography</span></a>
         </span>
     </span>
 
@@ -704,10 +736,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在講計算(computed)之前，先來說說 Vue 自己擁有的屬性 <code>$data</code>：<br>以<a target="_blank" rel="noopener" href="https://codepen.io/celeste6666/pen/oNxMyZw?editors=1012">[DAY02]跟 Vue.js 認識的30天 - Vue 的模板語法(Template Syntax)</a>為例，當我們輸入 <code>console.log(vm)</code> 時(vm就是所創建出來的 Vue 實例)，會顯示出 vm 所包含的屬性及方法。<br>特別的是， Vue 會將我們所設定的 <code>data</code> 展開來，作為 Vue 的屬性，也因此我們可以直接使用 <code>&#123;&#123; msg &#125;&#125;</code> 來讀取資料，而不是 <code>&#123;&#123; data.msg &#125;&#125;</code> 。</p>
+          <img src="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice03/CssTextLayersTypography.PNG" class="" title="CssTextLayersTypography">
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo3Computed/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice03/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -738,7 +770,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo2Lifecycle/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -751,7 +783,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/Vue/Basic/VueNo2Lifecycle/" class="post-title-link" itemprop="url">DAY02 | 跟 Vue.js 認識的30天 - Vue 實體的生命週期(Lifecycle Hooks)及模板語法(Template Syntax)</a>
+          <a href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice02/" class="post-title-link" itemprop="url">EP02 | 跟著影片做前端切版練習 - CSS Wooden Text Typography Effects</a>
         </h2>
 
         <div class="post-meta-container">
@@ -762,14 +794,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-09-16 13:37:27" itemprop="dateCreated datePublished" datetime="2020-09-16T13:37:27+08:00">2020-09-16</time>
+      <time title="創建時間：2020-10-20 20:43:00" itemprop="dateCreated datePublished" datetime="2020-10-20T20:43:00+08:00">2020-10-20</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2021-05-10 20:34:11" itemprop="dateModified" datetime="2021-05-10T20:34:11+08:00">2021-05-10</time>
+        <time title="修改時間：2021-01-05 13:44:05" itemprop="dateModified" datetime="2021-01-05T13:44:05+08:00">2021-01-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -777,11 +809,19 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" itemprop="url" rel="index"><span itemprop="name">前端練習</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML & CSS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/" itemprop="url" rel="index"><span itemprop="name">Online Tutorials</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/" itemprop="url" rel="index"><span itemprop="name">Text Typography</span></a>
         </span>
     </span>
 
@@ -795,10 +835,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>學了 VueJS 一段時間，總是會不定期的回頭看下面這張圖：<br><img src="https://cn.vuejs.org/images/lifecycle.png" alt="VueJS 生命週期"></p>
+          <img src="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice02/CSSWoodenTextTypography.PNG" class="" title="CSSWoodenTextTypography">
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo2Lifecycle/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice02/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -829,7 +869,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo1Intro/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -842,7 +882,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/Vue/Basic/VueNo1Intro/" class="post-title-link" itemprop="url">DAY01 | 跟 Vue.js 認識的30天 -前言</a>
+          <a href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice01/" class="post-title-link" itemprop="url">EP01 | 跟著影片做前端切版練習 - CSS Glowing Text Typography Effects</a>
         </h2>
 
         <div class="post-meta-container">
@@ -853,14 +893,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-09-13 13:26:27" itemprop="dateCreated datePublished" datetime="2020-09-13T13:26:27+08:00">2020-09-13</time>
+      <time title="創建時間：2020-10-19 20:43:00" itemprop="dateCreated datePublished" datetime="2020-10-19T20:43:00+08:00">2020-10-19</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-11-09 20:48:38" itemprop="dateModified" datetime="2020-11-09T20:48:38+08:00">2020-11-09</time>
+        <time title="修改時間：2021-01-05 13:44:08" itemprop="dateModified" datetime="2021-01-05T13:44:08+08:00">2021-01-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -868,11 +908,19 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/" itemprop="url" rel="index"><span itemprop="name">Vue.js</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" itemprop="url" rel="index"><span itemprop="name">前端練習</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/Vue-js/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/" itemprop="url" rel="index"><span itemprop="name">HTML & CSS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/" itemprop="url" rel="index"><span itemprop="name">Online Tutorials</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS/Online-Tutorials/Text-Typography/" itemprop="url" rel="index"><span itemprop="name">Text Typography</span></a>
         </span>
     </span>
 
@@ -886,11 +934,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>其實早在8月就有想過要參加這一次IT鐵人幫，但是那時候還深陷在六角學院「 JS 作品直播班 」的作業泥淖中，也一直不確定自己的主題要訂甚麼，後來才決定寫 Vue 的筆記，畢竟剛在六角學院學完，也一併趁這個機會來加深自己對 Vue 的了解。</p>
-<p>這一次針對 Vue 的筆記，內容除了是從六角學院學習到的外，還有就是就是 Alex 宅幹嘛的[ 想入門，我陪你 ] Re Vue 重頭說起系列，很喜歡 Alex大大帶著我們一起看一遍 Vue 的文件說明，這也啟發我這次筆記的寫法，大概也會跟Alex大大學習，從 Vue 的文件說明來撰寫這次的IT鐵人邦文章。</p>
+          <img src="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice01/CSSGlowingTextTypography.PNG" class="" title="CSSGlowingTextTypography">
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo1Intro/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/FrontedPractice/HTML&CSS/FrontedPractice01/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -921,7 +968,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/FrontedPractice/HTML&CSS&JS/FrontedPracticeWithJS01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -934,7 +981,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/" class="post-title-link" itemprop="url">JavaScript淺嚐紀錄No.8-監聽(Event Listener)DOM事件並做出反應！</a>
+          <a href="/Celeste6666/FrontedPractice/HTML&CSS&JS/FrontedPracticeWithJS01/" class="post-title-link" itemprop="url">EP01 | 跟著影片做前端練習 - Build a Weather App & Get User's Location</a>
         </h2>
 
         <div class="post-meta-container">
@@ -945,14 +992,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-07-03 19:25:19" itemprop="dateCreated datePublished" datetime="2020-07-03T19:25:19+08:00">2020-07-03</time>
+      <time title="創建時間：2020-10-19 20:43:00" itemprop="dateCreated datePublished" datetime="2020-10-19T20:43:00+08:00">2020-10-19</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-07-11 14:26:21" itemprop="dateModified" datetime="2020-07-11T14:26:21+08:00">2020-07-11</time>
+        <time title="修改時間：2021-05-10 20:44:54" itemprop="dateModified" datetime="2021-05-10T20:44:54+08:00">2021-05-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -960,11 +1007,19 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/" itemprop="url" rel="index"><span itemprop="name">前端練習</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/JavaScript/JavaScript%E6%B7%BA%E5%9A%90%E7%B4%80%E9%8C%84/" itemprop="url" rel="index"><span itemprop="name">JavaScript淺嚐紀錄</span></a>
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/" itemprop="url" rel="index"><span itemprop="name">HTML & CSS & JS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/" itemprop="url" rel="index"><span itemprop="name">Jonah Lawrence • Dev Pro Tips</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/Celeste6666/categories/%E5%89%8D%E7%AB%AF%E7%B7%B4%E7%BF%92/HTML-CSS-JS/Jonah-Lawrence-%E2%80%A2-Dev-Pro-Tips/%E4%B8%B2%E6%8E%A5-API/" itemprop="url" rel="index"><span itemprop="name">串接 API</span></a>
         </span>
     </span>
 
@@ -978,10 +1033,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>上一篇文章<a href="https://celeste6666.github.io/2020/06/03/JavaScriptNo7_DOM&Event/">JavaScript淺嚐紀錄No.7-了解一下DOM吧！</a>已經簡單的介紹DOM是甚麼了，有興趣的可以先去參考。<br>這裡我只會去介紹addEventListener這個事件監聽器，本筆記不會提有關on-event處理器的事情！</p>
+          <img src="/Celeste6666/FrontedPractice/HTML&CSS&JS/FrontedPracticeWithJS01/BuildWeatherApp&GetUser'sLocation.PNG" class="" title="BuildWeatherApp&amp;GetUser" alt="sLocation">
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/JSLearning/Basic/JavaScriptNo8EventListener/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/FrontedPractice/HTML&CSS&JS/FrontedPracticeWithJS01/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -1012,7 +1067,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/JSLearning/Basic/JavaScriptNo7DOM&Event/">
+    <link itemprop="mainEntityOfPage" href="https://celeste6666.github.io/Celeste6666/Vue/Basic/VueNo11ComponentRegistration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/Celeste6666/uploads/avatar.jpg">
@@ -1025,7 +1080,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/Celeste6666/JSLearning/Basic/JavaScriptNo7DOM&Event/" class="post-title-link" itemprop="url">JavaScript淺嚐紀錄No.7-了解一下DOM吧！</a>
+          <a href="/Celeste6666/Vue/Basic/VueNo11ComponentRegistration/" class="post-title-link" itemprop="url">DAY11 | 跟 Vue.js 認識的30天 - Vue 的模組註冊(`Component Registration`)</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1036,14 +1091,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-06-22 18:08:19" itemprop="dateCreated datePublished" datetime="2020-06-22T18:08:19+08:00">2020-06-22</time>
+      <time title="創建時間：2020-10-13 17:15:00" itemprop="dateCreated datePublished" datetime="2020-10-13T17:15:00+08:00">2020-10-13</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-31 20:50:20" itemprop="dateModified" datetime="2020-10-31T20:50:20+08:00">2020-10-31</time>
+        <time title="修改時間：2022-12-09 20:24:53" itemprop="dateModified" datetime="2022-12-09T20:24:53+08:00">2022-12-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1051,11 +1106,11 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+          <a href="/Celeste6666/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/Celeste6666/categories/JavaScript/JavaScript%E6%B7%BA%E5%9A%90%E7%B4%80%E9%8C%84/" itemprop="url" rel="index"><span itemprop="name">JavaScript淺嚐紀錄</span></a>
+          <a href="/Celeste6666/categories/Vue/%E8%B7%9F-Vue-js-%E8%AA%8D%E8%AD%98%E7%9A%8430%E5%A4%A9/" itemprop="url" rel="index"><span itemprop="name">跟 Vue.js 認識的30天</span></a>
         </span>
     </span>
 
@@ -1069,10 +1124,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="DOM是甚麼？"><a href="#DOM是甚麼？" class="headerlink" title="DOM是甚麼？"></a>DOM是甚麼？</h1>
+          <h1 id="模組的命名"><a href="#模組的命名" class="headerlink" title="模組的命名"></a>模組的命名</h1><p>一個模組的命名關係到我們是否能快速地知道這個模組的功能是甚麼，同時可以避免跟現有的 HTML 標籤相衝突。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/Celeste6666/JSLearning/Basic/JavaScriptNo7DOM&Event/#more" rel="contents">
+              <a class="btn" href="/Celeste6666/Vue/Basic/VueNo11ComponentRegistration/#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -1096,7 +1151,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/Celeste6666/page/4/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/Celeste6666/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Celeste6666/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/Celeste6666/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/Celeste6666/page/8/">8</a><a class="extend next" rel="next" href="/Celeste6666/page/6/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
+    <a class="extend prev" rel="prev" href="/Celeste6666/page/4/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/Celeste6666/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Celeste6666/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/Celeste6666/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/Celeste6666/page/9/">9</a><a class="extend next" rel="next" href="/Celeste6666/page/6/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
   </nav>
 <script src="/Celeste6666/js/comments.js"></script>
 </div>
@@ -1108,7 +1163,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
